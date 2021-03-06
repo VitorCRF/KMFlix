@@ -1,0 +1,39 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+:root {
+    --white:#fff;
+    --white-background: #F2F3F5;
+    --light-dark: #302C35;
+    --light-dark-purple: #1F1B24;
+    --black-background: #121212;
+    --dark-purple: #21184B;
+    --purple: #3E1FCA;
+    --gray-line: #C9C9C9;
+}
+
+body {
+    background-color: var(--black-background);
+}
+
+@media(max-width: 1080px) {
+    html{
+        font-size: 93.75%;
+    }
+}
+
+@media(max-width: 720px) {
+    html{
+        font-size: 80.5%;
+    }
+}
+
+@media(max-width: 320px) {
+    html{
+        font-size: 70%
+    }
+}
