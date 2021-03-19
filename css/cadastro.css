@@ -1,6 +1,3 @@
-html {
-    background-color: var(--black-background);
-}
 
 .div-container {
     width: 100%;
@@ -13,10 +10,10 @@ html {
 }
 
 .campo-cadastro {
-    color: var(--gray-line);
+    background-color: var(--gray-line);
     border: 0;
     width: 40rem;
-    height: 3.1rem;
+    height: 4rem;
     border-radius: 10px;
 }
 
@@ -40,7 +37,8 @@ html {
     font-size: 24;
     font-weight: normal;
     width: 14.3125rem;
-    height: 3.625rem;
+    height: 4.2rem;
     border-radius: 30px;
+    cursor: pointer;
     border: 0;
 }

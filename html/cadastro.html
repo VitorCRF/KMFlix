@@ -2,8 +2,9 @@
 <html>
 
     <head>
-
+        <meta charset="utf-8">
         <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="../js/sjcl.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
 
@@ -14,29 +15,24 @@
         <div class="div-container">
 
             <div>
-                <table>
+                <table width="11.2rem" height="11.2rem">
                     <tr><td><p class="p-nome-campo">Nome:</p></td></tr>
-                    <tr><td><input type="text" placeholder="Nome Completo" class="campo-cadastro"> </td></tr>
+                    <tr><td><input type="text" placeholder="Nome Completo" id="campoNome" class="campo-cadastro"> </td></tr>
                     <tr><td><p class="p-nome-campo">Data de nascimento:</p></td></tr>
-                    <tr><td><input type="date" placeholder="01/01/2001" class="campo-cadastro"> </td></tr>
+                    <tr><td><input type="date" placeholder="01/01/2001" id="campoNascimento" class="campo-cadastro"> </td></tr>
                     <tr><td><p class="p-nome-campo">Email:</p></td></tr>
-                    <tr><td><input type="text" placeholder="seu@email.com" class="campo-cadastro"> </td></tr>
+                    <tr><td><input type="text" placeholder="seu@email.com" id="campoEmail" class="campo-cadastro"> </td></tr>
                     <tr><td><p class="p-nome-campo">Senha:</p></td></tr>
-                    <tr><td><input type="password" placeholder="Senha" class="campo-cadastro"> </td></tr>
+                    <tr><td><input type="password" placeholder="Senha" id="campoSenha" class="campo-cadastro"> </td></tr>
                     <tr><td><p class="p-nome-campo">Corfirmar Senha:</p></td></tr>
-                    <tr><td><input type="password" placeholder="Confirme sua Senha" class="campo-cadastro"></td></tr>
-                    <tr><td align="center"><button class="botao-prosseguir">Prosseguir</button></td></tr>
+                    <tr><td><input type="password" placeholder="Confirme sua Senha" id="campoConfirmaSenha" class="campo-cadastro"></td></tr>
+                    <tr><td align="center"><button id="botaoProsseguir" class="botao-prosseguir">Prosseguir</button></td></tr>
                 </table>
-                
-                
-                
-                
-                
-                
             </div>
             
-
         </div>
+
+        <script type="text/javascript" src="../js/cadastroScript.js"></script>
 
     </body>
 

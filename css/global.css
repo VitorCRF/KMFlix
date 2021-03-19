@@ -23,17 +23,20 @@ body {
 @media(max-width: 1080px) {
     html{
         font-size: 93.75%;
+        background-color: var(--black-background);
     }
 }
 
 @media(max-width: 720px) {
     html{
-        font-size: 80.5%;
+        font-size: 88.5%;
+        background-color: var(--black-background);
     }
 }
 
 @media(max-width: 320px) {
     html{
-        font-size: 70%
+        font-size: 80%;
+        background-color: var(--black-background);
     }
 }
