@@ -4,18 +4,33 @@
     padding: 0%;
     box-sizing: border-box;
     font-size: 1rem;
+    
 
 }
 input{
     color: black;
+    
 }
 .campoNome{
     width: 20rem;
-    height: 1.7rem;
+    height: 1.9rem;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 19px;
+    border: none;
 }
+
 .verificaCartao{
-    height: 1.7rem;
+    height: 1.9rem;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 19px;
+    border: none;
 }
 table{
-    border-spacing: 0.7rem;
+    border-spacing: 0.9rem;
+}
+#divCamposCartao{
+    display: flex;
+    justify-content: center;
 }
