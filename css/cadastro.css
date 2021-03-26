@@ -15,10 +15,7 @@
     width: 30rem;
     height: 3rem;
     border-radius: 10px;
-}
-
-.campo-cadastro::placeholder {
-    padding-left: 1rem;
+    padding-left: 10px;
 }
 
 .campo-cadastro-invalido {
@@ -29,12 +26,8 @@
     width: 30rem;
     height: 3rem;
     border-radius: 10px;
+    padding-left: 10px;
 }
-
-.campo-cadastro-invalido::placeholder {
-    padding-left: 1rem;
-}
-
 
 /* Tela de cadastro finalizado */
 
@@ -60,8 +53,6 @@
     font-weight: normal;
     margin-top: 1rem;
 }
-
-
 
 .div-container2 {
     width: 100%;
