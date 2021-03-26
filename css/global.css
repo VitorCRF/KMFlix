@@ -28,22 +28,12 @@ body {
 
 @media(max-width: 720px) {
     html{
-<<<<<<< Updated upstream
         font-size: 80.5%;
-=======
-        font-size: 70.5%;
-        background-color: var(--black-background);
->>>>>>> Stashed changes
     }
 }
 
 @media(max-width: 320px) {
     html{
-<<<<<<< Updated upstream
         font-size: 70%
-=======
-        font-size: 60%;
-        background-color: var(--black-background);
->>>>>>> Stashed changes
     }
 }
