@@ -14,28 +14,14 @@ $(document).ready(function(){
         digitoVerificador = $("#DigitoCartao").val();
         validade = $("#Validade").val();
 
-        verificaNome();
-        verificaCPF();
-        verificaCartao()
-        verificaDigito();
-        verificaValidade();
+        
+        verificaCampos();
 
     });    
 });
-function verificaCPF() {
-    if (cpf.length == 11) {
-        prosseguir = true;
-        $("#CPF").removeClass("campoInvalido").addClass("campoNome");
-    }
-    else {
-        prosseguir = false;
-        $("#CPF").removeClass("campoNome").addClass("campoInvalido");
-        
-        alert("Por favor insira um CPF válido! (Apenas números, 11 dígitos)");
-    }
 
-}
-function verificaNome() {
+
+function verificaCampos() {
     if (nome != "") {
         prosseguir = true;
         $("#Nome").removeClass("campoInvalido").addClass("campoNome");
@@ -44,10 +30,20 @@ function verificaNome() {
         prosseguir = false;
         $("#Nome").removeClass("campoNome").addClass("campoInvalido");
         alert("Por favor insira o nome.")
+        return false;
     }
 
-}
-function verificaCartao() {
+    if (cpf.length == 11) {
+        prosseguir = true;
+        $("#CPF").removeClass("campoInvalido").addClass("campoNome");
+    }
+    else {
+        prosseguir = false;
+        $("#CPF").removeClass("campoNome").addClass("campoInvalido");       
+        alert("Por favor insira um CPF válido! (Apenas números, 11 dígitos)");
+        return false;
+    }
+
     if (numeroCartao.length == 16) {
         $("#Cartao").removeClass("campoInvalido").addClass("campoNome");
         prosseguir = true;
@@ -55,11 +51,11 @@ function verificaCartao() {
     else {
         prosseguir = false;
         $("#Cartao").removeClass("campoNome").addClass("campoInvalido");
-        alert("Por favor insira um cartão válido!")
+        alert("Por favor insira um cartão válido!");
+        return false;
     }
 
-}
-function verificaDigito() {
+
     if (digitoVerificador.length == 3) {
         prosseguir = true;
         $("#DigitoCartao").removeClass("verificaInvalido").addClass("verificaCartao");
@@ -68,10 +64,10 @@ function verificaDigito() {
         prosseguir = false;
         $("#DigitoCartao").removeClass("verificaCartao").addClass("verificaInvalido");
         alert("Digito verificador inválido!")
+        return false;
     }
 
-}
-function verificaValidade() {
+
     if (validade.length == 5) {
         prosseguir = true;
         $("#Validade").removeClass("verificaInvalido").addClass("verificaCartao");
@@ -81,6 +77,7 @@ function verificaValidade() {
         prosseguir = false;
         $("#Validade").removeClass("verificaCartao").addClass("verificaInvalido");
         alert("Validade incorreta!")
+        return false;
     }
 
 }
