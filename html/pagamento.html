@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="../js/pagamento.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/pagamento.css">
+    
+
+    <title>Pagamento</title>
+</head>
+<body>
+    <div id="divCamposCartao">
+        <table >
+            <tr>
+                <td colspan="2">
+                    <p >Selecione o método de pagamento:</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <p class="p-nome-campo">Nome do titular do cartão:</p>
+                    <input class="campoNome" id="Nome" type="text" placeholder="Nome Completo">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p class="p-nome-campo">CPF:</p>
+                    <input class="campoNome" id="CPF" type="text" placeholder="Apenas números">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p class="" >Número do cartão:</p>
+                    <input class="campoNome" id="Cartao" type="text" placeholder="ex: 8888 8888 9999 9999" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="indicaCampo">Dígito verificador:</p>
+                    <input class="verificaCartao" id="DigitoCartao" type="text" size="5" placeholder="ex: 932">
+                </td>
+                <td>
+                    <p class="indicaCampo">Data de validade:</p>
+                    <input class="verificaCartao" id="Validade" type="text" size="5" placeholder="mm/aa">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <button class="botao-prosseguir" id="botaoProsseguir">Prosseguir</button>
+                </td>
+            </tr>      
+        </table>     
+    </div>
+</body>
+</html>
