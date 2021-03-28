@@ -19,6 +19,14 @@ input{
     font-size: 19px;
     border: none;
 }
+.campoInvalido{
+    width: 20rem;
+    border: 1px solid #ff0000;
+    height: 1.9rem;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 19px;
+}
 .botao-prosseguir{
         background-color: var(--purple);
         color: var(--gray-line);
@@ -30,7 +38,6 @@ input{
         border-radius: 30px;
         border: 0;
         cursor: pointer;
-
 }
 .botao-prosseguir:hover{
     background-color: rgb(45, 28, 145);
@@ -44,6 +51,14 @@ input{
     font-size: 19px;
     border: none;
 }
+.verificaInvalido{
+    height: 1.9rem;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 19px;
+}
+
 table{
     border-spacing: 0.9rem;
 }
