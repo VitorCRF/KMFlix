@@ -15,10 +15,7 @@
     width: 30rem;
     height: 3rem;
     border-radius: 10px;
-}
-
-.campo-cadastro::placeholder {
-    padding-left: 1rem;
+    padding-left: 10px;
 }
 
 .campo-cadastro-invalido {
@@ -27,36 +24,10 @@
     border-style: solid;
     border-color: red;
     width: 30rem;
-    height: 4rem;
+    height: 3rem;
     border-radius: 10px;
+    padding-left: 10px;
 }
-
-.campo-cadastro-invalido::placeholder {
-    padding-left: 1rem;
-}
-
-.p-nome-campo {
-    margin-top: 1rem;
-    font-size: 2.2rem;
-    font-weight: normal;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--gray-line);
-}
-
-.botao-prosseguir {
-    margin-top: 2rem;
-    background-color: var(--purple);
-    color: var(--gray-line);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 2rem;
-    font-weight: normal;
-    width: 14.3125rem;
-    height: 3.5rem;
-    border-radius: 30px;
-    cursor: pointer;
-    border: 0;
-}
-
 
 /* Tela de cadastro finalizado */
 
@@ -82,8 +53,6 @@
     font-weight: normal;
     margin-top: 1rem;
 }
-
-
 
 .div-container2 {
     width: 100%;
