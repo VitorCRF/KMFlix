@@ -1,9 +1,13 @@
 * {
+    
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
     font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
+
 
 :root {
     --white:#fff;
@@ -32,8 +36,72 @@ body {
     }
 }
 
+@media(max-width: 640px) {
+    html{
+        font-size: 70%;
+    }
+}
+
 @media(max-width: 320px) {
     html{
-        font-size: 70%
+        font-size: 65%;
     }
+}
+
+@media(max-width: 280px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+/* Div styles */
+
+.div-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+}
+
+/* Text styles */
+
+.p-link {
+    text-align: center;
+    color: var(--gray-line);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.p-nome-campo {
+    margin-top: 1rem;
+    font-size: 1.75rem;
+    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--gray-line);
+}
+
+/* Input styles */
+
+
+
+/* Button styles */
+
+.botao-prosseguir {
+    margin-top: 2rem;
+    background-color: var(--purple);
+    color: var(--gray-line);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    width: 14.3125rem;
+    height: 3.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
 }
