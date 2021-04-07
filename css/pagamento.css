@@ -11,22 +11,7 @@ input{
     color: black;
     
 }
-.campoNome{
-    width: 20rem;
-    height: 1.9rem;
-    border-radius: 5px;
-    padding-left: 10px;
-    font-size: 19px;
-    border: none;
-}
-.campoInvalido{
-    width: 20rem;
-    border: 1px solid #ff0000;
-    height: 1.9rem;
-    border-radius: 5px;
-    padding-left: 20px;
-    font-size: 19px;
-}
+
 .botaoProsseguir{
     background-color: var(--purple);
     color: var(--gray-line);
@@ -46,18 +31,20 @@ input{
 }
 
 .verificaCartao{
-    width: 76px;
-    height: 1.9rem;
-    border-radius: 5px;
+    background-color: var(--gray-line);
+    border: 0;
+    width: 4.75rem;
+    height: 3rem;
+    border-radius: 10px;
     padding-left: 10px;
-    font-size: 19px;
-    border: none;
 }
 .verificaInvalido{
-    width: 40%;
-    height: 1.9rem;
+    background-color: var(--gray-line);
+    border: 0;
+    width: 4.75rem;
+    height: 3rem;
     border: 1px solid #ff0000;
-    border-radius: 5px;
+    border-radius: 10px;
     padding-left: 10px;
     font-size: 19px;
 }
