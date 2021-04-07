@@ -1,0 +1,60 @@
+
+.campo-login {
+    background-color: var(--gray-line);
+    border: 0;
+    width: 30rem;
+    height: 3rem;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.campo-login-invalido {
+    background-color: var(--gray-line);
+    border: 0.1px;
+    border-style: solid;
+    border-color: red;
+    width: 30rem;
+    height: 4rem;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+/* Recuperar Senha style */
+
+.imagem-verificado {
+    width: 20rem;
+    height: 20rem;
+    cursor: pointer;
+}
+
+.h1-email-enviado {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: var(--gray-line);
+    font-weight: normal;
+    font-size: 1.8rem;
+}
+
+.h2-email-enviado {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: var(--gray-line);
+    font-weight: normal;
+    font-size: 1.2rem;
+    padding-top: 2rem;
+}
+
+.botao-novo-email {
+    margin-top: 4rem;
+    background-color: var(--purple);
+    color: var(--gray-line);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    width: 16rem;
+    height: 3.8rem;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+
+}
