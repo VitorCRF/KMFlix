@@ -1,6 +1,5 @@
-
+<!DOCTYPE html>
 <html>
-
     <head>
         <title>Kmflix | Cadastro</title>
         <meta charset="utf-8">
@@ -17,20 +16,22 @@
         <div class="div-container">
 
             <div>
-                <table >
-                    <tr><td><p class="p-nome-campo">Nome:</p></td></tr>
-                    <tr><td><input type="text" placeholder="Nome Completo" id="campoNome" class="campo-cadastro"> </td></tr>
-                    <tr><td><p class="p-nome-campo">Data de nascimento:</p></td></tr>
-                    <tr><td><input type="date" placeholder="01/01/2001" id="campoNascimento" class="campo-cadastro"> </td></tr>
-                    <tr><td><p class="p-nome-campo">Email:</p></td></tr>
-                    <tr><td><input type="text" placeholder="seu@email.com" id="campoEmail" class="campo-cadastro"> </td></tr>
-                    <tr><td><p class="p-nome-campo">Senha:</p></td></tr>
-                    <tr><td><input type="password" placeholder="Senha" id="campoSenha" class="campo-cadastro"> </td></tr>
-                    <tr><td><p class="p-nome-campo">Confirmar Senha:</p></td></tr>
-                    <tr><td><input type="password" placeholder="Confirme sua Senha" id="campoConfirmaSenha" class="campo-cadastro"></td></tr>
-                    <tr><td align="center"><button id="botaoProsseguir" class="botao-prosseguir">Prosseguir</button></td></tr>
-                    <tr><td align="center"><br><br><a href="login.html"><p class="p-link">Já possuo uma conta.</p></a></td></tr>
-                </table>
+                <form method="POST" action="../php/salvaCadastro.php">
+                    <table >
+                        <tr><td><p class="p-nome-campo">Nome:</p></td></tr>
+                        <tr><td><input type="text" placeholder="Nome Completo" name="nome" id="campoNome" class="campo-cadastro"> </td></tr>
+                        <tr><td><p class="p-nome-campo">Data de nascimento:</p></td></tr>
+                        <tr><td><input type="date" placeholder="01/01/2001" name="nascimento" id="campoNascimento" class="campo-cadastro"> </td></tr>
+                        <tr><td><p class="p-nome-campo">Email:</p></td></tr>
+                        <tr><td><input type="text" placeholder="seu@email.com" name="email" id="campoEmail" class="campo-cadastro"> </td></tr>
+                        <tr><td><p class="p-nome-campo">Senha:</p></td></tr>
+                        <tr><td><input type="password" placeholder="Senha" name="senha" id="campoSenha" class="campo-cadastro"> </td></tr>
+                        <tr><td><p class="p-nome-campo">Confirmar Senha:</p></td></tr>
+                        <tr><td><input type="password" placeholder="Confirme sua Senha" name="confirmaSenha" id="campoConfirmaSenha" class="campo-cadastro"></td></tr>
+                        <tr><td align="center"><button type="submit" id="botaoProsseguir" class="botao-prosseguir" value="Submit">Prosseguir</button></td></tr>
+                        <tr><td align="center"><br><br><a href="login.html"><p class="p-link">Já possuo uma conta.</p></a></td></tr>
+                    </table>
+                </form>
             </div>
             
         </div>
