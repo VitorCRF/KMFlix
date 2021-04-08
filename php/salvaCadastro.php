@@ -11,7 +11,12 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
 
-         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
+        $options = [
+            'cost' => 14,
+        ];
+        $hash = password_hash($senha, PASSWORD_BCRYPT, $options);
+
+        $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -21,7 +26,7 @@ $confirmaSenha = $_POST['confirmaSenha'];
             $param_nome = $nome;
             $param_nascimento = $nascimento;
             $param_email = $email;
-            $param_senha = $senha;
+            $param_senha = $hash;
             $param_confirmaSenha = $confirmaSenha;
 
             // Tenta executar a instrução preparada
