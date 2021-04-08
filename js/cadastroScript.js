@@ -21,7 +21,6 @@ $(document).ready(function(){
         if (prosseguir === true) {
             enviarInfos();
             console.log("Prosseguir true")
-            window.location = "../html/planos.html"
         }
         else {
             console.log("Prosseguir false")

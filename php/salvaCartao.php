@@ -27,15 +27,11 @@ $verificador = $_POST['verificador'];
             // Tenta executar a instrução preparada
             if(mysqli_stmt_execute($stmt)){
                 // Registros criados com sucesso. Redirecionar para a página de destino
-                header("location: //index.html");
+                header("location: /stream/html/planos.html");
                 exit();
             } else{
                 echo "OUps! Algo deu errado. Por favor, tente novamente mais tarde.";
             }
         } 
-
-
-        
-    
 
 ?>
