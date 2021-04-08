@@ -19,14 +19,8 @@ $(document).ready(function() {
       window.location="../html/pagamento.html";
       plano = "49,90"
 
-      $.ajax({
-        type: "POST",
-        url: "../php/salvaCartão.php",
-        data: {plano: plano}
-      })
-
     }
 
- })
+ });
 
 });

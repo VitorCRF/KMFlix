@@ -1,7 +1,6 @@
-
+var email = "";
+    email = sessionStorage.getItem("emailCadastro");
 $(document).ready(function() {
-
-    var email = sessionStorage.getItem("emailCadastro");
 
     $.ajax({
         type: "POST",
@@ -16,5 +15,5 @@ $(document).ready(function() {
 function emailSucess() {
 
     console.log("Email de confirmação enviado.")
-
+    console.log(email)
 }
