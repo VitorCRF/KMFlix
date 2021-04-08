@@ -14,7 +14,7 @@ $(document).ready(function(){
         email = $("#campoEmail").val();
 
         sessionStorage.setItem("emailCadastro", email);
-
+        console.log(sessionStorage.getItem("emailCadastro"));
         verificaNome();
         verificaNascimento();
         verificaEmail();
