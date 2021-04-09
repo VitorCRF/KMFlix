@@ -11,10 +11,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
 
-        $options = [
-            'cost' => 14,
-        ];
-        $hash = password_hash($senha, PASSWORD_BCRYPT, $options);
+        $hash = hash('sha256', $senha);
 
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          
@@ -32,7 +29,7 @@ $confirmaSenha = $_POST['confirmaSenha'];
             // Tenta executar a instrução preparada
             if(mysqli_stmt_execute($stmt)){
                 // Registros criados com sucesso. Redirecionar para a página de destino
-                header("location: ../html/planos.html");
+                header("location: ../html/pagamento.html");
                 exit();
             } else{
                 echo "OUps! Algo deu errado. Por favor, tente novamente mais tarde.";
