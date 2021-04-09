@@ -11,10 +11,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
 
-        $options = [
-            'cost' => 14,
-        ];
-        $hash = password_hash($senha, PASSWORD_BCRYPT, $options);
+        $hash = hash('sha256', $senha);
 
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          
