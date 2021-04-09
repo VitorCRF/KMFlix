@@ -13,6 +13,8 @@ $(document).ready(function(){
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
 
+        sessionStorage.setItem("emailCadastro", email);
+        console.log(sessionStorage.getItem("emailCadastro"));
         verificaNome();
         verificaNascimento();
         verificaEmail();
