@@ -1,20 +1,14 @@
 <?php
 // Include config file
 
-
+date_default_timezone_set('Etc/UTC');
 require_once "config.php";
-
 
 $nome = $_POST['nome'];
 $nascimento = $_POST['nascimento'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
-
-        $options = [
-            'cost' => 14,
-        ];
-        $hash = password_hash($senha, PASSWORD_BCRYPT, $options);
 
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          

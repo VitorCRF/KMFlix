@@ -13,12 +13,12 @@ $(document).ready(function(){
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
 
-        sessionStorage.setItem("emailCadastro", email);
-
+        verificaSenha();
         verificaNome();
         verificaNascimento();
         verificaEmail();
-        verificaSenha();
+
+        sessionStorage.setItem("emailCadastro", email);
         
         if (prosseguir === true) {
             enviarInfos();
@@ -107,5 +107,32 @@ function confirmaSenha() {
 }
 
 function enviarInfos() {
+
+    console.log("senha: " + JSON.stringify(senha))
+
+    $.ajax({
+
+        type: "POST",
+            url: "../php/salvaCadastro.php",
+            data: { 
+                
+                nome: nome,
+                nascimento: dataNascimento,
+                email: email,
+                senha: "1",
+                confirmaSenha: "1",
+            
+            },
+    
+            sucees: function(data){}
+
+    })
+
+}
+
+function ajaxSucess() {
+
+    console.log("ajax de cadastro user enviado para o php")
+    
 
 }
