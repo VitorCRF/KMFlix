@@ -14,7 +14,6 @@ $(document).ready(function(){
         digitoVerificador = $("#DigitoCartao").val();
         validade = $("#Validade").val();
 
-        
         verificaCampos();
 
     });    
