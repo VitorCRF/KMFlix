@@ -20,7 +20,7 @@ $confirmaSenha = $_POST['confirmaSenha'];
             $param_nome = $nome;
             $param_nascimento = $nascimento;
             $param_email = $email;
-            $param_senha = $hash;
+            $param_senha = $senha;
             $param_confirmaSenha = $confirmaSenha;
 
             // Tenta executar a instrução preparada
