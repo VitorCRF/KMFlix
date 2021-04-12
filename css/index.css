@@ -208,7 +208,7 @@ form button:hover{
 @media only screen and (max-width: 480px){
 
     .main{
-        background: url(../img/bg_Celular.jpg) center;
+        background: url(../img/bg.jpg) center;
     }
     .main h1{
         font-size: 32px;
