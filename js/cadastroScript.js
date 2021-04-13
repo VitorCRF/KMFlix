@@ -26,10 +26,6 @@ $(document).ready(function(){
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
 
-        verificaInfos()
-
-        sessionStorage.setItem("emailCadastro", email);
-        
         if (prosseguir === true) {
             enviarInfos();
             console.log("Prosseguir true")
