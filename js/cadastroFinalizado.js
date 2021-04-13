@@ -2,6 +2,7 @@ var email = "";
     email = sessionStorage.getItem("emailCadastro");
 $(document).ready(function() {
 
+
     $.ajax({
         type: "POST",
         url: "../php/cadastroFinalizado.php",
@@ -13,7 +14,8 @@ $(document).ready(function() {
 });
 
 function emailSucess() {
-
-    console.log("Email de confirmação enviado.")
-    console.log(email)
+  
+  console.log("email de confirmação de conta enviado")
+  
 }
+

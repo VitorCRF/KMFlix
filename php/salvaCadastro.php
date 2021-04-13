@@ -1,17 +1,14 @@
 <?php
 // Include config file
 
-
+date_default_timezone_set('Etc/UTC');
 require_once "config.php";
-
 
 $nome = $_POST['nome'];
 $nascimento = $_POST['nascimento'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
-
-        $hash = hash('sha256', $senha);
 
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          
@@ -23,7 +20,7 @@ $confirmaSenha = $_POST['confirmaSenha'];
             $param_nome = $nome;
             $param_nascimento = $nascimento;
             $param_email = $email;
-            $param_senha = $hash;
+            $param_senha = $senha;
             $param_confirmaSenha = $confirmaSenha;
 
             // Tenta executar a instrução preparada
