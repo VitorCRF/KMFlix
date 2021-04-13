@@ -6,6 +6,19 @@ var email;
 var senha;
 var confirmarSenha;
 
+
+
+//variaveis para controle do texto referente a um input invalido
+
+var table = document.getElementById("tableCadastro");
+var rowIndex;
+
+var textoNomeInvalido = false;
+var textoNascimentoInvalido = false;
+var textoEmailInvalido = false;
+var textoSenhaInvalida = false;
+var textoconfirmarSenhaInvalida = false;
+
 $(document).ready(function(){
 
     $("#botaoProsseguir").click(function(){
@@ -34,54 +47,89 @@ function verificaInfos() {
     if (nome != "") {
         $("#campoNome").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
         prosseguir = true;
+
+        if (textoNomeInvalido === true) {
+            rowIndex = $("#rowNome").index();
+            table.deleteRow(rowIndex + 1);
+            textoNomeInvalido = false;
+        }
     }
     else {
         prosseguir = false;
         $("#campoNome").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
+
+        if (textoNomeInvalido === false) {
+
+            textoNomeInvalido = true;
+
+            rowIndex = $("#rowNome").index();
+
+            var row = table.insertRow(rowIndex + 1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira seu nome</p>";
+
+        }
         
-        var table = document.getElementById("tableCadastro");
-        var rowIndex = $("#rowNome").index();
-
-        var row = table.insertRow(rowIndex + 1);
-        var cell = row.insertCell(0);
-        cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira seu nome</p>";
-
     }
 
 
     if (dataNascimento != "") {
         $("#campoNascimento").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
         prosseguir = true;
+
+        if (textoNascimentoInvalido === true) {
+            rowIndex = $("#rowNascimento").index();
+            table.deleteRow(rowIndex + 1);
+            textoNascimentoInvalido = false;
+        }
     }
     else {
         prosseguir = false;
         $("#campoNascimento").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
         
-        var table = document.getElementById("tableCadastro");
-        var rowIndex = $("#rowNascimento").index()
+        if (textoNascimentoInvalido === false) {
 
-        var row = table.insertRow(rowIndex + 1);
-        var cell = row.insertCell(0);
-        cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira sua data de nascimento</p>";
+            textoNascimentoInvalido = true;
 
+            rowIndex = $("#rowNascimento").index()
+
+            var row = table.insertRow(rowIndex + 1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira sua data de nascimento</p>";
+
+        }
+        
     }
 
 
     if (email != "") {
         $("#campoEmail").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
         prosseguir = true;
+
+        if (textoEmailInvalido === true) {
+            rowIndex = $("#rowEmail").index();
+            table.deleteRow(rowIndex + 1);
+            textoEmailInvalido = false;
+        }
+
     }
     else {
         prosseguir = false;
         $("#campoEmail").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
+
+        if (textoEmailInvalido === false) {
+
+            textoEmailInvalido = true;
+
+            
+            rowIndex = $("#rowEmail").index()
+
+            var row = table.insertRow(rowIndex + 1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira um email válido</p>";
+
+        }
         
-        var table = document.getElementById("tableCadastro");
-        var rowIndex = $("#rowEmail").index()
-
-        var row = table.insertRow(rowIndex + 1);
-        var cell = row.insertCell(0);
-        cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira um email válido</p>";
-
     }
 
 
@@ -89,24 +137,94 @@ function verificaInfos() {
         senha = sjcl.hash.sha256.hash($("#campoSenha").val());
         confirmarSenha = sjcl.hash.sha256.hash($("#campoConfirmaSenha").val());
         confirmaSenha();
+        if (textoSenhaInvalida === true) {
+            rowIndex = $("#rowSenha").index();
+            table.deleteRow(rowIndex + 1);
+            textoSenhaInvalida = false;
+        }
         console.log("Senha não vazia")
+
     }
     else {
         $("#campoSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
         $("#campoConfirmaSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        
-        var table = document.getElementById("tableCadastro");
-        var rowIndex = $("#rowSenha").index()
 
-        var row = table.insertRow(rowIndex + 1);
-        var cell = row.insertCell(0);
-        cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma senha válida</p>";
+        if (textoSenhaInvalida === false) {
+
+            textoSenhaInvalida = true;
+
+            rowIndex = $("#rowSenha").index()
+
+            var row = table.insertRow(rowIndex + 1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma senha válida</p>";
+
+        } 
+        
+    }
+
+}
+
+function confirmaSenha() {
+
+    if (JSON.stringify(senha) === JSON.stringify(confirmarSenha)) {
+        $("#campoSenha").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
+        $("#campoConfirmaSenha").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
+        prosseguir = true;
+        console.log("Verificação de senha completa")
+    }
+    else {
+        prosseguir = false;
+        $("#campoConfirmaSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
+        
+        if (textoConfirmarSenhaInvalida === false) {
+
+            textoconfirmarSenhaInvalida = true;
+
+            rowIndex = $("#rowConfirmarSenha").index()
+
+            var row = table.insertRow(rowIndex + 1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma senha válida</p>";
+
+        } 
 
     }
 
 }
 
-function verificaNome() {
+function enviarInfos() {
+
+    console.log("senha: " + JSON.stringify(senha))
+
+    $.ajax({
+
+        type: "POST",
+            url: "../php/salvaCadastro.php",
+            data: { 
+                
+                nome: nome,
+                nascimento: dataNascimento,
+                email: email,
+                senha: senha,
+                confirmaSenha: confirmarSenha,
+            
+            },
+    
+            sucees: ajaxSucess()
+
+    })
+
+}
+
+function ajaxSucess() {
+
+    console.log("ajax de cadastro user enviado para o php")
+    
+
+}
+
+/*function verificaNome() {
 
     if (nome != "") {
         $("#campoNome").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
@@ -162,51 +280,7 @@ function verificaSenha() {
         console.log("Senha Vazia")
     }
 
-}
+} */
 
-function confirmaSenha() {
 
-    if (JSON.stringify(senha) == JSON.stringify(confirmarSenha)) {
-        $("#campoSenha").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
-        $("#campoConfirmaSenha").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
-        prosseguir = true;
-        console.log("Verificação de senha completa")
-    }
-    else {
-        prosseguir = false;
-        $("#campoConfirmaSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        alert("A senha não corresponde a confirmação.")
-    }
 
-}
-
-function enviarInfos() {
-
-    console.log("senha: " + JSON.stringify(senha))
-
-    $.ajax({
-
-        type: "POST",
-            url: "../php/salvaCadastro.php",
-            data: { 
-                
-                nome: nome,
-                nascimento: dataNascimento,
-                email: email,
-                senha: senha,
-                confirmaSenha: confirmarSenha,
-            
-            },
-    
-            sucees: ajaxSucess()
-
-    })
-
-}
-
-function ajaxSucess() {
-
-    console.log("ajax de cadastro user enviado para o php")
-    
-
-}
