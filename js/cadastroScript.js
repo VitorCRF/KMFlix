@@ -11,6 +11,8 @@ var confirmarSenha;
 //variaveis para controle do texto referente a um input invalido
 
 var table = document.getElementById("tableCadastro");
+var row;
+var cell;
 var rowIndex;
 
 var textoNomeInvalido = false;
@@ -60,8 +62,8 @@ function verificaInfos() {
 
             rowIndex = $("#rowNome").index();
 
-            var row = table.insertRow(rowIndex + 1);
-            var cell = row.insertCell(0);
+            row = table.insertRow(rowIndex + 1);
+            cell = row.insertCell(0);
             cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira seu nome</p>";
 
         }
@@ -89,8 +91,8 @@ function verificaInfos() {
 
             rowIndex = $("#rowNascimento").index()
 
-            var row = table.insertRow(rowIndex + 1);
-            var cell = row.insertCell(0);
+            row = table.insertRow(rowIndex + 1);
+            cell = row.insertCell(0);
             cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira sua data de nascimento</p>";
 
         }
@@ -120,8 +122,8 @@ function verificaInfos() {
             
             rowIndex = $("#rowEmail").index()
 
-            var row = table.insertRow(rowIndex + 1);
-            var cell = row.insertCell(0);
+            row = table.insertRow(rowIndex + 1);
+            cell = row.insertCell(0);
             cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira um email válido</p>";
 
         }
@@ -151,8 +153,8 @@ function verificaInfos() {
 
             rowIndex = $("#rowSenha").index()
 
-            var row = table.insertRow(rowIndex + 1);
-            var cell = row.insertCell(0);
+            row = table.insertRow(rowIndex + 1);
+            cell = row.insertCell(0);
             cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma senha válida</p>";
 
         } 
@@ -179,8 +181,8 @@ function confirmaSenha() {
 
             rowIndex = $("#rowConfirmarSenha").index()
 
-            var row = table.insertRow(rowIndex + 1);
-            var cell = row.insertCell(0);
+            row = table.insertRow(rowIndex + 1);
+            cell = row.insertCell(0);
             cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma senha válida</p>";
 
         } 
