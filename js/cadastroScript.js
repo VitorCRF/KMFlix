@@ -31,6 +31,7 @@ $(document).ready(function(){
         verificaInfos()
 
         if (prosseguir === true) {
+            sessionStorage.setItem("emailCadastro", email);
             enviarInfos();
             console.log("Prosseguir true")
         }
@@ -226,7 +227,7 @@ function enviarInfos() {
 function ajaxSucess() {
 
     console.log("ajax de cadastro user enviado para o php")
-    
+    window.location.href = "../html/planos.html";
 
 }
 

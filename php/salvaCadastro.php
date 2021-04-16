@@ -1,8 +1,6 @@
 <?php
-// Include config file
 
-date_default_timezone_set('Etc/UTC');
-require_once "config.php";
+require "config.php";
 
 $nome = $_POST['nome'];
 $nascimento = $_POST['nascimento'];
@@ -15,19 +13,13 @@ $confirmaSenha = $_POST['confirmaSenha'];
 
     if ($resultado == true) {
 
-        header("location: ../html/pagamento.html");
+        echo "Enviado para o banco com sucesso!";
+        //die("<script type='text/javascript'> window.location.href = '../html/pagamento.html' </script>");
 
     }
     else {
         echo "Algo de errado aconteceu, tente novamente";
     }
-
-
-
-
-
-
-
 
         /*
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
