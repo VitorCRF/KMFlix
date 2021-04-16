@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="../js/pagamento.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="../public/logo.png">
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <link rel="stylesheet" type="text/css" href="../css/pagamento.css">
@@ -18,50 +21,45 @@
     <div class="div-container">
 
         <div id="divCamposCartao">
-            <form method="POST" action="../php/salvaCartao.php">
-                <table >
+                        
+                <table>                   
                     <tr>
                         <td colspan="2">
-                            <p class="p-nome-campo">Insira os dados do cartão:</p>
-                        </td>
-                    </tr>       
-                    <tr>
-                        <td colspan="2">
-                            <p class="p-nome-campo">Nome do titular do cartão:</p>
-                            <input class="campo-text-input" name="nome" id="Nome" type="text" placeholder="Nome Completo" ">
+                            <label for="Nome">Nome </label>
+                            <input class="form-control" name="nome" id="Nome" type="text" placeholder="Nome Completo" ">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <p class="p-nome-campo">CPF:</p>
-                            <input class="campo-text-input" name="cpf" id="CPF" type="text" placeholder="Apenas números" ">
+                            <label for="CPF">CPF</label>
+                            <input class="form-control" name="cpf" id="CPF" type="text" placeholder="Apenas números" ">
 
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <p class="p-nome-campo" >Número do cartão:</p>
-                            <input class="campo-text-input" name="numeroCartao" id="Cartao" type="text" placeholder="ex: 8888 8888 9999 9999"">
+                            <label for="Cartao">Número do cartão</label>
+                            <input class="form-control" name="numeroCartao" id="Cartao" type="text" placeholder="ex: 8888 8888 9999 9999"">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p class="p-nome-campo">Dígito verificador:</p>
-                            <input class="verificaCartao" name="verificador" id="DigitoCartao" type="text" size="5" placeholder="ex: 932"">
+                            <label for="DigitoCartao">CCV</label>
+                            <input class="form-control col-md-10" name="verificador" id="DigitoCartao" type="text" size="5" placeholder="ex: 932"">
 
                         </td>
                         <td>
-                            <p class="p-nome-campo">Data de validade:</p>
-                            <input class="verificaCartao" name="validade" id="Validade" type="text" size="5" placeholder="mm/aa"">
+                            <label for="Validade">Validade</label>
+                            <input class="form-control col-md-10" name="validade" id="Validade" type="text" size="5" placeholder="mm/aa"">
                         </td>
                     </tr>
                     <tr>
                         <td align="center" colspan="2">
-                            <button type="submit" class="botao-prosseguir" value="Submit" id="botaoProsseguir">Prosseguir</button>
+                            <button type="submit" class="btn btn-primary" value="Submit" id="botaoProsseguir">Prosseguir</button>
                         </td>
                     </tr>      
                 </table>   
-            </form>  
+
         </div>
     </div>
     
