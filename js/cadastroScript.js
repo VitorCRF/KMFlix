@@ -28,7 +28,10 @@ $(document).ready(function(){
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
 
+        verificaInfos()
+
         if (prosseguir === true) {
+            sessionStorage.setItem("emailCadastro", email);
             enviarInfos();
             console.log("Prosseguir true")
         }
@@ -132,9 +135,15 @@ function verificaInfos() {
 
 
     if ($("#campoSenha").val() != "" && $("#campoConfirmaSenha").val() != "") {
+
         senha = sjcl.hash.sha256.hash($("#campoSenha").val());
         confirmarSenha = sjcl.hash.sha256.hash($("#campoConfirmaSenha").val());
+
+        senha = sjcl.codec.hex.fromBits(senha);
+        confirmarSenha = sjcl.codec.hex.fromBits(confirmarSenha);
+
         confirmaSenha();
+
         if (textoSenhaInvalida === true) {
             rowIndex = $("#rowSenha").index();
             table.deleteRow(rowIndex + 1);
@@ -218,7 +227,7 @@ function enviarInfos() {
 function ajaxSucess() {
 
     console.log("ajax de cadastro user enviado para o php")
-    
+    window.location.href = "../html/planos.html";
 
 }
 

@@ -1,8 +1,6 @@
 <?php
-// Include config file
 
-date_default_timezone_set('Etc/UTC');
-require_once "config.php";
+require "config.php";
 
 $nome = $_POST['nome'];
 $nascimento = $_POST['nascimento'];
@@ -10,11 +8,25 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirmaSenha = $_POST['confirmaSenha'];
 
+
+    $resultado = mysqli_query($link, "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES ('$nome', '$nascimento', '$email', '$senha', '$confirmaSenha')");
+
+    if ($resultado == true) {
+
+        echo "Enviado para o banco com sucesso!";
+        //die("<script type='text/javascript'> window.location.href = '../html/pagamento.html' </script>");
+
+    }
+    else {
+        echo "Algo de errado aconteceu, tente novamente";
+    }
+
+        /*
         $sql = "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssss", $param_nome, $param_nascimento, $param_email, $param_senha, $param_confirmaSenha);
+            mysqli_stmt_bind_param($stmt, "sssss", $nome, $nascimento, $email, $senha, $confirmaSenha);
             
             // Set parameters
             $param_nome = $nome;
@@ -32,5 +44,6 @@ $confirmaSenha = $_POST['confirmaSenha'];
                 echo "OUps! Algo deu errado. Por favor, tente novamente mais tarde.";
             }
         } 
+        */
 
 ?>
