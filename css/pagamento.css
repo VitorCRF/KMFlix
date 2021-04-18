@@ -26,23 +26,13 @@ input{
     transition: .4s;
 }
 
-.verificaCartao{
-    background-color: var(--gray-line);
-    border: 0;
-    width: 4.75rem;
-    height: 3rem;
-    border-radius: 10px;
-    padding-left: 10px;
+.verifica {
+    width: 80%;
 }
 .verificaInvalido{
-    background-color: var(--gray-line);
-    border: 0;
-    width: 4.75rem;
-    height: 3rem;
+
     border: 1px solid #ff0000;
-    border-radius: 10px;
-    padding-left: 10px;
-    font-size: 19px;
+
 }
 
 table{

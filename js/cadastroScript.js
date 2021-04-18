@@ -208,17 +208,14 @@ function enviarInfos() {
 
         type: "POST",
             url: "../php/salvaCadastro.php",
-            data: { 
-                
+            data: {               
                 nome: nome,
                 nascimento: dataNascimento,
                 email: email,
-                senha: senha,
-                confirmaSenha: confirmarSenha,
-            
+                senha: senha   
             },
     
-            sucees: ajaxSucess()
+            success: ajaxSucess()
 
     })
 

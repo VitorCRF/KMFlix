@@ -6,10 +6,10 @@ $nome = $_POST['nome'];
 $nascimento = $_POST['nascimento'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$confirmaSenha = $_POST['confirmaSenha'];
 
 
-    $resultado = mysqli_query($link, "INSERT INTO user (nome, nascimento, email, senha, confirmaSenha) VALUES ('$nome', '$nascimento', '$email', '$senha', '$confirmaSenha')");
+
+    $resultado = mysqli_query($link, "INSERT INTO user (nome, nascimento, email, senha) VALUES ('$nome', '$nascimento', '$email', '$senha')");
 
     if ($resultado == true) {
 
