@@ -24,33 +24,33 @@ $(document).ready(function(){
 function verificaCampos() {
     if (nome != "") {
         prosseguir = true;
-        $("#Nome").removeClass("campoInvalido").addClass("campoNome");
+        $("#Nome").removeClass("campo-text-input-invalido").addClass("campo-text-input");
     }
     else {
         prosseguir = false;
-        $("#Nome").removeClass("campoNome").addClass("campoInvalido");
+        $("#Nome").removeClass("campo-text-input").addClass("campo-text-input-invalido");
         alert("Por favor insira o nome.")
         return false;
     }
 
     if (cpf.length == 11) {
         prosseguir = true;
-        $("#CPF").removeClass("campoInvalido").addClass("campoNome");
+        $("#CPF").removeClass("campo-text-input-invalido").addClass("campo-text-input");
     }
     else {
         prosseguir = false;
-        $("#CPF").removeClass("campoNome").addClass("campoInvalido");       
+        $("#CPF").removeClass("campo-text-input").addClass("campo-text-input-invalido");       
         alert("Por favor insira um CPF válido! (Apenas números, 11 dígitos)");
         return false;
     }
 
     if (numeroCartao.length == 16) {
-        $("#Cartao").removeClass("campoInvalido").addClass("campoNome");
+        $("#Cartao").removeClass("campo-text-input-invalido").addClass("campo-text-input");
         prosseguir = true;
     }
     else {
         prosseguir = false;
-        $("#Cartao").removeClass("campoNome").addClass("campoInvalido");
+        $("#Cartao").removeClass("campo-text-input").addClass("campo-text-input-invalido");
         alert("Por favor insira um cartão válido!");
         return false;
     }
