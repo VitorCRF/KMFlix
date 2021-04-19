@@ -180,18 +180,17 @@ function verificaCampos() {
                 row = table.insertRow(rowIndex + 1);
                 row.insertCell(0);
                 cell = row.insertCell(1);
-                cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma válidade válida</p>";
+                cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma data válida</p>";
                 textoValidadeInvalida = true;
             }
             else {
                 row = (rowIndex + 1);
                 cell = row.insertCell(1);
-                cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma válidade válida</p>";
+                cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira uma data válida</p>";
                 textoValidadeInvalida = true;
             }
 
         }
-
         return false;
     }
     return true;
