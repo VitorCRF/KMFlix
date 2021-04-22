@@ -73,17 +73,20 @@ table{
 }
 @media screen and (min-width:280px) {
     label{
-        width: 18rem;
+        width: 22rem;
+        margin-top: .8rem;
     }
 }
 @media screen and (min-width:480px) {
     label{
-        width: 24rem;
+        width: 32rem;
+        margin-top: .8rem;
     }
 }
 @media screen and (min-width:800px) {
     label{
-        width: 28rem;
+        width: 38rem;
+        margin-top: .8rem;
     }
 
 }
