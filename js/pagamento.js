@@ -198,8 +198,8 @@ function verificaCampos() {
 }
 
 
-function enviarInfos() {
 
+function enviarInfos() {
     $.ajax({
         type: "POST",
             url: "../php/salvaCartao.php",
@@ -212,11 +212,12 @@ function enviarInfos() {
             },    
             success: ajaxSucess()    
     })
-
 }
 function ajaxSucess() {
 
     console.log("ajax de cadastro user enviado para o php")
+    window.location.href = "../html/cadastroFinalizado.html";
+    
 
 }
 
