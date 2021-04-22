@@ -14,18 +14,18 @@ header {
 }
 
 .logo-escrito {
-    width: 10rem;
+    width: 7rem;
     float: left;
     margin-left: 1rem;
-    margin-top: 0.8rem;
+    margin-top: 1.5rem;
     position: absolute;
 }
 
 .icon-header {
     margin-top: 1.5rem;
     margin-right: 1.1rem;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     float: right;
     cursor: pointer;
 }
@@ -52,6 +52,8 @@ header {
     width: 15.18rem;
     height: 8rem;
     margin-left: 0.2rem;
+    background-color: var(--purple);
+    position: relative;
 }
 
 .slick-slide:hover {
@@ -62,10 +64,6 @@ header {
 .imagem-carousel {
     width: 20rem;
     height: 10rem;
-}
-
-.card-carousel {
-    background-color: var(--purple);
 }
 
 .div-card {
