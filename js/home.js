@@ -1,6 +1,7 @@
 
 var arrayTitulos = [['Breaking Bad', ]]
 var searchInputIsActive = false;
+var textInput = "";
 
 $(document).ready(function() {
 
@@ -69,15 +70,25 @@ function carouselSlick() {
 function searchInput() {
 
     if (searchInputIsActive === false) {
-        var textInput = "<input type='text' class='search-input' placeholder='Series, filmes...' id='searchInput'>"
-        $("#divSearch").append(textInput);
+        var htmlTextInput = "<input type='text' class='search-input' placeholder='Series, filmes...' id='searchInput'>"
+        $("#divSearch").append(htmlTextInput);
         searchInputIsActive = true;
     }
     else {
-        $("#searchInput").remove();
+        textInput = $("#searchInput").val();
+        if (textInput != "") {
+            search();
+        }
+        else {
+            $("#searchInput").remove();
         searchInputIsActive = false;
+        }
     }
     
+}
+
+function search() {
+    console.log("pesquisa por: " + textInput)
 }
 
 
