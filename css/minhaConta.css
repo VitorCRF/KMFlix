@@ -19,6 +19,15 @@ header {
     background-color: transparent;
 }
 
+.icon-header {
+    margin-top: 1.5rem;
+    margin-right: 1.1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    float: right;
+    cursor: pointer;
+}
+
 .div-opcoes-conta {
     background-color: var(--light-dark);
     height: 41rem;
