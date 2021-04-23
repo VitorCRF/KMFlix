@@ -11,7 +11,8 @@
     <link rel="shortcut icon" href="../public/logo.png">
     
     <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="../js/loginSrcipt.js"></script>
+    <script type="text/javascript" src="../js/sjcl.js"></script>   
+    <script type="text/javascript" src="../js/Login.js"></script>
 
 </head>
 
@@ -26,19 +27,19 @@
         </div>
     </header>
     <div class="div-container">
-        <form method="POST" action="../php/login.php">
+        <form id="form-login">
             <table>
                 <tr>
                     <td>
                         <label for="nome">Email</label>
                         <input type="text" placeholder="Email" name="email" class="form-control" id="campoLoginEmail">
-                    </td>
-                   
+                    </td>                 
                 </tr>                
                 <tr>
                     <td>
                         <label for="nome">Senha</label>
-                        <input type="password" placeholder="Senha" name="senha" class="form-control" id="campoLoginSenha">
+                        <input type="password" placeholder="Senha" class="form-control" id="senha">
+                        <input type="hidden" name="senhaHash" id="senhaHash">
                     </td>
                 </tr>              
                 <tr>

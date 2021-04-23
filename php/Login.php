@@ -1,31 +1,34 @@
 <?php
+	session_start();
+	
+	require "config.php";
 
-require_once "config.php";
-
- 	$senha = $_POST["senha"];
 	$email = $_POST["email"];
+	$senha = $_POST["senhaHash"];
 
-	$hash = hash('sha256', $senha);
+	
 
-	$sql = mysqli_query($link, "SELECT * FROM user where email = '$email'");
+	$resultado = mysqli_query($link, "SELECT * FROM user where email = '$email' AND senha = '$senha'");
+	$retorno["status"] = "n";
+	$retorno["mensagem"] = "Usuario ou senha invalido!";
 
-	$i = 0;
+	if(mysqli_num_rows($resultado) > 0){
+		$registro = mysqli_fetch_assoc($resultado);
+		$_SESSION["email"] = $registro["email"];
+		$_SESSION["nome"] = $registro["nome"];
+		$_SESSION["idUser"] = $registro["id"];
 
-	if($sql){
-		while($linha = mysqli_fetch_assoc($sql)){
-			$retorno[$i]["email"] = $linha["email"];
-			$retorno[$i]["senha"] = $linha["senha"];
-		}
-		if($retorno[$i]["senha"] == null){
-			echo "Logado";
-		}else{
-			echo "Login ou senha inválido";
-		}	
+		$_SESSION["idSessao"] = session_id();
+		$_SESSION["inicio"] = time();
+		$_SESSION["tempoLimite"] = 30;
+
+		$retorno["status"] = "s";
+		$retorno["mensagem"] = "Usuario autenticado com sucesso!";
 	}
-	
+	print_r ($_SESSION);
 	
 
-
+	echo json_encode($retorno);
 
 	
 
