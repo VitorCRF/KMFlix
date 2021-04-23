@@ -69,7 +69,8 @@ header {
 
 .div-body {
     height: 2000px;
-}header {
+}
+header {
     position: absolute;
     width: 100%;
     z-index: 100;
