@@ -25,12 +25,10 @@ function enviaDados(formulario){
         dataType: "json",
         url: "../php/Login.php",
         data: dados,
-        success: function(retorno){
-            
+        success: function(retorno){          
                 if(retorno.status == "s")
                 {
-                    alert(retorno.mensagem);
-                    //window.location.href = "";
+                    window.location.href = "../home/index.php";
                 }
                 else
                 {

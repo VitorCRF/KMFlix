@@ -1,7 +1,14 @@
+
+<?php 
+    session_start();
+    $logado = $_SESSION["logado"] ?? NULL;
+    if($logado)
+        header("Location: ../home/index.php"); 
+            
+?>
 <html>
 
 <head>
-
     <title>Kmflix | Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +54,6 @@
                         <button class="btn btn-primary" id="botaoProsseguir">Prosseguir</button>
                     </td>
                 </tr>
-
                 <tr>
                     <td><br>
                         <a href="recuperarSenha.html">

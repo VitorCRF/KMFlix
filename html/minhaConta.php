@@ -1,5 +1,17 @@
-<html>
 
+<?php
+    session_start();
+    $logado = $_SESSION["logado"] ?? NULL;
+    if(!$logado)
+        header("Location: /login.php"); 
+    if(isset($_GET['logout']) && $_GET['logout'] == 1){
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ../"); 
+    }
+    
+?>
+<html>
     <head>
         <title>Kmflix | Minha Conta</title>
         <meta charset="utf-8">
@@ -20,7 +32,7 @@
                 </div>
                 
                 <img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon">
-                <a href="../home/index.html"><img src="../public/icons/white_home_icon.png" class="icon-header" alt="home icon"></a>
+                <a href="../home/index.php"><img src="../public/icons/white_home_icon.png" class="icon-header" alt="home icon"></a>
                 
             </div>
         </header>
@@ -29,12 +41,12 @@
 
             <div class="div-opcoes-conta">
 
-                <h1 class="titulo-boasvindas">Bem vindo Lucas!</h1>
+                <h1 class="titulo-boasvindas"><?php echo "Bem vindo " . $_SESSION["nome"] . '!' ?></h1>
                 <h2 class="titulo-atributo">Forma de pagamento</h2>
 
                 <div class="div-cartao">
 
-                    <p class="p-nome-cartao">Lucas Kusman Leal</p>
+                    <p class="p-nome-cartao"><?php echo $_SESSION['nome'];?></p>
                     <p class="p-numero-cartao">8888 xxxx xxxx 8889</p>
                     <p class="p-data-validade">10/21</p>
 
@@ -51,6 +63,10 @@
 
                 <div id="divAlterarEmail">
                     <p class="p-alterar-atributo" id="alterarEmail" onclick="alterarEmail()">Alterar email</p>
+                </div>
+
+                <div id="divSair">
+                    <a class="p-alterar-atributo" href="?logout=1" id="sair" onclick="">Sair</a>
                 </div>
 
             </div>

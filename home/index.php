@@ -1,4 +1,10 @@
-
+<?php 
+            session_start();
+            $logado = $_SESSION["logado"] ?? NULL;
+            if(!$logado)
+                header("Location: ../html/login.php"); 
+            
+?>
 <html>    
     <head>
         <title>Kmflix</title>
@@ -20,14 +26,14 @@
     </head>
 
     <body>
-
+            
         <div class="div-header">
 
             <div>
                 <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
             </div>
 
-            <a href="../html/minhaConta.html"><img src="../public/icons/white_user_icon.png" alt="user icon" class="icon-header"></a>
+            <a href="../html/minhaConta.php"><img src="../public/icons/white_user_icon.png" alt="user icon" class="icon-header"></a>
 
             <div id="divSearch">
                 <img src="../public/icons/white_search_icon.png" alt="search icon" class="icon-header" onclick="searchInput()">
