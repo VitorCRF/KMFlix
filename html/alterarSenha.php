@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
         <title>Kmflix | Cadastro</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +12,12 @@
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
     </head>
-
-    <body>
+<body>
         <header>
             <div class="div-header">
                 <div>
                     <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
-                    <a href="../html/login.html"><button class="botao-entrar">Entrar</button></a>
+                    <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
                     <a href="../html/cadastro.html"><button class="botao-assinar">Assine</button></a>
                 </div>
             </div>
@@ -27,34 +26,24 @@
                     <table id="tableCadastro">
                         <tr id="rowNome">
                             <td>
-                                <label for="nome">Nome</label>
-                                <input type="text" placeholder="Nome Completo" name="nome" id="campoNome" class="form-control">
+                                <label for="nome">Senha atual</label>
+                                <input type="password" placeholder="Senha" id="campoNome" class="form-control">
+                                <input type="hidden" placeholder="Senha" name="senhaAtualHash" id="senhaAtualHash" class="form-control">
                             </td>
-                        </tr>
-                    
-                        <tr id="rowNascimento">
-                            <td>
-                                <label for="nascimento">Data de nascimento</label>
-                                <input type="date" placeholder="01/01/2001" name="nascimento" id="campoNascimento" class="form-control">
-                            </td>
-                        </tr>
-                        
-                        <tr id="rowEmail">
-                            <td>
-                                <label for="email">Email</label>
-                                <input type="text" placeholder="seu@email.com" name="email" id="campoEmail" class="form-control"> 
-                            </td>
-                        </tr>
+                        </tr>                  
+                
                         <tr id="rowSenha">
                             <td>
-                                <label for="senha">Senha</label>
-                                <input type="password" placeholder="Senha" name="senha" id="campoSenha" class="form-control"> 
+                                <label for="senha">Nova senha</label>
+                                <input type="password" placeholder="Nova senha" name="senha" id="campoSenha" class="form-control"> 
+                                <input type="hidden" placeholder="Nova senha" name="novaSenhaHash" id="novaSenhaHash" class="form-control"> 
+
                             </td>
                         </tr>
                         <tr id="rowConfirmarSenha">
                             <td>
                                 <label for="confirmaSenha">Confirmar senha</label>
-                                <input type="password" placeholder="Confirme sua Senha" name="confirmaSenha" id="campoConfirmaSenha" class="form-control">
+                                <input type="password" placeholder="Confirme sua senha" name="confirmaSenha" id="campoConfirmaSenha" class="form-control">
                             </td>
                         </tr>
                         <tr>
@@ -64,7 +53,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <br><a href="login.html"><p class="p-link">Já possuo uma conta.</p></a>
+                                <br><a href="../home/index.php"><p class="p-link">Voltar</p></a>
                             </td>
                         </tr>
                     </table>
@@ -73,5 +62,4 @@
         
 
     </body>
-
 </html>

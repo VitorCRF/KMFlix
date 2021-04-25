@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/minhaConta.css">
         <link rel="shortcut icon" href="../public/logo.png">
+        <script type="text/javascript" src="../js/sjcl.js"></script>     
         <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
         <script type="text/javascript" src="../js/minhaConta.js"></script>
     </head>

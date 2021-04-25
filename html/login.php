@@ -28,8 +28,8 @@
         <div class="div-header">
             <div>
                 <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
-                <a href="../html/login.html"><button class="botao-entrar">Entrar</button></a>
-                <a href="../html/cadastro.html"><button class="botao-assinar">Assine</button></a>
+                <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
+                <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
             </div>
         </div>
     </header>

@@ -1,6 +1,6 @@
 <?php
 // Include config file
-
+session_start();
 
 require "config.php";
 
@@ -10,8 +10,9 @@ $cpf = $_POST['cpf'];
 $numeroCartao = $_POST['numero'];
 $validade = $_POST['validade'];
 $verificador = $_POST['verificador'];
+$idUsuario = $_SESSION['idUser'];
 
-         $resultado = mysqli_query($link, "INSERT INTO cartao (nome, cpf, numero, validade, verificador) VALUES ('$nome', '$cpf', '$numeroCartao', '$validade', '$verificador')");
+         $resultado = mysqli_query($link, "INSERT INTO cartao (nome, cpf, numero, validade, verificador, idUsuario) VALUES ('$nome', '$cpf', '$numeroCartao', '$validade', '$verificador', '$idUsuario')");
 
          if ($resultado == true) {
 
