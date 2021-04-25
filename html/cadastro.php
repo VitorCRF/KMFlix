@@ -71,7 +71,7 @@ if($logado)
                         </tr>
                         <tr>
                             <td align="center">
-                                <br><a href="login.html"><p class="p-link">Já possuo uma conta.</p></a>
+                                <br><a href="login.php"><p class="p-link">Já possuo uma conta.</p></a>
                             </td>
                         </tr>
                     </table>

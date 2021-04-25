@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="cadastro.html">
+                        <a href="cadastro.php">
                             <p class="p-link">Não possui uma conta?</p>
                         </a>
                     </td>

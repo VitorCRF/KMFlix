@@ -53,7 +53,7 @@
 
                 </div>
 
-                <p class="p-alterar-atributo">Alterar forma de pagamento</p>
+                <a class="p-alterar-atributo" href="/stream/html/pagamento.php">Alterar forma de pagamento</a>
                 <p class="p-alterar-atributo">Alterar plano</p>
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
