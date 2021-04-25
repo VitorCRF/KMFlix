@@ -9,9 +9,13 @@ $(document).ready(function() {
 
     carouselSlick();
 
+    $('#ExemploModalCentralizado').on('shown.bs.modal', function () {
+        $('#meuInput').trigger('focus')
+      })
+
     var content = "";
 
-    $("#imagemCarousel1").hover(function() {
+    $("#slick-slide00").hover(function() {
         
         if (infoSlideIsActive === false) {
 
