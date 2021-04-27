@@ -1,3 +1,10 @@
+<?php
+// Include config file
+session_start();
+$logado = $_SESSION["logado"] ?? NULL;
+if($logado)
+    header("Location: ../home/index.php"); 
+    ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,8 +25,8 @@
             <div class="div-header">
                 <div>
                     <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
-                    <a href="../html/login.html"><button class="botao-entrar">Entrar</button></a>
-                    <a href="../html/cadastro.html"><button class="botao-assinar">Assine</button></a>
+                    <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
+                    <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
                 </div>
             </div>
         </header>
@@ -64,7 +71,7 @@
                         </tr>
                         <tr>
                             <td align="center">
-                                <br><a href="login.html"><p class="p-link">Já possuo uma conta.</p></a>
+                                <br><a href="login.php"><p class="p-link">Já possuo uma conta.</p></a>
                             </td>
                         </tr>
                     </table>
