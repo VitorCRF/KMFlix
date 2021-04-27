@@ -155,6 +155,131 @@ header {
     padding-left: 0.5rem;
 }
 
+/* modal */
+
+.modal-content {
+    background-color: var(--light-dark);
+    width: 38rem;
+    height: 60rem;
+}
+
+.modal-header {
+    height: 20rem;
+    width: 100%;
+    border: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.103) 70%, #302C35),
+    url('../public/img/breaking\ bad\ wallpaper.jpg');
+    background-size: 100%;
+    
+}
+
+.close {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.158);
+    opacity: 1;
+}
+
+.botao-assistir {
+    background-color: white;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15rem;
+    width: 11rem;
+    height: 3.5rem;
+    position: absolute;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.botao-redondo {
+    background-color: rgba(0, 0, 0, 0.158);
+    border: 1;
+    border-style: solid;
+    border-color: white;
+    position: absolute;
+    border-radius: 100%;
+    margin-top: 15rem;
+    margin-left: 12rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    cursor: pointer;
+}
+
+.div-modal-infos {
+    height: 3rem;
+}
+
+.div-sinopse {
+    display: inline;
+    position: absolute;
+    width: 23rem;
+    height: 10rem;
+}
+
+.p-modal-informacao1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-size: 1.1rem;
+    position: relative;
+    float: left;
+    padding-top: 0.2rem;
+    padding-left: 0.8rem;
+}
+
+.h1-sinopse {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    text-align: justify;
+    font-size: 1.1rem;
+    position: relative;
+    float: left;
+    padding-left: 0.7rem;
+    
+}
+
+.imagem-classificacao {
+    position: relative;
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.8rem;
+    border-radius: 5px;
+}
+
+.div-right {
+    position: relative;
+    float: right;
+    width: 8.125rem;
+    height: 10rem;
+}
+
+.div-elenco {
+    position: relative;
+    height: 2rem;
+    padding-bottom: 20rem;
+    width: 10rem;
+    float: right;
+}
+
+.h2-titulo-infos {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    color: rgb(20, 20, 20);
+    height: 1rem;
+}
+
+.h3-info-infos {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    color: white;
+    padding-left: 0.2rem;
+}
+
 /* legacy card */
 .div-card {
     width: 100%;

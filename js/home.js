@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     carouselSlick();
 
-    $('#ExemploModalCentralizado').on('shown.bs.modal', function () {
+    $('#Modal').on('shown.bs.modal', function () {
         $('#meuInput').trigger('focus')
       })
 

@@ -44,37 +44,62 @@
 
         </div>
 
+        
+
         <div class="div-container">
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
-                Abrir modal de demonstração
-            </button>
-
             <!-- Modal -->
-            <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar mudanças</button>
-                        </div>
+            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
+                      </button>
+
+                      <button class="botao-assistir" title="Assistir">Assistir</button>
+                      <button class="botao-redondo" title="Minha Lista"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+
                     </div>
+                    <div class="modal-body">
+
+                        <div class="div-modal-infos">
+                            <p class="p-modal-informacao1">2013</p>
+                            <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos">
+                            <p class="p-modal-informacao1">5 Temporadas</p>
+                        </div>
+
+                        <div class="div-sinopse">
+                            <h1 class="h1-sinopse">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h1>
+                        </div>
+
+                        <div class="div-right">
+
+                            <div class="div-elenco">
+                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos">Bryan Cranston, Aron Paul, Anna Gunn, mais...</h3> 
+                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos">Séries dramáticas sobre crimes, Suspense para TV, Séries dramáticas</h3>
+                            </div>
+    
+                            <div class="div-elenco">
+                                
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
 
             <div class="carousel">
 
                 <div>
-                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1">
+                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide">
                         <!--
                             <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">
