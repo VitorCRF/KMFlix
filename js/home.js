@@ -2,10 +2,47 @@
 var arrayTitulos = [['Breaking Bad', ]]
 var searchInputIsActive = false;
 var textInput = "";
+var infoSlideIsActive = false;
+var hoverIsActive = false;
 
 $(document).ready(function() {
 
     carouselSlick();
+
+    $('#Modal').on('shown.bs.modal', function () {
+        $('#meuInput').trigger('focus')
+      })
+
+    var content = "";
+
+    $("#slick-slide00").hover(function() {
+        
+        if (infoSlideIsActive === false) {
+
+            content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
+            content += '<h1 class="h1-titulo" id="titulo">Breaking Bad</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">2013</p>';
+            content += '<p class="p-genero1" id="genero1">Suspense</p>';
+            content += '<p class="p-genero1" id="genero2">Drama</p>'
+
+            $(".div-infos-slide").append(content);
+            $(".div-infos-slide").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
+            content = "";
+            infoSlideIsActive = true;
+            console.log(infoSlideIsActive)
+        }
+        else {
+            $("#playButton").remove();
+            $("#titulo").remove();
+            $("#ano").remove();
+            $("#genero1").remove();
+            $("#genero2").remove();
+            $(".div-infos-slide-ativa").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
+            infoSlideIsActive = false;
+            console.log(infoSlideIsActive)
+        }
+
+    })
 
 })
 
@@ -19,7 +56,6 @@ function carouselSlick() {
         variableWidth: true,
         adaptiveHeight: true,
         
-
         responsive: [
 
             {
