@@ -216,7 +216,7 @@ function enviarInfos() {
 function ajaxSucess() {
 
     console.log("ajax de cadastro user enviado para o php")
-    window.location.href = "../php/cadastroFinalizado.html";
+    window.location.href = "../html/cadastroFinalizado.html";
     
 
 }
