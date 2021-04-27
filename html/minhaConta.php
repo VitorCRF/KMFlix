@@ -42,7 +42,7 @@
 
             <div class="div-opcoes-conta">
 
-                <h1 class="titulo-boasvindas"><?php echo "Bem vindo " . $_SESSION["nome"] . '!' ?></h1>
+                <h1 class="titulo-boasvindas"><?php echo "Olá, " . $_SESSION["nome"] . '!' ?></h1>
                 <h2 class="titulo-atributo">Forma de pagamento</h2>
 
                 <div class="div-cartao">
@@ -53,7 +53,7 @@
 
                 </div>
 
-                <a class="p-alterar-atributo" href="/stream/html/pagamento.php">Alterar forma de pagamento</a>
+                <a class="p-alterar-atributo" href="/stream/html/pagamento.php">Alterar dados de pagamento</a>
                 <p class="p-alterar-atributo">Alterar plano</p>
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>

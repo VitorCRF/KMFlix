@@ -19,9 +19,7 @@ function alterarSenha() {
     if (alterarSenhaIsActive === false && alterarEmailIsActive === false) {
 
         textInput = "<input type='password' class='input-alterar-atributo' name='senhaAtual' placeholder='Senha atual' id='senhaAtual'> <br id='brAlterarSenha'>"
-        textInput += "<input type='hidden' name='senhaAtualHash' id='senhaAtualHash'>"
-        textInput += "<input type='password' name='novaSenhaHash' class='input-alterar-atributo' placeholder='Nova senha' id='novaSenhaHash'>"
-        textInput += "<input type='hidden' class='input-alterar-atributo' placeholder='Nova senha' id='novaSenhaHash'>"
+        textInput += "<input type='password' name='novaSenhaHash' class='input-alterar-atributo' placeholder='Nova senha' id='novaSenha'>"
         textInput += "<input type='password' name='confirmarNovaSenha' class='input-alterar-atributo' placeholder='Confirmar senha' id='confirmarNovaSenha'> <br id='brAlterarSenha'>"
         textInput += "<button class='botao-alterar-atributo' id='botaoAlterarSenha'>Alterar senha</button>"
 
