@@ -160,7 +160,7 @@ header {
 .modal-content {
     background-color: var(--light-dark);
     width: 38rem;
-    height: 60rem;
+    height: 200rem;
 }
 
 .modal-header {
@@ -170,7 +170,13 @@ header {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.103) 70%, #302C35),
     url('../public/img/breaking\ bad\ wallpaper.jpg');
     background-size: 100%;
-    
+}
+
+.modal-footer {
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 50rem;
 }
 
 .close {
