@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Kmflix | Cadastro</title>
+        <title>Kmflix | Recuperar senha</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
@@ -24,19 +24,23 @@
         </header>
         <div class="div-container">
                     <table id="tableCadastro">
-                        <tr id="rowNome">
+                        <tr id="rowEmail">
                             <td>
-                                <label for="nome">Senha atual</label>
-                                <input type="password" placeholder="Senha" id="campoNome" class="form-control">
-                                <input type="hidden" placeholder="Senha" name="senhaAtualHash" id="senhaAtualHash" class="form-control">
+                                <label for="nome">Informe o seu email</label>
+                                <input type="mail" placeholder="Email" id="campoEmail" class="form-control">
                             </td>
-                        </tr>                  
+                        </tr>       
+                        <tr id="rowNascimento">
+                            <td>
+                                <label for="nome">Informe a sua data de nascimento</label>
+                                <input type="date" placeholder="Data de nascimento" id="campoNascimento" class="form-control">
+                            </td>
+                        </tr>             
                 
                         <tr id="rowSenha">
                             <td>
                                 <label for="senha">Nova senha</label>
                                 <input type="password" placeholder="Nova senha" name="senha" id="campoSenha" class="form-control"> 
-                                <input type="hidden" placeholder="Nova senha" name="novaSenhaHash" id="novaSenhaHash" class="form-control"> 
 
                             </td>
                         </tr>
