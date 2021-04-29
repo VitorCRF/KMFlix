@@ -2,8 +2,9 @@
 <?php
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
-    if(!$logado)
-        header("Location: /login.php"); 
+    if(!$logado){
+        header("Location: /login.php");
+    }
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
@@ -29,7 +30,7 @@
         <header>
             <div class="div-header">
                 <div>
-                    <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                    <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
                 </div>
                 
                 <img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon">
