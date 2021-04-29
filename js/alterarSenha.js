@@ -4,8 +4,6 @@ var dataNascimento;
 var senha;
 var confirmarSenha;
 
-
-
 //variaveis para controle do texto referente a um input invalido
 
 var table = document.getElementById("tableCadastro");
@@ -13,19 +11,15 @@ var row;
 var cell;
 var rowIndex;
 
-
 var textoNascimentoInvalido = false;
 var textoEmailInvalido = false;
 var textoSenhaInvalida = false;
 var textoconfirmarSenhaInvalida = false;
 
 $(document).ready(function(){
-
     $("#botaoProsseguir").click(function(){
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
-
-
 
         if (verificaInfos() && confirmaSenha()) {
             sessionStorage.setItem("emailCadastro", email);
@@ -169,18 +163,16 @@ function confirmaSenha() {
 function enviarInfos() {
     $.ajax({
         type: "POST",
-            url: "../php/salvaCadastro.php",
+            url: "../php/alteraSenha.php",
             data: {               
-                nome: nome,
                 nascimento: dataNascimento,
                 email: email,
-                senha: senha   
+                senha: senha 
             },   
             success: ajaxSuccess()
     })
 }
 function ajaxSuccess() {
-    console.log("ajax de cadastro user enviado para o php")
-    window.location.href = "../html/planos.html";
+    window.location.href = "../html/login.php"
 
 }
