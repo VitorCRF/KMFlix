@@ -1,7 +1,14 @@
+
+<?php 
+    session_start();
+    $logado = $_SESSION["logado"] ?? NULL;
+    if($logado)
+        header("Location: ../home/index.php"); 
+            
+?>
 <html>
 
 <head>
-
     <title>Kmflix | Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +28,8 @@
         <div class="div-header">
             <div>
                 <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
-                <a href="../html/login.html"><button class="botao-entrar">Entrar</button></a>
-                <a href="../html/cadastro.html"><button class="botao-assinar">Assine</button></a>
+                <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
+                <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
             </div>
         </div>
     </header>
@@ -47,7 +54,6 @@
                         <button class="btn btn-primary" id="botaoProsseguir">Prosseguir</button>
                     </td>
                 </tr>
-
                 <tr>
                     <td><br>
                         <a href="recuperarSenha.html">
@@ -57,7 +63,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="cadastro.html">
+                        <a href="cadastro.php">
                             <p class="p-link">Não possui uma conta?</p>
                         </a>
                     </td>

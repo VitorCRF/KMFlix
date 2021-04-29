@@ -120,7 +120,7 @@ form button{
     font-size: 30px;
     cursor: pointer;
 }
-form button:hover{
+.form button:hover{
     background-color: #3414c5;
 }
 .main p{

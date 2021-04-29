@@ -200,7 +200,6 @@ function confirmaSenha() {
 }
 
 function enviarInfos() {
-    console.log("senha: " + JSON.stringify(senha))
     $.ajax({
         type: "POST",
             url: "../php/salvaCadastro.php",
@@ -210,11 +209,10 @@ function enviarInfos() {
                 email: email,
                 senha: senha   
             },   
-            success: ajaxSucess()
+            success: ajaxSuccess()
     })
-
 }
-function ajaxSucess() {
+function ajaxSuccess() {
     console.log("ajax de cadastro user enviado para o php")
     window.location.href = "../html/planos.html";
 
