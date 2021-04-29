@@ -2,10 +2,8 @@
 <?php
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
-    if{
-        (!$logado)
+    if(!$logado)
         header("Location: /login.php"); 
-    }
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
