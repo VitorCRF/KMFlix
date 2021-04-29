@@ -6,7 +6,8 @@
 
     $tituloEmail = "Recuperação de Senha Kmflix";
 
-    $message = 'Olá, você solicitou a recuperação de senha da sua conta Kmflix.';
+    $message = 'Olá, você solicitou a recuperação de senha da sua conta Kmflix. 
+    http://localhost:8888/stream/html/novaSenha.html';
 
     $emailDestinatario = $_POST["emailDestinatario"];
 
