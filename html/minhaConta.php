@@ -3,7 +3,7 @@
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
     if(!$logado)
-        header("Location: /login.php"); 
+        header("Location: /stream/html/login.php"); 
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
