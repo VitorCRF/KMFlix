@@ -1,13 +1,17 @@
 <?php 
 
     date_default_timezone_set('Etc/UTC');
+    require 'config.php';
     require 'PHPMailer/PHPMailerAutoload.php';
-
+    
     $tituloEmail = "Ativamento de Conta Kmflix";
 
-    $message = 'Olá, você se cadastrou com sucesso na Kmflix! Por favor entre neste link e clique no botão para ativar sua conta.';
-
     $emailDestinatario = $_POST["emailDestinatario"];
+
+    $buscaInfo = mysqli_query($link, "SELECT token_conta FROM user where email = '$emailDestinatario'");
+
+    $message = 'Olá, você se cadastrou com sucesso na Kmflix! Por favor insira este token abaixo na página de confirmação para ativar sua conta. 
+    Token: ' . $buscaInfo;
 
     $mail= new PHPMailer;
     $mail->IsSMTP(); 
