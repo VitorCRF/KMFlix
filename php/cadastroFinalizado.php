@@ -10,8 +10,17 @@
 
     $buscaInfo = mysqli_query($link, "SELECT token_conta FROM user where email = '$emailDestinatario'");
 
+    if ($buscaInfo) {
+        $result = mysqli_fetch_assoc($buscaInfo);
+        $token = $result["token_conta"];
+        echo "busca info deu boa";
+    }
+    else {
+        echo "busca info deu ruim";
+    }
+
     $message = 'Olá, você se cadastrou com sucesso na Kmflix! Por favor insira este token abaixo na página de confirmação para ativar sua conta. 
-    Token: ' . $buscaInfo;
+    Token: ' . $token;
 
     $mail= new PHPMailer;
     $mail->IsSMTP(); 
