@@ -1,4 +1,15 @@
-
+<?php
+    session_start();
+    $logado = $_SESSION["logado"] ?? NULL;
+    if(!$logado)
+        header("Location: /stream/html/login.php"); 
+    if(isset($_GET['logout']) && $_GET['logout'] == 1){
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ../"); 
+    }
+    
+?>
 <html>
     <head>
         <title>Kmflix | Minha Conta</title>
