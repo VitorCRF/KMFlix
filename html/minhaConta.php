@@ -1,16 +1,4 @@
 
-<?php
-    session_start();
-    $logado = $_SESSION["logado"] ?? NULL;
-    if(!$logado)
-        header("Location: /stream/html/login.php"); 
-    if(isset($_GET['logout']) && $_GET['logout'] == 1){
-        $_SESSION = array();
-        session_destroy();
-        header("Location: ../"); 
-    }
-    
-?>
 <html>
     <head>
         <title>Kmflix | Minha Conta</title>
@@ -29,7 +17,7 @@
         <header>
             <div class="div-header">
                 <div>
-                    <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                    <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
                 </div>
                 
                 <img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon">
@@ -53,7 +41,7 @@
 
                 </div>
 
-                <a class="p-alterar-atributo" href="/stream/html/pagamento.php">Alterar dados de pagamento</a>
+                <a class="p-alterar-atributo" href="../html/pagamento.php">Alterar dados de pagamento</a>
                 <p class="p-alterar-atributo">Alterar plano</p>
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
