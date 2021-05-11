@@ -1,5 +1,11 @@
 
-var arrayTitulos = [['Breaking Bad', ]]
+var arrayTitulos = [
+    ['1','Breaking Bad','2013','5 Temporadas','../public/img/breaking bad.jpeg','18','Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.','Suspense','Drama','Séries dramáticas sobre crimes','Suspense para TV','Bryan Cranston','Aron Paul','Anna Gunn','serie'],
+    ['2','Vikings','2019','6 Temporadas','../public/img/vikings.jpg','16','Esta série dramática acompanha a vida do viking Ragnar Lothbrok em sua jornada para ampliar o domínio nórdico e desafiar um líder incompetente e sem visão','Violentos','Épico','Empolgantes','Obras de época','Travis Fimmel','Kathryn Winnick','Clive Standem','serie'],
+    ['3','Lost','2010','6 Temporadas','../public/img/lost.jpeg','14','','Ação','Aventura','drama','Ficção científica','Evangeline Lilly','Matthew Fox','Josh Halloway','serie'],
+    ['4','Interstellar','2014','02:49','../public/img/interstellar.jpeg','10','','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
+    ['5','Gente Grande','2010','01:42','..public/img/gente grande.jpeg','12','','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
+];
 var searchInputIsActive = false;
 var textInput = "";
 var infoSlideIsActiveBreakingBad = false;
@@ -25,10 +31,10 @@ $(document).ready(function() {
         if (infoSlideIsActiveBreakingBad === false) {
 
             content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
-            content += '<h1 class="h1-titulo" id="titulo">Breaking Bad</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">2013</p>';
-            content += '<p class="p-genero1" id="genero1">Suspense</p>';
-            content += '<p class="p-genero1" id="genero2">Drama</p>';
+            content += '<h1 class="h1-titulo" id="titulo">' + arrayTitulos[0][1] +'</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + arrayTitulos[0][2] + '</p>';
+            content += '<p class="p-genero1" id="genero1">' + arrayTitulos[0][7] +'</p>';
+            content += '<p class="p-genero1" id="genero2">' + arrayTitulos[0][8] + '</p>';
 
             $("#divInfosBreakingBad").append(content);
             $("#divInfosBreakingBad").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
@@ -47,17 +53,30 @@ $(document).ready(function() {
             console.log("breaking " + infoSlideIsActiveBreakingBad)
         }
 
-    })
+    });
+
+    $("#slick-slide00").click(function() {
+
+        $("#anoModal").text(arrayTitulos[0][2]);
+        $("#duracaoModal").text(arrayTitulos[0][3]);
+        $("#sinopseModal").text(arrayTitulos[0][6]);
+
+        document.getElementById("modalHeader").removeAttribute("style");
+        $('#modalHeader').css("background-image", "url(" + arrayTitulos[0][4] + ")"); 
+        $("#elencoModal").text(arrayTitulos[0][11]+", "+arrayTitulos[0][12]+", "+arrayTitulos[0][13]+", mais...");
+        $("#generosModal").text(arrayTitulos[0][9]+", "+arrayTitulos[0][10]);
+        
+    });
 
     $("#slick-slide01").hover(function() {
 
         if (infoSlideIsActiveVikings === false) {
             
             content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
-            content += '<h1 class="h1-titulo" id="titulo">Vikings</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">2019</p>';
-            content += '<p class="p-genero1" id="genero1">Violentos</p>';
-            content += '<p class="p-genero1" id="genero2">Épico</p>';
+            content += '<h1 class="h1-titulo" id="titulo">' + arrayTitulos[1][1] +'</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + arrayTitulos[1][2] + '</p>';
+            content += '<p class="p-genero1" id="genero1">' + arrayTitulos[1][7] +'</p>';
+            content += '<p class="p-genero1" id="genero2">' + arrayTitulos[1][8] + '</p>';
 
             $("#divInfosVikings").append(content);
             $("#divInfosVikings").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
@@ -76,15 +95,28 @@ $(document).ready(function() {
 
     });
 
+    $("#slick-slide01").click(function() {
+
+        $("#anoModal").text(arrayTitulos[1][2]);
+        $("#duracaoModal").text(arrayTitulos[1][3]);
+        $("#sinopseModal").text(arrayTitulos[1][6]);
+        $("#elencoModal").text(arrayTitulos[1][11]+", "+arrayTitulos[1][12]+", "+arrayTitulos[1][13]+", mais...");
+        $("#generosModal").text(arrayTitulos[1][9]+", "+arrayTitulos[1][10]);
+
+        document.getElementById("modalHeader").removeAttribute("style");
+        $('#modalHeader').css("background-image", "url(" + arrayTitulos[1][4] + ")"); 
+
+    })
+
     $("#slick-slide02").hover(function(){
 
         if (infoSlideIsActiveLost === false) {
 
             content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
-            content += '<h1 class="h1-titulo" id="titulo">Lost</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">2010</p>';
-            content += '<p class="p-genero1" id="genero1">Ação</p>';
-            content += '<p class="p-genero1" id="genero2">Aventura</p>';
+            content += '<h1 class="h1-titulo" id="titulo">' + arrayTitulos[2][1] +'</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + arrayTitulos[2][2] + '</p>';
+            content += '<p class="p-genero1" id="genero1">' + arrayTitulos[2][7] +'</p>';
+            content += '<p class="p-genero1" id="genero2">' + arrayTitulos[2][8] + '</p>';
 
             $("#divInfosLost").append(content);
             $("#divInfosLost").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
@@ -108,9 +140,9 @@ $(document).ready(function() {
         if (infoSlideIsActiveInterestellar === false) {
 
             content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
-            content += '<h1 class="h1-titulo" id="titulo">Interestellar</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">2014</p>';
-            content += '<p class="p-genero1" id="genero1">Ficção científica</p>';
+            content += '<h1 class="h1-titulo" id="titulo">'+ arrayTitulos[3][1] +'</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + arrayTitulos[3][2] +'</p>';
+            content += '<p class="p-genero1" id="genero1">' + arrayTitulos[3][7] +'</p>';
             
 
             $("#divInfosInterestellar").append(content);
@@ -134,10 +166,10 @@ $(document).ready(function() {
         if (infoSlideIsActiveGenteGrande === false) {
 
             content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton">';
-            content += '<h1 class="h1-titulo" id="titulo">Gente Grande</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">2010</p>';
-            content += '<p class="p-genero1" id="genero1">Comédia</p>';
-            content += '<p class="p-genero1" id="genero2">Besteirol</p>';
+            content += '<h1 class="h1-titulo" id="titulo">' + arrayTitulos[4][1] + '</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + arrayTitulos[4][2] + '</p>';
+            content += '<p class="p-genero1" id="genero1">' + arrayTitulos[4][7] + '</p>';
+            content += '<p class="p-genero1" id="genero2">' + arrayTitulos[4][8] + '</p>';
             
 
             $("#divInfosGenteGrande").append(content);

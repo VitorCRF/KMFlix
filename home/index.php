@@ -59,7 +59,7 @@
             <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" id="modalHeader" name="modalHeader">
                 
                       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
@@ -72,24 +72,20 @@
                     <div class="modal-body">
 
                         <div class="div-modal-infos">
-                            <p class="p-modal-informacao1">2013</p>
-                            <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos">
-                            <p class="p-modal-informacao1">5 Temporadas</p>
+                            <p class="p-modal-informacao1" id="anoModal">2013</p>
+                            <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos" id="idadeModal">
+                            <p class="p-modal-informacao1" id="duracaoModal">5 Temporadas</p>
                         </div>
 
                         <div class="div-sinopse">
-                            <h1 class="h1-sinopse">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h1>
+                            <h1 class="h1-sinopse" id="sinopseModal">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h1>
                         </div>
 
                         <div class="div-right">
 
                             <div class="div-elenco">
-                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos">Bryan Cranston, Aron Paul, Anna Gunn, mais...</h3> 
-                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos">Séries dramáticas sobre crimes, Suspense para TV, Séries dramáticas</h3>
-                            </div>
-    
-                            <div class="div-elenco">
-                                
+                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal">Bryan Cranston, Aron Paul, Anna Gunn, mais...</h3> 
+                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal">Séries dramáticas sobre crimes, Suspense para TV, Séries dramáticas</h3>
                             </div>
 
                         </div>
@@ -117,7 +113,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel">
+                    <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosVikings"></div>
                 </div>
                     <div><img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel">
