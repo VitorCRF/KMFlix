@@ -13,7 +13,8 @@ $(document).ready(function() {
 });
 
 function emailSucess() {
-
-    console.log("Email de confirmação enviado.")
-    console.log(email)
+  
+  console.log("email de confirmação de conta enviado. email: " + email)
+  
 }
+

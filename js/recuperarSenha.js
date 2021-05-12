@@ -45,6 +45,7 @@ function comunicaPhp() {
 
 function emailSucess() {
 
+    console.log("ajax de email de recuperar senha enviado")
     window.location="../html/confirmacaoRecuperarSenha.html";
 
 }
