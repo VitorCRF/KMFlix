@@ -17,7 +17,6 @@
         <link rel="shortcut icon" href="../public/logo.png">
 
         <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <!--carousel links-->
@@ -30,8 +29,8 @@
     </head>
 
     <body>
-            
-        <div class="div-header">
+
+        <div class="div-header" id="divHomeHeader">
 
             <div>
                 <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
@@ -49,16 +48,25 @@
                 <img src="../public/icons/white_search_icon.png" alt="search icon" class="icon-header" onclick="searchInput()">
             </div>
 
+            <div class="informacoes-titulo-header">
+                <h1 class="nome-titulo-header" id="nomeTituloHeader">Breaking Bad</h1>
+                <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h2>
+                <button class="botao-assistir-header" title="Assistir">Assistir</button>
+                <button class="botao-minha-lista-header" title="Minha lista"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+            </div>
+
         </div>
 
+        <!--<div class="div-active-wallpaper"> 
         
+            <img class="imagem-active-wallpaper" src="../public/img/vikings.jpg" alt="wallpaper" style="height: 30rem; width:100%; margin-bottom: 2rem;">
+            
+        </div>-->
 
-        <div class="div-container">
-
-            <!-- Modal -->
-            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+        <!-- Modal -->
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header" id="modalHeader" name="modalHeader">
                 
                       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -91,12 +99,17 @@
                         </div>
                         
                     </div>
-                    <div class="modal-footer">
-                      
+                    <div class="modal-footer"> 
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
+
+        
+                  
+        <div class="div-container">
+
+        
 
             <div class="carousel">
 
@@ -124,11 +137,11 @@
                     <div class="div-infos-slide" id="divInfosInterestellar"></div>
                 </div>
                 <div>
-                    <img src="../public/img/gente grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">
+                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">
                     <div class="div-infos-slide" id="divInfosGenteGrande"></div>
                 </div>
                 <div>
-                    <img src="../public/img/as branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel">
+                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel">
                     <div class="div-infos-slide" id="divInfosAsBranquelas"></div>
                 </div>
                 <div>

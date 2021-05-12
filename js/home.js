@@ -2,9 +2,9 @@
 var arrayTitulos = [
     ['1','Breaking Bad','2013','5 Temporadas','../public/img/breaking bad.jpeg','18','Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.','Suspense','Drama','Séries dramáticas sobre crimes','Suspense para TV','Bryan Cranston','Aron Paul','Anna Gunn','serie'],
     ['2','Vikings','2019','6 Temporadas','../public/img/vikings.jpg','16','Esta série dramática acompanha a vida do viking Ragnar Lothbrok em sua jornada para ampliar o domínio nórdico e desafiar um líder incompetente e sem visão','Violentos','Épico','Empolgantes','Obras de época','Travis Fimmel','Kathryn Winnick','Clive Standem','serie'],
-    ['3','Lost','2010','6 Temporadas','../public/img/lost.jpeg','14','','Ação','Aventura','drama','Ficção científica','Evangeline Lilly','Matthew Fox','Josh Halloway','serie'],
-    ['4','Interstellar','2014','02:49','../public/img/interstellar.jpeg','10','','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
-    ['5','Gente Grande','2010','01:42','..public/img/gente grande.jpeg','12','','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
+    ['3','Lost','2010','6 Temporadas','../public/img/lost.jpg','14','Um avião cai em uma ilha deserta e logo um grupo de passageiros precisa lutar para sobreviver. Liderados pelo médico Jack Shephard e pelo misterioso John Locke, eles irão descobrir que o local esconde perigosos segredos.','Ação','Aventura','drama','Ficção científica','Evangeline Lilly','Matthew Fox','Josh Halloway','serie'],
+    ['4','Interstellar','2014','02:49','../public/img/interestellar.jpg','10','As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie.','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
+    ['5','Gente Grande','2010','01:42','../public/img/gente_grande.jpg','12','A morte do treinador de basquete da infância de velhos amigos os reúne no mesmo lugar que celebraram um campeonato anos atrás. Os amigos, acompanhados de suas esposas e filhos, descobrem que idade não significa o mesmo que maturidade.','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
 ];
 var searchInputIsActive = false;
 var textInput = "";
@@ -25,6 +25,8 @@ $(document).ready(function() {
       })
 
     var content = "";
+
+    ajaxRecuperarTitulos();
     
     $("#slick-slide00").hover(function() {
 
@@ -40,7 +42,13 @@ $(document).ready(function() {
             $("#divInfosBreakingBad").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveBreakingBad = true;
-            console.log("breaking " + infoSlideIsActiveBreakingBad)
+            
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[0][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[0][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[0][6])
         }
         else {
             $("#playButton").remove();
@@ -82,6 +90,13 @@ $(document).ready(function() {
             $("#divInfosVikings").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveVikings = true;
+
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[1][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[1][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[1][6])
         }
         else {
             $("#playButton").remove();
@@ -122,6 +137,13 @@ $(document).ready(function() {
             $("#divInfosLost").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveLost = true;
+
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[2][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[2][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[2][6])
         }
         else {
             $("#playButton").remove();
@@ -149,6 +171,13 @@ $(document).ready(function() {
             $("#divInfosInterestellar").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveInterestellar = true;
+
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[3][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[3][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[3][6])
         }
         else {
             $("#playButton").remove();
@@ -176,6 +205,13 @@ $(document).ready(function() {
             $("#divInfosGenteGrande").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveGenteGrande = true;
+
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[4][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[4][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[4][6])
         }
         else {
             $("#playButton").remove();
@@ -204,6 +240,13 @@ $(document).ready(function() {
             $("#divInfosAsBranquelas").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
             content = "";
             infoSlideIsActiveAsBranquelas = true;
+
+            document.getElementById("divHomeHeader").removeAttribute("style");
+            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[5][4] + ")");
+            $("#divHomeHeader").css("background-size", "100%");
+
+            $("#nomeTituloHeader").text(arrayTitulos[5][1])
+            $("#sinopseTituloHeader").text(arrayTitulos[5][6])
         }
         else {
             $("#playButton").remove();
@@ -246,6 +289,22 @@ $(document).ready(function() {
     })
 
 })
+
+function ajaxRecuperarTitulos() {
+
+    $.ajax({
+        type: "POST",
+        url: "../php/home.php",
+        dataType: "json",
+        success: function(data) {
+            try {
+                data = JSON.parse(data);
+            }catch(e) {}
+            console.log(data);
+        }
+    })
+
+}
 
 function carouselSlick() {
     $(".carousel").slick({
