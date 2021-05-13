@@ -74,7 +74,7 @@
                         <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
                       </button>
 
-                      <button class="botao-assistir" title="Assistir">Assistir</button>
+                      <button class="botao-assistir" title="Assistir" id="botaoAssistir" onclick="chamarReproducao(this.id)">Assistir</button>
                       <button class="botao-redondo" title="Minha Lista"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
 
                     </div>
