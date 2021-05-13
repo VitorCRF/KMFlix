@@ -40,6 +40,7 @@
                 <a href="../home/index.html" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
                 <a href="../home/series/" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
                 <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
+                <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Favoritos</p></a>
             </div>
 
             <a href="../html/minhaConta.php"><img src="../public/icons/white_user_icon.png" alt="user icon" class="icon-header"></a>
