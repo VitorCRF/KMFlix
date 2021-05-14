@@ -207,7 +207,7 @@ function enviarInfos() {
                 nome: nome,
                 nascimento: dataNascimento,
                 email: email,
-                senha: senha   
+                senha: senha
             },   
             success: ajaxSuccess()
     })
