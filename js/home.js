@@ -19,15 +19,19 @@ var infoSlideIsActiveDark = false;
 
 $(document).ready(function() {
 
-    listaTitulos();
-
-     function listaTitulos(){
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: '../php/listarTitulo.php',
-            success: function(retorno){
-                
+    
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '../php/listarTitulo.php',
+        success: function(retorno){
+            listaTitulos(retorno);
+        },
+        error: function() {
+            alert("erro");
+        }
+    })
+    function listaTitulos(retorno){         
                 $("#imgBreakingBad").append('<img src="../'+retorno[0].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
                 $("#imgVikings").append('<img src="../'+retorno[1].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
                 $("#imgLost").append('<img src="../'+retorno[2].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
@@ -272,12 +276,7 @@ $(document).ready(function() {
                     document.getElementById("modalHeader").removeAttribute("style");
                     $('#modalHeader').css("background-image", "url(" + retorno[1][4] + ")"); 
             
-                })
-            },
-            error: function() {
-                alert("erro");
-            }
-        });
+                })    
     }
     carouselSlick();
 
@@ -288,10 +287,6 @@ $(document).ready(function() {
     var content = "";
 
     ajaxRecuperarTitulos();
-
-    
-
-    
 
 })
 
