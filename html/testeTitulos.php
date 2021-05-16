@@ -13,9 +13,18 @@
     </span>
     <script>
         $(document).ready(function(){
-            $.post('../php/listarTitulo.php', function(retorna){
-                $("#conteudo").html(retorna);
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '../php/listarTitulo.php',
+                success: function(retorno){
+                   console.log(retorno);
+                },
+                error: function(retorno) {
+                    alert("erro");
+                }
             });
+
         });
     </script>
 </body>

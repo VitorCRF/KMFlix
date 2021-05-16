@@ -33,6 +33,7 @@ function enviaDados(formulario){
                 }
                 else
                 {
+                    console.log("não entrou");
                     alert(retorno.mensagem);
                 }
         }

@@ -81,9 +81,9 @@
                     <div class="modal-body">
 
                         <div class="div-modal-infos">
-                            <p class="p-modal-informacao1" id="anoModal">2013</p>
+                            <p class="p-modal-informacao1" id="anoModal"></p>
                             <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos" id="idadeModal">
-                            <p class="p-modal-informacao1" id="duracaoModal">5 Temporadas</p>
+                            <p class="p-modal-informacao1" id="duracaoModal"></p>
                         </div>
 
                         <div class="div-sinopse">

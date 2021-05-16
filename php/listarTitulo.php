@@ -5,23 +5,27 @@ include_once "config.php";
 $result_titulo = "SELECT * FROM titulos";
 
 $resultado = mysqli_query($link, $result_titulo);
-
+$titulo['id'] = "";
+$retorno['id'] = "";
 if(($resultado) AND ($resultado -> num_rows) != 0){
     while($row_titulo = mysqli_fetch_assoc($resultado)){
-        echo $row_titulo['titulo'] . "<br>";
-        echo $row_titulo['ano_lancamento'] . "<br>";
-        echo $row_titulo['tempo_duracao'] . "<br>";
-        echo $row_titulo['classificacao'] . "<br>";
-        echo $row_titulo['genero1'] . "<br>";
-        echo $row_titulo['genero2'] . "<br>";
-        echo $row_titulo['genero3'] . "<br>";
-        echo $row_titulo['genero4'] . "<br>";
-        echo $row_titulo['ator1'] . "<br>";
-        echo $row_titulo['ator2'] . "<br>";
-        echo $row_titulo['ator3'] . "<br>";
-        echo $row_titulo['especie'] . "<hr>";
+        $titulo['id'] = $row_titulo['id'];
+        $titulo['titulo'] = $row_titulo['titulo'];
+        $titulo['ano_lancamento'] = $row_titulo['ano_lancamento'];
+        $titulo['tempo_duracao'] = $row_titulo['tempo_duracao'];
+        $titulo['classificacao'] = $row_titulo['classificacao'];
+        $titulo['genero2'] = $row_titulo['genero2'];
+        $titulo['ator1'] = $row_titulo['ator1'];
+        $titulo['ator2'] = $row_titulo['ator2'];
+        $titulo['ator3'] = $row_titulo['ator3'];
+        $titulo['especie'] = $row_titulo['especie'];  
+        $titulo['sinopse'] = $row_titulo['sinopse'];  
+
+        array_push($retorno, $titulo);
     }
-}else{
+}
+else{
     echo "Nenhum título foi encontrado!";
 }
+echo json_encode($retorno);
 ?>
