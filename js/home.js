@@ -24,6 +24,14 @@ $(document).ready(function() {
         dataType: 'json',
         url: '../php/listarTitulo.php',
         success: function(retorno){
+            
+            $("#imgBreakingBad").append('<img src="../'+retorno[0].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
+            $("#imgVikings").append('<img src="../'+retorno[1].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+            $("#imgLost").append('<img src="../'+retorno[2].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+            $("#imgInterestellar").append('<img src="../'+retorno[3].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+            $("#imgGenteGrande").append('<img src="../'+retorno[4].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+            $("#imgAsBranquelas").append('<img src="../'+retorno[5].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+
             $(".slick-slide").hover(function() {
                 var getId = this.id;
                 console.log(getId)        
@@ -183,6 +191,7 @@ $(document).ready(function() {
         
                 else if (getId === "slick-slide05") {
                     if (infoSlideIsActiveAsBranquelas === false) {
+                        
                         content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton'+retorno[5].id+'" onclick="chamarReproducao(this.id)">';
                         content += '<h1 class="h1-titulo" id="titulo">' + retorno[5].titulo +'</h1>';
                         content += '<p class="p-ano-lancamento" id="ano">' + retorno[5].ano_lancamento + '</p>';
@@ -235,7 +244,7 @@ $(document).ready(function() {
                 }
             })
         
-            $("#slick-slide00").click(function() {
+            $("#imgBreakingBad").click(function() {
         
                 $("#anoModal").text(retorno[0].ano_lancamento);
                 $("#duracaoModal").text(retorno[0].tempo_duracao);

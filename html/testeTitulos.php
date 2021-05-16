@@ -18,7 +18,7 @@
                 dataType: 'json',
                 url: '../php/listarTitulo.php',
                 success: function(retorno){
-                   console.log(retorno);
+                    $("#conteudo").html('<img src="../'+retorno[1].wallpaper+'" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">')
                 },
                 error: function(retorno) {
                     alert("erro");

@@ -87,14 +87,14 @@
                         </div>
 
                         <div class="div-sinopse">
-                            <h1 class="h1-sinopse" id="sinopseModal">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h1>
+                            <h1 class="h1-sinopse" id="sinopseModal"></h1>
                         </div>
 
                         <div class="div-right">
 
                             <div class="div-elenco">
-                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal">Bryan Cranston, Aron Paul, Anna Gunn, mais...</h3> 
-                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal">Séries dramáticas sobre crimes, Suspense para TV, Séries dramáticas</h3>
+                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal"></h3> 
+                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal"></h3>
                             </div>
 
                         </div>
@@ -115,7 +115,7 @@
             <div class="carousel">
 
                 <div>
-                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
+                <div id="imgBreakingBad"></div>
                     <div class="div-infos-slide" id="divInfosBreakingBad">
                         <!--
                             <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">

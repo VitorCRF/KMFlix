@@ -12,6 +12,7 @@ if(($resultado) AND ($resultado -> num_rows) != 0){
         $titulo['id'] = $row_titulo['id'];
         $titulo['titulo'] = $row_titulo['titulo'];
         $titulo['ano_lancamento'] = $row_titulo['ano_lancamento'];
+        $titulo['wallpaper'] = $row_titulo['wallpaper'];
         $titulo['tempo_duracao'] = $row_titulo['tempo_duracao'];
         $titulo['classificacao'] = $row_titulo['classificacao'];
         $titulo['genero2'] = $row_titulo['genero2'];
