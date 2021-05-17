@@ -33,11 +33,11 @@
         <div class="div-header" id="divHomeHeader">
 
             <div>
-                <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
             </div>
 
             <div class="div-opcoes-header">
-                <a href="../home/index.html" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
+                <a href="../home/index.php" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
                 <a href="../home/series/" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
                 <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
             </div>
@@ -51,8 +51,8 @@
             <div class="informacoes-titulo-header">
                 <h1 class="nome-titulo-header" id="nomeTituloHeader">Breaking Bad</h1>
                 <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h2>
-                <button class="botao-assistir-header" title="Assistir">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH1" onclick="chamarReproducao(this.id)">Assistir</button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
             </div>
 
         </div>
@@ -107,11 +107,63 @@
 
         
                   
-        <div class="div-container">
+        <div class="div-container-slick">
 
-        
+            <h1 class="titulo-carousel">Recomendações</h1>
+            <div class="carousel" id="carouselRecomedacoes">
 
-            <div class="carousel">
+                <div>
+                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
+                    <div class="div-infos-slide" id="divInfosBreakingBad">
+                        <!--
+                            <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">
+                            <h1 class="h1-titulo">Breaking Bad</h1>
+                            <p class="p-ano-lancamento">2013</p>
+                            <p class="p-genero1">Suspense</p>
+                            <p class="p-genero1">Drama</p>
+                        -->
+                    </div>
+                </div>
+                <div>
+                    <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
+                    <div class="div-infos-slide" id="divInfosVikings"></div>
+                </div>
+                    <div><img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel">
+                    <div class="div-infos-slide" id="divInfosLost"></div>
+                </div>
+                <div>
+                    <img src="../public/img/interestellar.jpg" width="100%" height="100%" alt="interestellar poster" class="imagem-carousel">
+                    <div class="div-infos-slide" id="divInfosInterestellar"></div>
+                </div>
+                <div>
+                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">
+                    <div class="div-infos-slide" id="divInfosGenteGrande"></div>
+                </div>
+                <div>
+                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel">
+                    <div class="div-infos-slide" id="divInfosAsBranquelas"></div>
+                </div>
+                <div>
+                    <img src="../public/img/dark.png" width="100%" height="100%" alt="dark wallpaper" class="imagem-carousel">
+                    <div class="div-infos-slide" id="divInfosDark"></div>
+                </div>
+                <div>
+                    <h1>8</h1>
+                    <div class="div-infos-slide"></div>
+                </div>
+                <div>
+                    <h1>9</h1>
+                    <div class="div-infos-slide"></div>
+                </div>
+                <div>
+                    <h1>10</h1>
+                    <div class="div-infos-slide"></div>
+                </div>
+
+            </div>
+
+            <h1 class="titulo-carousel">Minha lista</h1>
+            <div class="carousel" id="carouselMinhaLista">
 
                 <div>
                     <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">

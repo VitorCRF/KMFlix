@@ -29,7 +29,7 @@
         <header>
             <div class="div-header">
                 <div>
-                    <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                    <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
                 </div>
                 
                 <img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon">

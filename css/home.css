@@ -4,7 +4,7 @@
     height: 45rem;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212),
     url('../public/img/breaking\ bad\ wallpaper.jpg');
-    background-size: 100% 45rem;
+    background-size: 100% ;
     background-repeat: no-repeat;
 }
 
@@ -131,6 +131,16 @@
 }*/
 
 /* carousel */
+.div-container-slick {
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: center;
+}
+
 .carousel {
     width: 90%;
     padding-top: 2rem;
@@ -159,6 +169,13 @@
 
 .imagem-carousel:hover {
     cursor: pointer;
+}
+
+.titulo-carousel{
+    color: var(--gray-line);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    size: 0.8rem;
+    padding-left: 2rem;
 }
 
 .titulo-serie {
