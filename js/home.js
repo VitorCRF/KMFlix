@@ -6,6 +6,9 @@ var arrayTitulos = [
     ['4','Interstellar','2014','02:49','../public/img/interestellar.jpg','10','As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie.','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
     ['5','Gente Grande','2010','01:42','../public/img/gente_grande.jpg','12','A morte do treinador de basquete da infância de velhos amigos os reúne no mesmo lugar que celebraram um campeonato anos atrás. Os amigos, acompanhados de suas esposas e filhos, descobrem que idade não significa o mesmo que maturidade.','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
 ];
+var minhaLista = [
+    
+]
 var searchInputIsActive = false;
 var textInput = "";
 var infoSlideIsActiveBreakingBad = false;
@@ -46,6 +49,8 @@ $(document).ready(function() {
                 $("#divInfosBreakingBad").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
                 content = "";
                 infoSlideIsActiveBreakingBad = true;
+
+                $(".botao-assistir-header").attr("id", "botaoAssistirH"+arrayTitulos[0][0]);
                 
                 document.getElementById("divHomeHeader").removeAttribute("style");
                 $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[0][4] + ")");
@@ -78,6 +83,8 @@ $(document).ready(function() {
                 $("#divInfosVikings").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
                 content = "";
                 infoSlideIsActiveVikings = true;
+
+                $(".botao-assistir-header").attr("id", "botaoAssistirH"+arrayTitulos[1][0]);
     
                 document.getElementById("divHomeHeader").removeAttribute("style");
                 $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[1][4] + ")");
@@ -110,6 +117,8 @@ $(document).ready(function() {
                 $("#divInfosLost").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
                 content = "";
                 infoSlideIsActiveLost = true;
+
+                $(".botao-assistir-header").attr("id", "botaoAssistirH"+arrayTitulos[2][0]);
     
                 document.getElementById("divHomeHeader").removeAttribute("style");
                 $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[2][4] + ")");
@@ -142,6 +151,8 @@ $(document).ready(function() {
                 $("#divInfosInterestellar").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
                 content = "";
                 infoSlideIsActiveInterestellar = true;
+
+                $(".botao-assistir-header").attr("id", "botaoAssistirH"+arrayTitulos[3][0]);
     
                 document.getElementById("divHomeHeader").removeAttribute("style");
                 $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + arrayTitulos[3][4] + ")");
@@ -301,60 +312,64 @@ function ajaxRecuperarTitulos() {
 }
 
 function carouselSlick() {
-    $(".carousel").slick({
-        dots: true,
-        infinite: true,
-        speed: 200,
-        slidesToShow: 5,
-        slidesToScroll: 5,
-        variableWidth: true,
-        adaptiveHeight: true,
-        
-        responsive: [
-
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4,
-                    infinite: true,
-                    dots: true,
+    var carousel = $(".carousel");
+    carousel.each(function() {
+        $(this).slick({
+            dots: true,
+            infinite: true,
+            speed: 200,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            variableWidth: true,
+            adaptiveHeight: true,
+            
+            responsive: [
+    
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                        infinite: true,
+                        dots: true,
+                    }
+                },
+    
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true,
+                    }
+                },
+    
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true,
+                    }
+                },
+    
+                {
+                    breakpoint: 400,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: false,
+                    }
                 }
-            },
-
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true,
-                }
-            },
-
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                    dots: true,
-                }
-            },
-
-            {
-                breakpoint: 400,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false,
-                }
-            }
-
-        ]
+    
+            ]
+        })
 
     })
+    
 }
 
 function searchInput() {
