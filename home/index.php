@@ -40,6 +40,7 @@
                 <a href="../home/index.php" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
                 <a href="../home/series/" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
                 <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
+                <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Favoritos</p></a>
             </div>
 
             <a href="../html/minhaConta.php"><img src="../public/icons/white_user_icon.png" alt="user icon" class="icon-header"></a>
@@ -80,20 +81,20 @@
                     <div class="modal-body">
 
                         <div class="div-modal-infos">
-                            <p class="p-modal-informacao1" id="anoModal">2013</p>
+                            <p class="p-modal-informacao1" id="anoModal"></p>
                             <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos" id="idadeModal">
-                            <p class="p-modal-informacao1" id="duracaoModal">5 Temporadas</p>
+                            <p class="p-modal-informacao1" id="duracaoModal"></p>
                         </div>
 
                         <div class="div-sinopse">
-                            <h1 class="h1-sinopse" id="sinopseModal">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h1>
+                            <h1 class="h1-sinopse" id="sinopseModal"></h1>
                         </div>
 
                         <div class="div-right">
 
                             <div class="div-elenco">
-                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal">Bryan Cranston, Aron Paul, Anna Gunn, mais...</h3> 
-                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal">Séries dramáticas sobre crimes, Suspense para TV, Séries dramáticas</h3>
+                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal"></h3> 
+                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal"></h3>
                             </div>
 
                         </div>
@@ -166,7 +167,7 @@
             <div class="carousel" id="carouselMinhaLista">
 
                 <div>
-                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
+                <div id="imgBreakingBad"></div>
                     <div class="div-infos-slide" id="divInfosBreakingBad">
                         <!--
                             <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">

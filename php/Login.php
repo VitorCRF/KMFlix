@@ -26,13 +26,14 @@
 
 		$retorno["status"] = "s";
 		$retorno["mensagem"] = "Usuario autenticado com sucesso!";
+		echo json_encode($retorno);
 		
 		
 	}
 	print_r ($_SESSION);
 	
 
-	echo json_encode($retorno);
+	
 
 	
 
