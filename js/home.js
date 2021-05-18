@@ -1,10 +1,10 @@
-
 /*var retorno = [
     ['1','Breaking Bad','2013','5 Temporadas','../public/img/breaking bad.jpeg','18','Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.','Suspense','Drama','Séries dramáticas sobre crimes','Suspense para TV','Bryan Cranston','Aron Paul','Anna Gunn','serie'],
     ['2','Vikings','2019','6 Temporadas','../public/img/vikings.jpg','16','Esta série dramática acompanha a vida do viking Ragnar Lothbrok em sua jornada para ampliar o domínio nórdico e desafiar um líder incompetente e sem visão.','Violentos','Épico','Empolgantes','Obras de época','Travis Fimmel','Kathryn Winnick','Clive Standem','serie'],
     ['3','Lost','2010','6 Temporadas','../public/img/lost.jpg','14','Um avião cai em uma ilha deserta e logo um grupo de passageiros precisa lutar para sobreviver. Liderados pelo médico Jack Shephard e pelo misterioso John Locke, eles irão descobrir que o local esconde perigosos segredos.','Ação','Aventura','drama','Ficção científica','Evangeline Lilly','Matthew Fox','Josh Halloway','serie'],
     ['4','Interstellar','2014','02:49','../public/img/interestellar.jpg','10','As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie.','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
     ['5','Gente Grande','2010','01:42','../public/img/gente_grande.jpg','12','A morte do treinador de basquete da infância de velhos amigos os reúne no mesmo lugar que celebraram um campeonato anos atrás. Os amigos, acompanhados de suas esposas e filhos, descobrem que idade não significa o mesmo que maturidade.','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
+];*/
 
 var searchInputIsActive = false;
 var textInput = "";
@@ -17,6 +17,26 @@ var infoSlideIsActiveAsBranquelas = false;
 var infoSlideIsActiveDark = false;
 
 $(document).ready(function() {
+
+    
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '../php/listarTitulo.php',
+        success: function(retorno){
+            listaTitulos(retorno);
+        },
+        error: function() {
+            alert("erro");
+        }
+    })
+    function listaTitulos(retorno){         
+                $("#imgBreakingBad").append('<img src="../'+retorno[0].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
+                $("#imgVikings").append('<img src="../'+retorno[1].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+                $("#imgLost").append('<img src="../'+retorno[2].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+                $("#imgInterestellar").append('<img src="../'+retorno[3].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+                $("#imgGenteGrande").append('<img src="../'+retorno[4].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
+                $("#imgAsBranquelas").append('<img src="../'+retorno[5].wallpaper+'" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
     
                 $(".slick-slide").hover(function() {
                     var getId = this.id;
@@ -28,6 +48,14 @@ $(document).ready(function() {
                             content += '<p class="p-ano-lancamento" id="ano">' + retorno[0].ano_lancamento + '</p>';
                             content += '<p class="p-genero1" id="genero1">' + retorno[0].genero2 +'</p>';
                 
+                            $("#divInfosBreakingBad").append(content);
+                            $("#divInfosBreakingBad").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
+                            content = "";
+                            infoSlideIsActiveBreakingBad = true;
+                            
+                            document.getElementById("divHomeHeader").removeAttribute("style");
+                            $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(" + retorno[0][4] + ")");
+                            $("#divHomeHeader").css("background-size", "100%");
                 
                             $("#nomeTituloHeader").text(retorno[0].titulo)
                             $("#sinopseTituloHeader").text(retorno[0].sinopse)
@@ -280,62 +308,62 @@ function ajaxRecuperarTitulos() {
 function carouselSlick() {
     var carousel = $(".carousel");
     carousel.each(function() {
-        $(this).slick({
+        $(this).slick ({
             dots: true,
-            infinite: true,
-            speed: 200,
-            slidesToShow: 5,
-            slidesToScroll: 5,
-            variableWidth: true,
-            adaptiveHeight: true,
-            
-            responsive: [
-    
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
-                        infinite: true,
-                        dots: true,
-                    }
-                },
-    
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true,
-                    }
-                },
-    
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
-                        infinite: true,
-                        dots: true,
-                    }
-                },
-    
-                {
-                    breakpoint: 400,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false,
-                    }
+        infinite: true,
+        speed: 200,
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        variableWidth: true,
+        adaptiveHeight: true,
+        
+        responsive: [
+
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    infinite: true,
+                    dots: true,
                 }
-    
-            ]
+            },
+
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                }
+            },
+
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                }
+            },
+
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            }
+
+        ]
         })
 
     })
-    
+
 }
 
 function searchInput() {
@@ -367,4 +395,3 @@ function chamarReproducao(clickedId) {
     sessionStorage.setItem("playId", clickedId);
     window.location.href = "../home/play/index.html"
 }
-
