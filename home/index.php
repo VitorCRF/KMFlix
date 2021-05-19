@@ -53,7 +53,7 @@
                 <h1 class="nome-titulo-header" id="nomeTituloHeader">Breaking Bad</h1>
                 <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h2>
                 <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH1" onclick="chamarReproducao(this.id)">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
             </div>
 
         </div>
@@ -74,8 +74,8 @@
                         <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
                       </button>
 
-                      <button class="botao-assistir" title="Assistir" id="botaoAssistir" onclick="chamarReproducao(this.id)">Assistir</button>
-                      <button class="botao-redondo" title="Minha Lista"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                      <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
+                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
 
                     </div>
                     <div class="modal-body">
@@ -113,7 +113,7 @@
             <h1 class="titulo-carousel">Recomendações</h1>
             <div class="carousel" id="carouselRecomedacoes">
 
-                <div>
+                <div value="1" target="1">
                     <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosBreakingBad">
                         <!--
@@ -125,38 +125,39 @@
                         -->
                     </div>
                 </div>
-                <div>
+                <div value="2">
                     <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosVikings"></div>
                 </div>
-                    <div><img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel">
+                <div value="3">
+                    <img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosLost"></div>
                 </div>
-                <div>
-                    <img src="../public/img/interestellar.jpg" width="100%" height="100%" alt="interestellar poster" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosInterestellar"></div>
+                <div value="4">
+                    <img src="../public/img/interestellar.jpg" width="100%" height="100%" alt="interestellar poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
+                    <div class="div-infos-slide" id="divInfosInterstellar"></div>
                 </div>
-                <div>
-                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">
+                <div value="5">
+                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosGenteGrande"></div>
                 </div>
-                <div>
-                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel">
+                <div value="6">
+                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosAsBranquelas"></div>
                 </div>
-                <div>
-                    <img src="../public/img/dark.png" width="100%" height="100%" alt="dark wallpaper" class="imagem-carousel">
+                <div value="7">
+                    <img src="../public/img/dark.png" width="100%" height="100%" alt="dark wallpaper" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosDark"></div>
                 </div>
-                <div>
+                <div value="8">
                     <h1>8</h1>
                     <div class="div-infos-slide"></div>
                 </div>
-                <div>
+                <div value="9">
                     <h1>9</h1>
                     <div class="div-infos-slide"></div>
                 </div>
-                <div>
+                <div value="10">
                     <h1>10</h1>
                     <div class="div-infos-slide"></div>
                 </div>
@@ -166,81 +167,14 @@
             <h1 class="titulo-carousel">Minha lista</h1>
             <div class="carousel" id="carouselMinhaLista">
 
-                <div>
-                <div id="imgBreakingBad"></div>
-                    <div class="div-infos-slide" id="divInfosBreakingBad">
-                        <!--
-                            <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">
-                            <h1 class="h1-titulo">Breaking Bad</h1>
-                            <p class="p-ano-lancamento">2013</p>
-                            <p class="p-genero1">Suspense</p>
-                            <p class="p-genero1">Drama</p>
-                        -->
-                    </div>
+                <!--
+                <div id="divMinhaListaInicial">
+                    <h1 class="h1-card-minha-lista">Utilize o botão  <button class="button-add-icon-minha-lista"><img src="../public/icons/white_add_icon.png" class="add-icon-minha-lista"></button></h1>   
+                    <h1 class="h1-card-minha-lista">para adicionar seus filmes e séries favoritos a sua lista</h1>
                 </div>
-                <div>
-                    <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosVikings"></div>
-                </div>
-                    <div><img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosLost"></div>
-                </div>
-                <div>
-                    <img src="../public/img/interestellar.jpg" width="100%" height="100%" alt="interestellar poster" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosInterestellar"></div>
-                </div>
-                <div>
-                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosGenteGrande"></div>
-                </div>
-                <div>
-                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosAsBranquelas"></div>
-                </div>
-                <div>
-                    <img src="../public/img/dark.png" width="100%" height="100%" alt="dark wallpaper" class="imagem-carousel">
-                    <div class="div-infos-slide" id="divInfosDark"></div>
-                </div>
-                <div>
-                    <h1>8</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
-                <div>
-                    <h1>9</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
-                <div>
-                    <h1>10</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
+                -->
 
             </div>
-
-            <!--
-                <div class="div-card">
-
-                <div class="div-imagem-card">
-
-                </div>
-
-                <div class="div-rodape-card">
-
-                    <button onclick="reproduzir()" class="botão-play"><img src="../public/icons/white_play_button.png" alt="play" class="play-icon"></button>
-                    <table>
-
-                        <tr><td><h1 class="titulo-card">titulo 1</h1></td></tr>
-                        <br>
-                        <tr>
-                            <td><p class="genero-card" id="genero1">genero 1</p></td>
-                            <td><p class="genero-card2">genero 2</p></td>
-                        </tr>
-                        
-                    </table>
-
-                </div>
-
-            </div>
-            -->
 
         </div>
 
