@@ -11,7 +11,7 @@ $(document).ready(function () {
             dados = retorno;
         },
         error: function () {
-            alert("erro");
+            alert("erro ao listar séries");
         }
     })
 
@@ -22,15 +22,22 @@ $(document).ready(function () {
 });
 
 function litarSeries(retorno) {
-
+    var length = Object.keys(retorno).length;
     var content = "";
-    content = '<div>';
-    content += '<img src="../../' + retorno[0].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> '
-    content += '</div>';
 
-    $("#carouselSeries1").append(content);
-    $("#carouselSeries1").slick("refresh");
-    content = ""
+    for (var i = 0; i < length; i++) {
+
+        content = '<div>';
+        content += '<img src="../../' + retorno[i].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> '
+        content += '</div>';
+
+        $("#carouselSeries1").append(content);
+        $("#carouselSeries1").slick("refresh");
+        content = ""
+
+    }
+
+    
 }
 
 function carouselSlick() {

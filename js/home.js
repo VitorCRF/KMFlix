@@ -7,6 +7,7 @@
 ];*/
 
 var dados;
+var dadosMinhaLista;
 
 var searchInputIsActive = false;
 var textInput = "";
@@ -21,6 +22,8 @@ var infoSlideIsActiveAsBranquelas = false;
 var infoSlideIsActiveDark = false;
 
 $(document).ready(function () {
+
+    ajaxBuscarMinhaLista();
 
     $.ajax({
         type: 'POST',
@@ -557,11 +560,11 @@ function addMinhaLista(id) {
     $("#carouselMinhaLista").slick("refresh");
     content = "";
 
-    ajaxMinhaLista(id);
+    ajaxEnviarMinhaLista(id);
 
 }
 
-function ajaxMinhaLista(titulo_id) {
+function ajaxEnviarMinhaLista(titulo_id) {
     $.ajax({
         type: 'POST',
         url: '../php/enviarMinhaLista.php',
@@ -574,3 +577,20 @@ function ajaxMinhaLista(titulo_id) {
         }
     })
 }
+
+function ajaxBuscarMinhaLista() {
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '../php/buscarMinhaLista.php',
+        success: function (retornoMinhaLista) {
+            //
+            dadosMinhaLista = retornoMinhaLista;
+            console.log(dadosMinhaLista);
+        },
+        error: function () {
+            alert("erro");
+        }
+    })
+}
+
