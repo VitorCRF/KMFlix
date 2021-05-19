@@ -23,8 +23,6 @@ var infoSlideIsActiveDark = false;
 
 $(document).ready(function () {
 
-    ajaxBuscarMinhaLista();
-
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -37,6 +35,9 @@ $(document).ready(function () {
             alert("erro");
         }
     })
+
+    ajaxBuscarMinhaLista();
+
     function listaTitulos(retorno) {
 
         $("#imgBreakingBad").append('<img src="../' + retorno[0].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
@@ -573,7 +574,7 @@ function ajaxEnviarMinhaLista(titulo_id) {
         },
         success: console.log("ajax minha lista enviado"),
         error: function () {
-            alert("erro");
+            alert("Erro ao enviar os titulos da lista de favoritos.");
         }
     })
 }
@@ -584,13 +585,49 @@ function ajaxBuscarMinhaLista() {
         dataType: 'json',
         url: '../php/buscarMinhaLista.php',
         success: function (retornoMinhaLista) {
-            //
             dadosMinhaLista = retornoMinhaLista;
+            iniciarMinhaLista();
             console.log(dadosMinhaLista);
         },
         error: function () {
             alert("erro");
         }
     })
+}
+
+function iniciarMinhaLista() {
+
+    var length = Object.keys(dadosMinhaLista).length;
+
+    if (length > 0) {
+        
+        for (var i = 0; i < length; i++) {
+
+            var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
+            tituloIdMinhaLista = tituloIdMinhaLista - 1;
+
+            var content;
+
+            content = '<div>'
+            content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+            content += '<div class="div-infos-slide" id="divInfos' + dados[tituloIdMinhaLista].titulo + '">'
+            content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[tituloIdMinhaLista].id + '" onclick="chamarReproducao(this.id)">';
+            content += '<h1 class="h1-titulo" id="titulo">' + dados[tituloIdMinhaLista].titulo + '</h1>';
+            content += '<p class="p-ano-lancamento" id="ano">' + dados[tituloIdMinhaLista].ano_lancamento + '</p>';
+            content += '<p class="p-genero1" id="genero1">' + dados[tituloIdMinhaLista].genero2 + '</p>';
+            content += '</div>'
+            content += '</div>'
+
+            $("#carouselMinhaLista").append(content);
+            $("#carouselMinhaLista").slick("refresh");
+            content = "";
+
+        }
+
+    }
+    else {
+        alert("Não foi possivel recuperar os titulos da lista de favoritos. Recarregue a página para tentar novamente.")
+    }
+
 }
 
