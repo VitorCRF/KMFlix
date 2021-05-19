@@ -557,4 +557,20 @@ function addMinhaLista(id) {
     $("#carouselMinhaLista").slick("refresh");
     content = "";
 
+    ajaxMinhaLista(id);
+
+}
+
+function ajaxMinhaLista(titulo_id) {
+    $.ajax({
+        type: 'POST',
+        url: '../php/enviarMinhaLista.php',
+        data: {
+            titulo_id: titulo_id
+        },
+        success: console.log("ajax minha lista enviado"),
+        error: function () {
+            alert("erro");
+        }
+    })
 }
