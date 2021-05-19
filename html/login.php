@@ -2,9 +2,10 @@
 <?php 
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
-    if($logado)
+    if($logado) {
         header("Location: ../home/index.php"); 
-            
+    }   
+        
 ?>
 <html>
 
