@@ -10,7 +10,7 @@
     $info['id'] = "";
     $retorno['id'] = "";
 
-    if (($buscaInfo) && ($buscaInfo -> num_rows) != 0) {
+    if (($buscaInfo) && (mysqli_num_rows($buscaInfo)) != 0) {
 
         while($result = mysqli_fetch_assoc($buscaInfo)) {
             $info['id'] = $result['id'];
