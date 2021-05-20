@@ -468,8 +468,8 @@ function hoverInfo(id) {
         tituloId = tituloId.replace(/\s+/g, ''); //retira espaços em branco da string
         console.log("tituloId "+tituloId)
 
-        $("#divInfos"+tituloId).append(content);
-        $("#divInfos"+tituloId).attr("class", "div-infos-slide-ativa");
+        //$("#divInfos"+tituloId).append(content);
+        //$("#divInfos"+tituloId).attr("class", "div-infos-slide-ativa");
         content = "";
         infoSlideIsActive = true;
 
@@ -486,11 +486,11 @@ function hoverInfo(id) {
     }
     else {
         $("#divInfos"+tituloId).attr("class", "div-infos-slide");
-        $("#playButton" + dados[id-1].id).remove();
+        /*$("#playButton" + dados[id-1].id).remove();
         $("#titulo").remove();
         $("#ano").remove();
         $("#genero1").remove();
-        $("#genero2").remove();
+        $("#genero2").remove();*/
         
         infoSlideIsActive = false;
     }
@@ -549,12 +549,12 @@ function addMinhaLista(id) {
 
     content = '<div>'
     content += '<img src="../' + dados[id - 1].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-    content += '<div class="div-infos-slide" id="divInfos' + dados[id - 1].titulo + '">'
-    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[id - 1].id + '" onclick="chamarReproducao(this.id)">';
-    content += '<h1 class="h1-titulo" id="titulo">' + dados[id - 1].titulo + '</h1>';
-    content += '<p class="p-ano-lancamento" id="ano">' + dados[id - 1].ano_lancamento + '</p>';
-    content += '<p class="p-genero1" id="genero1">' + dados[id - 1].genero2 + '</p>';
-    content += '</div>'
+    //content += '<div class="div-infos-slide" id="divInfos' + dados[id - 1].titulo + '">'
+    //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[id - 1].id + '" onclick="chamarReproducao(this.id)">';
+    //content += '<h1 class="h1-titulo" id="titulo">' + dados[id - 1].titulo + '</h1>';
+    //content += '<p class="p-ano-lancamento" id="ano">' + dados[id - 1].ano_lancamento + '</p>';
+    //content += '<p class="p-genero1" id="genero1">' + dados[id - 1].genero2 + '</p>';
+    //content += '</div>'
     content += '</div>'
 
     $("#carouselMinhaLista").append(content);
@@ -599,9 +599,11 @@ function iniciarMinhaLista() {
 
     var length = Object.keys(dadosMinhaLista).length;
 
+    console.log("minha lista lenght: "+length)
+
     if (length > 0) {
         
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i < length-1; i++) {
 
             var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
             tituloIdMinhaLista = tituloIdMinhaLista - 1;
@@ -610,12 +612,12 @@ function iniciarMinhaLista() {
 
             content = '<div>'
             content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-            content += '<div class="div-infos-slide" id="divInfos' + dados[tituloIdMinhaLista].titulo + '">'
-            content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[tituloIdMinhaLista].id + '" onclick="chamarReproducao(this.id)">';
-            content += '<h1 class="h1-titulo" id="titulo">' + dados[tituloIdMinhaLista].titulo + '</h1>';
-            content += '<p class="p-ano-lancamento" id="ano">' + dados[tituloIdMinhaLista].ano_lancamento + '</p>';
-            content += '<p class="p-genero1" id="genero1">' + dados[tituloIdMinhaLista].genero2 + '</p>';
-            content += '</div>'
+            //content += '<div class="div-infos-slide" id="divInfos' + dados[tituloIdMinhaLista].titulo + '">'
+            //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[tituloIdMinhaLista].id + '" onclick="chamarReproducao(this.id)">';
+            //content += '<h1 class="h1-titulo" id="titulo">' + dados[tituloIdMinhaLista].titulo + '</h1>';
+            //content += '<p class="p-ano-lancamento" id="ano">' + dados[tituloIdMinhaLista].ano_lancamento + '</p>';
+            //content += '<p class="p-genero1" id="genero1">' + dados[tituloIdMinhaLista].genero2 + '</p>';
+            //content += '</div>'
             content += '</div>'
 
             $("#carouselMinhaLista").append(content);
