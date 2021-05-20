@@ -4,7 +4,6 @@
             if (!$logado){
                 header("Location: ../html/login.php"); 
             }
-            
 ?>
 <html>
 
@@ -25,7 +24,98 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css">
         
-        <script type="text/javascript" src="../../js/home.js"></script>
+        <script type="text/javascript" src="../../js/filmes.js"></script>
     </head>
+
+    <body>
+
+        <div class="div-header" id="divHomeHeader" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url('../../public/img/as_branquelas.jpg')">
+
+            <div>
+                <a href="../home/index.php"><img src="../../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
+            </div>
+
+            <div class="div-opcoes-header">
+                <a href="../index.php" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
+                <a href="../series" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
+                <a href="index.php" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
+                <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Favoritos</p></a>
+            </div>
+
+            <a href="../../html/minhaConta.php"><img src="../../public/icons/white_user_icon.png" alt="user icon" class="icon-header"></a>
+
+            <div id="divSearch">
+                <img src="../../public/icons/white_search_icon.png" alt="search icon" class="icon-header" onclick="searchInput()">
+            </div>
+
+            <div class="informacoes-titulo-header">
+                <h1 class="nome-titulo-header" id="nomeTituloHeader">As Branquelas</h1>
+                <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Dois irmaos agentes do FBI, Marcus e Kevin Copeland, acidentalmente evitam que bandidos sejam presos em uma apreensao de drogas.</h2>
+                <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH6" onclick="chamarReproducao(this.id)">Assistir</button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH6" onclick="chamarAddMinhaLista(this.value)" value="6"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+            </div>
+
+        </div>
+
+        <!--<div class="div-active-wallpaper"> 
+        
+            <img class="imagem-active-wallpaper" src="../public/img/vikings.jpg" alt="wallpaper" style="height: 30rem; width:100%; margin-bottom: 2rem;">
+            
+        </div>-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader" name="modalHeader">
+                
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <img src="../../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
+                      </button>
+
+                      <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
+                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="div-modal-infos">
+                            <p class="p-modal-informacao1" id="anoModal"></p>
+                            <img src="../../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos" id="idadeModal">
+                            <p class="p-modal-informacao1" id="duracaoModal"></p>
+                        </div>
+
+                        <div class="div-sinopse">
+                            <h1 class="h1-sinopse" id="sinopseModal"></h1>
+                        </div>
+
+                        <div class="div-right">
+
+                            <div class="div-elenco">
+                                <h2 class="h2-titulo-infos">Elenco:</h2> <h3 class="h3-info-infos" id="elencoModal"></h3> 
+                                <h2 class="h2-titulo-infos">Gêneros:</h2> <h3 class="h3-info-infos" id="generosModal"></h3>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+                  
+        <div class="div-container-slick">
+
+            <h1 class="titulo-carousel">Filmes</h1>
+            <div class="carousel" id="carouselSeries1">
+
+            </div>
+
+        </div>
+    
+    </body>
 
 </html>

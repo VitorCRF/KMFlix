@@ -28,8 +28,8 @@ $(document).ready(function () {
         dataType: 'json',
         url: '../php/listarTitulo.php',
         success: function (retorno) {
-            listaTitulos(retorno);
             dados = retorno;
+            listaTitulos(retorno);
         },
         error: function () {
             alert("erro");

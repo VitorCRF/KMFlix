@@ -29,7 +29,7 @@
 
     <body>
 
-        <div class="div-header" id="divHomeHeader">
+        <div class="div-header" id="divHomeHeader" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url('../../public/img/dark.png')">
 
             <div>
                 <a href="../home/index.php"><img src="../../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
@@ -38,7 +38,7 @@
             <div class="div-opcoes-header">
                 <a href="../index.php" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
                 <a href="index.php" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
-                <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
+                <a href="../filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
                 <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Favoritos</p></a>
             </div>
 
@@ -49,10 +49,10 @@
             </div>
 
             <div class="informacoes-titulo-header">
-                <h1 class="nome-titulo-header" id="nomeTituloHeader">Breaking Bad</h1>
-                <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h2>
-                <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH1" onclick="chamarReproducao(this.id)">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <h1 class="nome-titulo-header" id="nomeTituloHeader">Dark</h1>
+                <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Quatro famílias iniciam uma desesperada busca por respostas quando uma criança desaparece e um complexo mistério envolvendo três gerações começa a se revelar.</h2>
+                <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH7" onclick="chamarReproducao(this.id)">Assistir</button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH7" onclick="chamarAddMinhaLista(this.value)" value="7"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
             </div>
 
         </div>
@@ -70,7 +70,7 @@
                     <div class="modal-header" id="modalHeader" name="modalHeader">
                 
                       <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
+                        <img src="../../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon"> 
                       </button>
 
                       <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
