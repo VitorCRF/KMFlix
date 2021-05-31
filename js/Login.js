@@ -29,11 +29,9 @@ function enviaDados(formulario){
                 if(retorno.status == "s")
                 {
                     window.location.href = "../home/index.php";
-                    console.log("redirecionou login");
                 }
                 else
                 {
-                    console.log("não entrou");
                     alert(retorno.mensagem);
                 }
         }

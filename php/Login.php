@@ -11,7 +11,7 @@
 
 	$resultado = mysqli_query($link, "SELECT * FROM user where email = '$email' AND senha = '$senha'");
 	$retorno["status"] = "n";
-	$retorno["mensagem"] = "Usuario ou senha invalido!";
+	$retorno["mensagem"] = "Usuario ou senha inválidos!";
 
 	if(mysqli_num_rows($resultado) > 0){
 		$registro = mysqli_fetch_assoc($resultado);
@@ -26,15 +26,10 @@
 
 		$retorno["status"] = "s";
 		$retorno["mensagem"] = "Usuario autenticado com sucesso!";
-		echo json_encode($retorno);
-		
-		
+	
 	}
-	print_r ($_SESSION);
 	
-
-	
-
+	echo json_encode($retorno);
 	
 
 ?>

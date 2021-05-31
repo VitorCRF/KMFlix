@@ -37,31 +37,31 @@
                 <table id="tableCartao">                   
                     <tr id="rowNome">
                         <td colspan="2">
-                            <label for="Nome">Nome </label>
+                            <label for="Nome" class="labelCadastro">Nome </label>
                             <input class="form-control" name="nome" id="Nome" type="text" placeholder="Nome Completo" ">
                         </td>
                     </tr>
                     <tr id="rowCpf">
                         <td colspan="2">
-                            <label for="CPF">CPF</label>
+                            <label for="CPF" class="labelCadastro">CPF</label>
                             <input class="form-control" name="cpf" id="CPF" type="text" placeholder="Apenas números" ">
 
                         </td>
                     </tr>
                     <tr id="rowCartao">
                         <td colspan="2">
-                            <label for="Cartao">Número do cartão</label>
+                            <label for="Cartao" class="labelCadastro">Número do cartão</label>
                             <input class="form-control" name="numeroCartao" id="Cartao" type="text" placeholder="ex: 8888 8888 9999 9999"">
                         </td>
                     </tr>
                     <tr id="rowCcv">
                         <td>
-                            <label for="DigitoCartao">CCV</label>
+                            <label for="DigitoCartao" class="labelCadastro">CCV</label>
                             <input class="form-control verifica" name="verificador" id="DigitoCartao" type="text" size="5" placeholder="ex: 932"">
 
                         </td>
                         <td>
-                            <label for="Validade">Validade</label>
+                            <label for="Validade" class="labelCadastro">Validade</label>
                             <input class="form-control verifica" name="validade" id="Validade" type="text" size="5" placeholder="mm/aa"">
                         </td>
                     </tr>
