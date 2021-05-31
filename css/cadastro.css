@@ -72,19 +72,19 @@ table{
     border-spacing: 0.9rem;
 }
 @media screen and (min-width:280px) {
-    label{
+    .labelCadastro{
         width: 22rem;
         margin-top: .8rem;
     }
 }
 @media screen and (min-width:480px) {
-    label{
+    .labelCadastro{
         width: 32rem;
         margin-top: .8rem;
     }
 }
 @media screen and (min-width:800px) {
-    label{
+    .labelCadastro{
         width: 38rem;
         margin-top: .8rem;
     }
