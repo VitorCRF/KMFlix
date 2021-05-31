@@ -18,6 +18,11 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+        <style>
+            label{
+                padding-top: 25px;
+            }
+        </style>
     </head>
 
     <body>
@@ -41,11 +46,11 @@
                         <label for="genero">Genero</label>
                         <input type="text" placeholder="Informe o gênero" name="genero" id="genero" class="form-control">
                     </div>
-                               
                     <div class="col-md-4">
-                        <label for="duracao">Temporadas ou tempo de duração</label>
-                        <input type="text" placeholder="Informe a duração" name="duracao" id="duracao" class="form-control"> 
-                    </div>       
+                        <label for="genero">Ator</label>
+                        <input type="text" placeholder="Informe o ator principal" name="ator" id="ator" class="form-control"> 
+                    </div>
+                        
                 </div>
                 <div class="row">
                     <div class="col-md-3">
@@ -57,14 +62,15 @@
                         <input type="text" placeholder="ex. 2010" name="anoLancamento" id="anoLancamento" class="form-control">
                     </div> 
                     <div class="col-md-3">
-                        <label for="especie">Informe o tipo do título</label>
+                        <label for="especie">Tipo do título</label>
                         <input type="text" placeholder="Série ou filme" name="especie" id="especie" class="form-control"> 
                     </div>   
                     
+                    
                     <div class="col-md-3">
-                        <label for="genero">Ator</label>
-                        <input type="text" placeholder="Informe o ator principal" name="ator" id="ator" class="form-control"> 
-                    </div>
+                        <label for="duracao">Duração ou temporadas</label>
+                        <input type="text" placeholder="Informe a duração" name="duracao" id="duracao" class="form-control"> 
+                    </div>   
 
                 </div>
                 <div class="row">                   
