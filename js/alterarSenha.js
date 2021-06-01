@@ -1,8 +1,6 @@
-
 var prosseguir = false;
-var nome;
-var dataNascimento;
 var email;
+var dataNascimento;
 var senha;
 var confirmarSenha;
 
@@ -13,20 +11,15 @@ var row;
 var cell;
 var rowIndex;
 
-var textoNomeInvalido = false;
 var textoNascimentoInvalido = false;
 var textoEmailInvalido = false;
 var textoSenhaInvalida = false;
 var textoconfirmarSenhaInvalida = false;
 
 $(document).ready(function(){
-
     $("#botaoProsseguir").click(function(){
-        nome = $("#campoNome").val();
         dataNascimento = $("#campoNascimento").val();
         email = $("#campoEmail").val();
-
-
 
         if (verificaInfos() && confirmaSenha()) {
             sessionStorage.setItem("emailCadastro", email);
@@ -38,35 +31,6 @@ $(document).ready(function(){
 });
 
 function verificaInfos() {
-
-    if (nome != "") {
-        $("#campoNome").removeClass("campo-cadastro-invalido");
-        prosseguir = true;
-
-        if (textoNomeInvalido === true) {
-            rowIndex = $("#rowNome").index();
-            table.deleteRow(rowIndex + 1);
-            textoNomeInvalido = false;
-        }
-    }
-    else {
-        prosseguir = false;
-        $("#campoNome").addClass("campo-cadastro-invalido");
-        
-        if (textoNomeInvalido === false) {
-
-            textoNomeInvalido = true;
-
-            rowIndex = $("#rowNome").index();
-
-            row = table.insertRow(rowIndex + 1);
-            cell = row.insertCell(0);
-            cell.innerHTML = "<p class='p-campo-invalido'>Por favor insira seu nome</p>";
-            
-        }
-        return false;
-    }
-
 
     if (dataNascimento != "") {
         $("#campoNascimento").removeClass("campo-cadastro-invalido");
@@ -196,83 +160,19 @@ function confirmaSenha() {
     return true;
 
 }
-
 function enviarInfos() {
     $.ajax({
         type: "POST",
-            url: "../php/salvaCadastro.php",
+            url: "../php/alteraSenha.php",
             data: {               
-                nome: nome,
                 nascimento: dataNascimento,
                 email: email,
-                senha: senha
+                senha: senha 
             },   
             success: ajaxSuccess()
     })
 }
 function ajaxSuccess() {
-    console.log("ajax de cadastro user enviado para o php")
-    window.location.href = "../html/planos.html";
+    window.location.href = "../html/login.php"
 
 }
-
-/*function verificaNome() {
-
-    if (nome != "") {
-        $("#campoNome").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
-        prosseguir = true;
-    }
-    else {
-        prosseguir = false;
-        $("#campoNome").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        alert("Por favor insira o nome.")
-    }
-
-}
-
-function verificaNascimento() {
-
-    if (dataNascimento != "") {
-        $("#campoNascimento").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
-        prosseguir = true;
-    }
-    else {
-        prosseguir = false;
-        $("#campoNascimento").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        alert("Por favor insira a data de nascimento.")
-    }
-
-}
-
-function verificaEmail() {
-
-    if (email != "") {
-        $("#campoEmail").removeClass("campo-cadastro-invalido").addClass("campo-cadastro");
-        prosseguir = true;
-    }
-    else {
-        prosseguir = false;
-        $("#campoEmail").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        alert("Por favor insira o email.")
-    }
-
-}
-
-function verificaSenha() {
-
-    if ($("#campoSenha").val() != "" && $("#campoConfirmaSenha").val() != "") {
-        senha = sjcl.hash.sha256.hash($("#campoSenha").val());
-        confirmarSenha = sjcl.hash.sha256.hash($("#campoConfirmaSenha").val());
-        confirmaSenha();
-        console.log("Senha não vazia")
-    }
-    else {
-        $("#campoSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        $("#campoConfirmaSenha").removeClass("campo-cadastro").addClass("campo-cadastro-invalido");
-        console.log("Senha Vazia")
-    }
-
-} */
-
-
-

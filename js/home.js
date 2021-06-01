@@ -590,7 +590,7 @@ function ajaxBuscarMinhaLista() {
             console.log(dadosMinhaLista);
         },
         error: function () {
-            alert("erro");
+            
         }
     })
 }

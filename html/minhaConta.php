@@ -1,9 +1,8 @@
-
 <?php
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
     if(!$logado)
-        header("Location: /login.php"); 
+        header("Location: /stream/html/login.php"); 
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
@@ -53,7 +52,7 @@
 
                 </div>
 
-                <a class="p-alterar-atributo" href="/stream/html/pagamento.php">Alterar dados de pagamento</a>
+                <a class="p-alterar-atributo" href="../html/pagamento.php">Alterar dados de pagamento</a>
                 <p class="p-alterar-atributo">Alterar plano</p>
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
