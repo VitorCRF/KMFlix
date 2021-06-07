@@ -222,7 +222,7 @@ function listarTitulos() {
     var content = "";
 
     for (var i = 0; i < length - 1; i++) {
-        content += '<div value="'+dados[i].id+'">';
+        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)" title="'+dados[i].titulo+'">';
         content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
         content += '</div>';
     }
@@ -290,6 +290,25 @@ function hoverInfo(id) {
 
 }
 
+function slickSliderClick(clickeId) {
+
+    var getValue = document.getElementById(clickeId).getAttribute("value");
+    var id = getValue;
+
+    $("#anoModal").text(dados[id-1].ano_lancamento);
+    $("#duracaoModal").text(dados[id-1].tempo_duracao);
+    $("#sinopseModal").text(dados[id-1].sinopse);
+    $("#elencoModal").text(dados[id-1].ator1 + ", " + dados[id-1].ator2 + ", " + dados[id-1].ator3 + ", mais...");
+    $("#generosModal").text(dados[id-1].genero1 + ", " + dados[id-1].genero2 + ", " + dados[id-1].genero3);
+    $(".botao-assistir").attr("id", "modalAssistir" + dados[id-1].id);
+    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[id-1].id);
+    $(".botao-redondo").attr("value", dados[id-1].id);
+
+    document.getElementById("modalHeader").removeAttribute("style");
+    $('#modalHeader').css("background-image", "url(../" + dados[id-1].wallpaper + ")");
+    
+}
+
 function searchInput() {
 
     if (searchInputIsActive === false) {
@@ -325,7 +344,7 @@ function chamarAddMinhaLista(clickedId) {
     if (minhaLista === false) {
         var slickRemove = $("#divMinhaListaInicial").attr("data-slick-index")
         $("#divMinhaListaInicial").slick("slickRemove", slickRemove)
-        $("#divMinhaListaInicial").slick("refresh")
+        $("#divMinhaListaInicial").slick("refresh");
         console.log("removendo minha lista")
         minhaLista = true;
     }
@@ -336,25 +355,8 @@ function chamarAddMinhaLista(clickedId) {
 
 function addMinhaLista(id) {
 
-    console.log("chamada add minha lista " + id)
-
-    var content
-
-    content = '<div>'
-    content += '<img src="../' + dados[id - 1].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-    //content += '<div class="div-infos-slide" id="divInfos' + dados[id - 1].titulo + '">'
-    //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[id - 1].id + '" onclick="chamarReproducao(this.id)">';
-    //content += '<h1 class="h1-titulo" id="titulo">' + dados[id - 1].titulo + '</h1>';
-    //content += '<p class="p-ano-lancamento" id="ano">' + dados[id - 1].ano_lancamento + '</p>';
-    //content += '<p class="p-genero1" id="genero1">' + dados[id - 1].genero2 + '</p>';
-    //content += '</div>'
-    content += '</div>'
-
-    $("#carouselMinhaLista").append(content);
-    $("#carouselMinhaLista").slick("refresh");
-    content = "";
-
     ajaxEnviarMinhaLista(id);
+    ajaxBuscarMinhaLista();
 
 }
 
@@ -380,7 +382,6 @@ function ajaxBuscarMinhaLista() {
         success: function (retornoMinhaLista) {
             dadosMinhaLista = retornoMinhaLista;
             iniciarMinhaLista();
-            console.log(dadosMinhaLista);
         },
         error: function () {
             //
@@ -391,33 +392,29 @@ function ajaxBuscarMinhaLista() {
 function iniciarMinhaLista() {
 
     var length = Object.keys(dadosMinhaLista).length;
+    var content;
 
     console.log("minha lista lenght: "+length)
 
     if (length > 0) {
-        
+
         for (var i = 0; i < length-1; i++) {
 
             var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
             tituloIdMinhaLista = tituloIdMinhaLista - 1;
 
-            var content;
-
-            content = '<div>'
-            content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-            //content += '<div class="div-infos-slide" id="divInfos' + dados[tituloIdMinhaLista].titulo + '">'
-            //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[tituloIdMinhaLista].id + '" onclick="chamarReproducao(this.id)">';
-            //content += '<h1 class="h1-titulo" id="titulo">' + dados[tituloIdMinhaLista].titulo + '</h1>';
-            //content += '<p class="p-ano-lancamento" id="ano">' + dados[tituloIdMinhaLista].ano_lancamento + '</p>';
-            //content += '<p class="p-genero1" id="genero1">' + dados[tituloIdMinhaLista].genero2 + '</p>';
-            //content += '</div>'
+            content += '<div value="'+dados[tituloIdMinhaLista].id+'" onclick="slickSliderClick(this.id)" title="'+dados[tituloIdMinhaLista].titulo+'">'
+            content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="'+dados[tituloIdMinhaLista].titulo+' wallpaper." class="imagem-carousel" id="imagemCarousel'+dados[tituloIdMinhaLista].titulo+'" data-toggle="modal" data-target="#Modal">';
             content += '</div>'
 
-            $("#carouselMinhaLista").append(content);
-            $("#carouselMinhaLista").slick("refresh");
-            content = "";
-
         }
+
+        $('#carouselMinhaLista').slick('removeSlide', null, null, true);
+        $("#carouselMinhaLista").append(content);
+        $("#carouselMinhaLista").slick("refresh");
+        content = "";
+
+        slickSliderHover();
 
     }
     else {

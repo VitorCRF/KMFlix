@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <?php 
             session_start();
             $logado = $_SESSION["logado"] ?? NULL;
