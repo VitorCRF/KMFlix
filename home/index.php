@@ -62,7 +62,7 @@
             
         </div>-->
 
-        <!-- Modal -->
+        <!-- Modal dos titulos-->
         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -104,23 +104,83 @@
             </div>
         </div>
 
+        <!-- Modal filtros -->
+        <!-- Modal -->
+        <div class="modal fade" id="modalFiltros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="modal-content-filtros">
+            <div class="modal-header" id="modal-header-filtros">
+                <button type="button" id="close-filtros" data-dismiss="modal" aria-label="Fechar">
+                    <img src="../public/icons/white_close_icon.png" width="80%" height="80%" title="Fechar" alt="close icon">
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-filtros">
+                
+                <div class="div-filtro">
+                    <h1 class="h1-titulo-filtro">Filtrar por gênero</h1>
+                    <br>
+                    <select class="selecao-filtro" id="selectionGenero">
+                        <option>Nenhum</option>
+                        <option>Comédia</option>
+                        <option>Drama</option>
+                        <option>Aventura</option>
+                    </select>
+                </div>
+
+                <div class="div-filtro">
+                    <h1 class="h1-titulo-filtro">Filtrar por ano de lançamento</h1>
+                    <br>
+                    <select class="selecao-filtro" id="selectionAno">
+                        <option>Nenhum</option>
+                        <option>2010</option>
+                        <option>2017</option>
+                        <option>2016</option>
+                    </select>
+                </div>
+
+                <div class="div-filtro">
+                    <h1 class="h1-titulo-filtro">Filtrar por relevância</h1>
+                    <br>
+                    <select class="selecao-filtro" id="selectionRelevancia">
+                        <option>Nenhum</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="modal-footer" id="modal-footer-filtros">
+                <button class="botao-aplicar-filtros" onclick="aplicarFiltros()">Aplicar Filtros</button>
+            </div>
+            </div>
+        </div>
+        </div>
         
                   
         <div class="div-container-slick">
 
-            <h1 class="titulo-carousel">Recomendações</h1>
-            <div class="carousel" id="carouselRecomedacoes">
+            <div class="div-container-filtros">
+                <img class="filtro-icon" src="../public/icons/3points_menu_icon.png" alt="Filtros" title="Filtros" data-toggle="modal" data-target="#modalFiltros">
+            </div>
+            
+            <h1 class="titulo-carousel" id="tituloRecomendacoes">Recomendações</h1>
+            
+            <div class="carousel" id="carouselRecomendacoes">
 
+                <!--
                 <div value="1" target="1">
                     <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
                     <div class="div-infos-slide" id="divInfosBreakingBad">
-                        <!--
+                        
                             <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">
                             <h1 class="h1-titulo">Breaking Bad</h1>
                             <p class="p-ano-lancamento">2013</p>
                             <p class="p-genero1">Suspense</p>
                             <p class="p-genero1">Drama</p>
-                        -->
+                        
                     </div>
                 </div>
                 <div value="2">
@@ -159,6 +219,7 @@
                     <h1>10</h1>
                     <div class="div-infos-slide"></div>
                 </div>
+                -->
 
             </div>
 
