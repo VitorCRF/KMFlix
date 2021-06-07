@@ -115,6 +115,24 @@
     cursor: pointer;
 }
 
+.div-container-filtros {
+    width: 100%;
+}
+
+.div-filtros {
+    height: 10rem;
+    width: 100%;
+    background-color: white;
+}
+
+.filtro-icon {
+    width: 3rem;
+    height: 3rem;
+    float: right;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
 /*.div-active-wallpaper {
     width: 100%;
     height: 10rem;
@@ -138,7 +156,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    vertical-align: center;
+    
 }
 
 .carousel {
@@ -260,7 +278,7 @@
     border-radius: 100%;
 }
 
-/* modal */
+/* modal titulos*/
 
 .modal-content {
     background-color: var(--light-dark);
@@ -389,6 +407,87 @@
     font-size: 1rem;
     color: white;
     padding-left: 0.2rem;
+}
+
+/* modal filtros */
+
+#modal-content-filtros {
+    width: 35rem;
+    height: 30rem;
+    background-color: var(--light-dark);
+    border-radius: 10px;
+}
+
+#modal-header-filtros {
+    background-color: var(--light-dark);
+    background-image: none;
+    width: 100%;
+    height: 4rem;
+}
+
+#close-filtros {
+    position: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-left: auto;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    right: 0;
+    border: 0;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#close-filtros:hover {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+#modal-body-filtros {
+
+}
+
+#modal-footer-filtros {
+    display: flex;
+    width: 100%;
+}
+
+.div-filtro {
+    width: 70%;
+    height: 6rem;
+    display: block;
+}
+
+.selecao-filtro {
+    width: 10rem;
+    height: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.h1-titulo-filtro {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--gray-line);
+    font-weight: initial;
+    font-size: 1.5rem;
+    height: 1.6rem;
+    position: relative;
+    float: left;
+    padding-left: 0.7rem;
+}
+
+.botao-aplicar-filtros {
+    width: 8rem;
+    height: 2.5rem;
+    background-color: var(--purple);
+    color: var(--gray-line);
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    margin: 0 auto;
+    cursor: pointer;
 }
 
 /* legacy card */

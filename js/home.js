@@ -13,13 +13,6 @@ var searchInputIsActive = false;
 var textInput = "";
 var minhaLista = false;
 var infoSlideIsActive = false;
-var infoSlideIsActiveBreakingBad = false;
-var infoSlideIsActiveVikings = false;
-var infoSlideIsActiveLost = false;
-var infoSlideIsActiveInterestellar = false;
-var infoSlideIsActiveGenteGrande = false;
-var infoSlideIsActiveAsBranquelas = false;
-var infoSlideIsActiveDark = false;
 
 $(document).ready(function () {
 
@@ -29,7 +22,7 @@ $(document).ready(function () {
         url: '../php/listarTitulo.php',
         success: function (retorno) {
             dados = retorno;
-            listaTitulos(retorno);
+            listarTitulos();
         },
         error: function () {
             alert("erro");
@@ -38,7 +31,7 @@ $(document).ready(function () {
 
     ajaxBuscarMinhaLista();
 
-    function listaTitulos(retorno) {
+    /*function listaTitulos(retorno) {
 
         $("#imgBreakingBad").append('<img src="../' + retorno[0].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
         $("#imgVikings").append('<img src="../' + retorno[1].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
@@ -47,248 +40,7 @@ $(document).ready(function () {
         $("#imgGenteGrande").append('<img src="../' + retorno[4].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
         $("#imgAsBranquelas").append('<img src="../' + retorno[5].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
 
-        $(".slick-slide").hover(function () {
-            var getId = this.id;
-            var getValue = document.getElementById(getId).getAttribute("value");
-            console.log("value: " + getValue)
-            console.log(getId)
-
-            hoverInfo(getValue);
-            /*if (getId === "slick-slide00") {
-                if (infoSlideIsActiveBreakingBad === false) {
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[0].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[0].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[0].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[0].genero2 + '</p>';
-
-                    $("#divInfosBreakingBad").append(content);
-                    $("#divInfosBreakingBad").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveBreakingBad = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH1");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH1");
-                    $(".botao-minha-lista-header").attr("value", retorno[0].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[0].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[0].titulo)
-                    $("#sinopseTituloHeader").text(retorno[0].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[0].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosBreakingBad").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveBreakingBad = false;
-                }
-            }
-
-            else if (getId === "slick-slide01") {
-                if (infoSlideIsActiveVikings === false) {
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[1].id + '"onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[1].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[1].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[1].genero2 + '</p>';
-
-                    $("#divInfosVikings").append(content);
-                    $("#divInfosVikings").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveVikings = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH2");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH2")
-                    $(".botao-minha-lista-header").attr("value", retorno[1].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[1].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[1].titulo)
-                    $("#sinopseTituloHeader").text(retorno[1].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[1].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosVikings").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveVikings = false;
-                }
-            }
-
-            else if (getId === "slick-slide02") {
-                if (infoSlideIsActiveLost === false) {
-
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[2].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[2].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[2].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[2].genero2 + '</p>';
-
-                    $("#divInfosLost").append(content);
-                    $("#divInfosLost").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveLost = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH3");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH3");
-                    $(".botao-minha-lista-header").attr("value", retorno[2].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[2].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[2].titulo)
-                    $("#sinopseTituloHeader").text(retorno[2].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[2].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosLost").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveLost = false;
-                }
-            }
-
-            else if (getId === "slick-slide03") {
-                if (infoSlideIsActiveInterestellar === false) {
-
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[3].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[3].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[3].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[3].genero2 + '</p>';
-
-
-                    $("#divInfosInterestellar").append(content);
-                    $("#divInfosInterestellar").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveInterestellar = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH4");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH4");
-                    $(".botao-minha-lista-header").attr("value", retorno[3].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[3].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[3].titulo)
-                    $("#sinopseTituloHeader").text(retorno[3].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[3].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#divInfosInterestellar").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveInterestellar = false;
-                }
-            }
-
-            else if (getId === "slick-slide04") {
-                if (infoSlideIsActiveGenteGrande === false) {
-
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[4].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[4].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[4].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[4].genero2 + '</p>';
-
-                    $("#divInfosGenteGrande").append(content);
-                    $("#divInfosGenteGrande").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveGenteGrande = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH5");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH5");
-                    $(".botao-minha-lista-header").attr("value", retorno[4].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[4].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[4].titulo)
-                    $("#sinopseTituloHeader").text(retorno[4].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[4].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosGenteGrande").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveGenteGrande = false;
-                }
-            }
-
-            else if (getId === "slick-slide05") {
-                if (infoSlideIsActiveAsBranquelas === false) {
-
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[5].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[5].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[5].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[5].genero2 + '</p>';
-
-                    $("#divInfosAsBranquelas").append(content);
-                    $("#divInfosAsBranquelas").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveAsBranquelas = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH6");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH6");
-                    $(".botao-minha-lista-header").attr("value", retorno[5].id);
-
-                    document.getElementById("divHomeHeader").removeAttribute("style");
-                    $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../" + retorno[5].wallpaper + ")");
-                    $("#divHomeHeader").css("background-size", "100%");
-
-                    $("#nomeTituloHeader").text(retorno[5].titulo)
-                    $("#sinopseTituloHeader").text(retorno[5].sinopse)
-                }
-                else {
-                    $("#playButton" + retorno[5].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosAsBranquelas").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveAsBranquelas = false;
-                }
-            }
-
-            else if (getId === "slick-slide06") {
-                if (infoSlideIsActiveDark === false) {
-                    content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + retorno[6].id + '" onclick="chamarReproducao(this.id)">';
-                    content += '<h1 class="h1-titulo" id="titulo">' + retorno[6].titulo + '</h1>';
-                    content += '<p class="p-ano-lancamento" id="ano">' + retorno[6].ano_lancamento + '</p>';
-                    content += '<p class="p-genero1" id="genero1">' + retorno[6].genero2 + '</p>';
-
-                    $("#divInfosDark").append(content);
-                    $("#divInfosDark").removeClass("div-infos-slide").addClass("div-infos-slide-ativa");
-                    content = "";
-                    infoSlideIsActiveDark = true;
-
-                    $(".botao-assistir-header").attr("id", "botaoAssistirH7");
-                    $(".botao-minha-lista-header").attr("id", "minhaListaH7");
-                    $(".botao-minha-lista-header").attr("value", retorno[6].id);
-                }
-                else {
-                    $("#playButton" + retorno[6].id).remove();
-                    $("#titulo").remove();
-                    $("#ano").remove();
-                    $("#genero1").remove();
-                    $("#genero2").remove();
-                    $("#divInfosDark").removeClass("div-infos-slide-ativa").addClass("div-infos-slide");
-                    infoSlideIsActiveDark = false;
-                }
-            }*/
-        })
+        
 
         $("#slick-slide00").click(function () {
 
@@ -381,11 +133,22 @@ $(document).ready(function () {
 
         });
     }
+    */
 
     carouselSlick();
 
     $('#Modal').on('shown.bs.modal', function () {
         $('#meuInput').trigger('focus')
+    })
+
+    $(".slick-slide").hover(function () {
+        var getId = this.id;
+        var getValue = document.getElementById(getId).getAttribute("value");
+        console.log("value: " + getValue)
+        console.log(getId)
+
+        hoverInfo(getValue);
+        
     })
 
     var content = "";
@@ -453,6 +216,36 @@ function carouselSlick() {
 
 }
 
+function listarTitulos() {
+
+    var length = Object.keys(dados).length;
+    var content = "";
+
+    for (var i = 0; i < length - 1; i++) {
+        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)" title="'+dados[i].titulo+'">';
+        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+        content += '</div>';
+    }
+
+    $("#carouselRecomendacoes").append(content);
+    $("#carouselRecomendacoes").slick("refresh");
+
+    slickSliderHover();
+
+}
+
+function slickSliderHover() {
+    $(".slick-slide").hover(function () {
+        var getId = this.id;
+        var getValue = document.getElementById(getId).getAttribute("value");
+        console.log("value: " + getValue)
+        console.log(getId)
+
+        hoverInfo(getValue);
+        
+    })
+}
+
 function hoverInfo(id) {
 
     var content = "";
@@ -497,6 +290,25 @@ function hoverInfo(id) {
 
 }
 
+function slickSliderClick(clickeId) {
+
+    var getValue = document.getElementById(clickeId).getAttribute("value");
+    var id = getValue;
+
+    $("#anoModal").text(dados[id-1].ano_lancamento);
+    $("#duracaoModal").text(dados[id-1].tempo_duracao);
+    $("#sinopseModal").text(dados[id-1].sinopse);
+    $("#elencoModal").text(dados[id-1].ator1 + ", " + dados[id-1].ator2 + ", " + dados[id-1].ator3 + ", mais...");
+    $("#generosModal").text(dados[id-1].genero1 + ", " + dados[id-1].genero2 + ", " + dados[id-1].genero3);
+    $(".botao-assistir").attr("id", "modalAssistir" + dados[id-1].id);
+    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[id-1].id);
+    $(".botao-redondo").attr("value", dados[id-1].id);
+
+    document.getElementById("modalHeader").removeAttribute("style");
+    $('#modalHeader').css("background-image", "url(../" + dados[id-1].wallpaper + ")");
+    
+}
+
 function searchInput() {
 
     if (searchInputIsActive === false) {
@@ -532,7 +344,7 @@ function chamarAddMinhaLista(clickedId) {
     if (minhaLista === false) {
         var slickRemove = $("#divMinhaListaInicial").attr("data-slick-index")
         $("#divMinhaListaInicial").slick("slickRemove", slickRemove)
-        $("#divMinhaListaInicial").slick("refresh")
+        $("#divMinhaListaInicial").slick("refresh");
         console.log("removendo minha lista")
         minhaLista = true;
     }
@@ -543,25 +355,8 @@ function chamarAddMinhaLista(clickedId) {
 
 function addMinhaLista(id) {
 
-    console.log("chamada add minha lista " + id)
-
-    var content
-
-    content = '<div>'
-    content += '<img src="../' + dados[id - 1].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-    //content += '<div class="div-infos-slide" id="divInfos' + dados[id - 1].titulo + '">'
-    //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[id - 1].id + '" onclick="chamarReproducao(this.id)">';
-    //content += '<h1 class="h1-titulo" id="titulo">' + dados[id - 1].titulo + '</h1>';
-    //content += '<p class="p-ano-lancamento" id="ano">' + dados[id - 1].ano_lancamento + '</p>';
-    //content += '<p class="p-genero1" id="genero1">' + dados[id - 1].genero2 + '</p>';
-    //content += '</div>'
-    content += '</div>'
-
-    $("#carouselMinhaLista").append(content);
-    $("#carouselMinhaLista").slick("refresh");
-    content = "";
-
     ajaxEnviarMinhaLista(id);
+    ajaxBuscarMinhaLista();
 
 }
 
@@ -587,10 +382,9 @@ function ajaxBuscarMinhaLista() {
         success: function (retornoMinhaLista) {
             dadosMinhaLista = retornoMinhaLista;
             iniciarMinhaLista();
-            console.log(dadosMinhaLista);
         },
         error: function () {
-            
+            //
         }
     })
 }
@@ -598,38 +392,161 @@ function ajaxBuscarMinhaLista() {
 function iniciarMinhaLista() {
 
     var length = Object.keys(dadosMinhaLista).length;
+    var content;
 
     console.log("minha lista lenght: "+length)
 
     if (length > 0) {
-        
+
         for (var i = 0; i < length-1; i++) {
 
             var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
             tituloIdMinhaLista = tituloIdMinhaLista - 1;
 
-            var content;
-
-            content = '<div>'
-            content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
-            //content += '<div class="div-infos-slide" id="divInfos' + dados[tituloIdMinhaLista].titulo + '">'
-            //content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[tituloIdMinhaLista].id + '" onclick="chamarReproducao(this.id)">';
-            //content += '<h1 class="h1-titulo" id="titulo">' + dados[tituloIdMinhaLista].titulo + '</h1>';
-            //content += '<p class="p-ano-lancamento" id="ano">' + dados[tituloIdMinhaLista].ano_lancamento + '</p>';
-            //content += '<p class="p-genero1" id="genero1">' + dados[tituloIdMinhaLista].genero2 + '</p>';
-            //content += '</div>'
+            content += '<div value="'+dados[tituloIdMinhaLista].id+'" onclick="slickSliderClick(this.id)" title="'+dados[tituloIdMinhaLista].titulo+'">'
+            content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="'+dados[tituloIdMinhaLista].titulo+' wallpaper." class="imagem-carousel" id="imagemCarousel'+dados[tituloIdMinhaLista].titulo+'" data-toggle="modal" data-target="#Modal">';
             content += '</div>'
 
-            $("#carouselMinhaLista").append(content);
-            $("#carouselMinhaLista").slick("refresh");
-            content = "";
-
         }
+
+        $('#carouselMinhaLista').slick('removeSlide', null, null, true);
+        $("#carouselMinhaLista").append(content);
+        $("#carouselMinhaLista").slick("refresh");
+        content = "";
+
+        slickSliderHover();
 
     }
     else {
         alert("Não foi possivel recuperar os titulos da lista de favoritos. Recarregue a página para tentar novamente.")
     }
+
+}
+
+function abrirFiltros() {
+
+    console.log("filtro chamado")
+
+    var content = "";
+
+    content = '<div class="div-filtros">';
+    //content = '<>';
+    content = '</div>';
+
+    $(".div-container-filtros").append(content);
+
+    content = "";
+
+}
+
+function aplicarFiltros() {
+
+    var filtroGenero = $("#selectionGenero").val();
+    var filtroAno = $("#selectionAno").val();
+    var filtroRelevancia = $("#selectionRelevancia").val();
+
+    var content = "";
+    var length = Object.keys(dados).length;
+
+    if (filtroGenero === "Nenhum" && filtroAno === "Nenhum") {
+        resetarFiltros();
+    }
+    else if (filtroGenero != "Nenhum" && filtroAno === "Nenhum"){
+
+        for (var i = 0; i < length - 1; i++) {
+
+            if (dados[i].genero1 === filtroGenero || dados[i].genero2 === filtroGenero || dados[i].genero3 === filtroGenero || dados[i].genero4 === filtroGenero) {
+
+                console.log("achou o genero do filtro")
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        console.log("Iniciando mudanças na tela")
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Titulos com gênero "+filtroGenero);
+
+        console.log("Terminado mudanças na tela")
+        
+    }
+
+    else if (filtroAno === "Nenhum" && filtroGenero === "Nenhum") {
+        resetarFiltros();
+    }
+    else if (filtroAno != "Nenhum" && filtroGenero === "Nenhum"){
+
+        for (var i = 0; i < length - 1; i++) {
+
+            if (dados[i].ano_lancamento === filtroAno) {
+
+                console.log("achou o ano do filtro")
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Titulos lançados no ano "+filtroAno);
+
+    }
+
+    /*if (filtroRelevancia === "Nenhum") {
+        resetarFiltros();
+    }
+    else {
+        for (var i = 0; i < length - 1; i++) {
+
+            if (dados[i].relevancia === filtroAno) {
+
+                console.log("achou a relevancia do filtro")
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Titulos com relevância "+filtroRelevancia);
+    }*/
+
+}
+
+function resetarFiltros() {
+
+    var length = Object.keys(dados).length;
+    var content = "";
+
+    for (var i = 0; i < length - 1; i++) {
+
+        content += '<div value="'+dados[i].id+'">';
+        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+        content += '</div>';
+
+    }
+
+    $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+    $("#carouselRecomendacoes").append(content);
+    $("#carouselRecomendacoes").slick("refresh");
+    $("#tituloRecomendacoes").text("Recomendações");
 
 }
 
