@@ -25,7 +25,8 @@ if(($resultado) && ($resultado -> num_rows) != 0){
         $titulo['ator2'] = $row_titulo['ator2'];
         $titulo['ator3'] = $row_titulo['ator3'];
         $titulo['especie'] = $row_titulo['especie'];  
-        $titulo['sinopse'] = $row_titulo['sinopse'];  
+        $titulo['sinopse'] = $row_titulo['sinopse'];
+        $titulo['relevancia'] = $row_titulo['relevancia'];  
 
         array_push($retorno, $titulo);
     }

@@ -53,16 +53,10 @@
                 <h1 class="nome-titulo-header" id="nomeTituloHeader">Breaking Bad</h1>
                 <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.</h2>
                 <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH1" onclick="chamarReproducao(this.id)">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon" id="imgMinhaListaHeader" style="margin-bottom: 0.2rem;"></button>
             </div>
 
         </div>
-
-        <!--<div class="div-active-wallpaper"> 
-        
-            <img class="imagem-active-wallpaper" src="../public/img/vikings.jpg" alt="wallpaper" style="height: 30rem; width:100%; margin-bottom: 2rem;">
-            
-        </div>-->
 
         <!-- Modal dos titulos-->
         <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
@@ -75,7 +69,7 @@
                       </button>
 
                       <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
-                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon" id="imgMinhaListaModal" style="margin-bottom: 0.2rem;"></button>
 
                     </div>
                     <div class="modal-body">
@@ -127,30 +121,21 @@
                         <option>Drama</option>
                         <option>Aventura</option>
                     </select>
+                    <input type="checkbox" class="checkbox-filtros" id="checkboxGenero">
                 </div>
 
                 <div class="div-filtro">
                     <h1 class="h1-titulo-filtro">Filtrar por ano de lançamento</h1>
                     <br>
-                    <select class="selecao-filtro" id="selectionAno">
-                        <option>Nenhum</option>
-                        <option>2010</option>
-                        <option>2017</option>
-                        <option>2016</option>
-                    </select>
+                    <input type="number" value="2021" step="1" class="selecao-filtro" id="selectionAno" style="border: 0; padding-left: 1rem;">
+                    <input type="checkbox" class="checkbox-filtros" id="checkboxAno">
                 </div>
 
                 <div class="div-filtro">
-                    <h1 class="h1-titulo-filtro">Filtrar por relevância</h1>
+                    <h1 class="h1-titulo-filtro">Filtrar por relevância (IMDb)</h1>
                     <br>
-                    <select class="selecao-filtro" id="selectionRelevancia">
-                        <option>Nenhum</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
+                    <input type="number" class="selecao-filtro" id="selectionRelevancia" step="0.1" style="border: 0; padding-left: 1rem;" min="0.1" max="10" placeholder="0.1 - 10">
+                    <input type="checkbox" class="checkbox-filtros" id="checkboxRelevancia">
                 </div>
                 
             </div>
@@ -171,57 +156,6 @@
             <h1 class="titulo-carousel" id="tituloRecomendacoes">Recomendações</h1>
             
             <div class="carousel" id="carouselRecomendacoes">
-
-                <!--
-                <div value="1" target="1">
-                    <img src="../public/img/breaking bad.jpeg" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosBreakingBad">
-                        
-                            <img src="../public/icons/white_play_button.png" class="play-button" alt="play button">
-                            <h1 class="h1-titulo">Breaking Bad</h1>
-                            <p class="p-ano-lancamento">2013</p>
-                            <p class="p-genero1">Suspense</p>
-                            <p class="p-genero1">Drama</p>
-                        
-                    </div>
-                </div>
-                <div value="2">
-                    <img src="../public/img/vikings.jpg" width="100%" height="100%" alt="vikings poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosVikings"></div>
-                </div>
-                <div value="3">
-                    <img src="../public/img/lost.jpg" width="100%" height="100%" alt="lost poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosLost"></div>
-                </div>
-                <div value="4">
-                    <img src="../public/img/interestellar.jpg" width="100%" height="100%" alt="interestellar poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosInterstellar"></div>
-                </div>
-                <div value="5">
-                    <img src="../public/img/gente_grande.jpg" width="100%" height="100%" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosGenteGrande"></div>
-                </div>
-                <div value="6">
-                    <img src="../public/img/as_branquelas.jpg" width="100%" height="100%" alt="as branquelas poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosAsBranquelas"></div>
-                </div>
-                <div value="7">
-                    <img src="../public/img/dark.png" width="100%" height="100%" alt="dark wallpaper" class="imagem-carousel" data-toggle="modal" data-target="#Modal">
-                    <div class="div-infos-slide" id="divInfosDark"></div>
-                </div>
-                <div value="8">
-                    <h1>8</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
-                <div value="9">
-                    <h1>9</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
-                <div value="10">
-                    <h1>10</h1>
-                    <div class="div-infos-slide"></div>
-                </div>
-                -->
 
             </div>
 

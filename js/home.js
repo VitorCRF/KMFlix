@@ -31,110 +31,6 @@ $(document).ready(function () {
 
     ajaxBuscarMinhaLista();
 
-    /*function listaTitulos(retorno) {
-
-        $("#imgBreakingBad").append('<img src="../' + retorno[0].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal"> ');
-        $("#imgVikings").append('<img src="../' + retorno[1].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
-        $("#imgLost").append('<img src="../' + retorno[2].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
-        $("#imgInterestellar").append('<img src="../' + retorno[3].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
-        $("#imgGenteGrande").append('<img src="../' + retorno[4].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
-        $("#imgAsBranquelas").append('<img src="../' + retorno[5].wallpaper + '" alt="gente grande poster" class="imagem-carousel" data-toggle="modal" data-target="#Modal">');
-
-        
-
-        $("#slick-slide00").click(function () {
-
-            $("#anoModal").text(retorno[0].ano_lancamento);
-            $("#duracaoModal").text(retorno[0].tempo_duracao);
-            $("#sinopseModal").text(retorno[0].sinopse);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[0].id)
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[0].id)
-            $(".botao-redondo").attr("value", retorno[0].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[0].wallpaper + ")");
-            $("#elencoModal").text(retorno[0].ator1 + ", " + retorno[0].ator2 + ", " + retorno[0].ator3 + ", mais...");
-            $("#generosModal").text(retorno[0].genero2 + "," + retorno[0].genero3 + "," + retorno[0].genero4);
-
-        });
-        $("#slick-slide01").click(function () {
-
-            $("#anoModal").text(retorno[1].ano_lancamento);
-            $("#duracaoModal").text(retorno[1].tempo_duracao);
-            $("#sinopseModal").text(retorno[1].sinopse);
-            $("#elencoModal").text(retorno[1].ator1 + ", " + retorno[1].ator2 + ", " + retorno[1].ator3 + ", mais...");
-            $("#generosModal").text(retorno[1].genero2 + "," + retorno[1].genero3 + "," + retorno[1].genero4);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[1].id)
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[1].id)
-            $(".botao-redondo").attr("value", retorno[1].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[1].wallpaper + ")");
-
-        });
-        $("#slick-slide02").click(function () {
-
-            $("#anoModal").text(retorno[2].ano_lancamento);
-            $("#duracaoModal").text(retorno[2].tempo_duracao);
-            $("#sinopseModal").text(retorno[2].sinopse);
-            $("#elencoModal").text(retorno[2].ator1 + ", " + retorno[2].ator2 + ", " + retorno[2].ator3 + ", mais...");
-            $("#generosModal").text(retorno[2].genero2 + "," + retorno[2].genero3 + "," + retorno[2].genero4);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[2].id);
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[2].id);
-            $(".botao-redondo").attr("value", retorno[2].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[2].wallpaper + ")");
-
-        });
-        $("#slick-slide03").click(function () {
-
-            $("#anoModal").text(retorno[3].ano_lancamento);
-            $("#duracaoModal").text(retorno[3].tempo_duracao);
-            $("#sinopseModal").text(retorno[3].sinopse);
-            $("#elencoModal").text(retorno[3].ator1 + ", " + retorno[3].ator2 + ", " + retorno[3].ator3 + ", mais...");
-            $("#generosModal").text(retorno[3].genero2 + "," + retorno[3].genero3 + "," + retorno[3].genero4);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[3].id);
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[3].id);
-            $(".botao-redondo").attr("value", retorno[3].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[3].wallpaper + ")");
-
-        });
-        $("#slick-slide04").click(function () {
-
-            $("#anoModal").text(retorno[4].ano_lancamento);
-            $("#duracaoModal").text(retorno[4].tempo_duracao);
-            $("#sinopseModal").text(retorno[4].sinopse);
-            $("#elencoModal").text(retorno[4].ator1 + ", " + retorno[4].ator2 + ", " + retorno[4].ator3 + ", mais...");
-            $("#generosModal").text(retorno[4].genero1 + ", " + retorno[4].genero2);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[4].id)
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[4].id);
-            $(".botao-redondo").attr("value", retorno[4].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[4].wallpaper + ")");
-
-        });
-        $("#slick-slide05").click(function () {
-
-            $("#anoModal").text(retorno[5].ano_lancamento);
-            $("#duracaoModal").text(retorno[5].tempo_duracao);
-            $("#sinopseModal").text(retorno[5].sinopse);
-            $("#elencoModal").text(retorno[5].ator1 + ", " + retorno[5].ator2 + ", " + retorno[5].ator3 + ", mais...");
-            $("#generosModal").text(retorno[5].genero2 + "," + retorno[5].genero3 + "," + retorno[5].genero4);
-            $(".botao-assistir").attr("id", "modalAssistir" + retorno[5].id)
-            $(".botao-redondo").attr("id", "modalMinhaLista" + retorno[5].id);
-            $(".botao-redondo").attr("value", retorno[5].id);
-
-            document.getElementById("modalHeader").removeAttribute("style");
-            $('#modalHeader').css("background-image", "url(../" + retorno[5].wallpaper + ")");
-
-        });
-    }
-    */
-
     carouselSlick();
 
     $('#Modal').on('shown.bs.modal', function () {
@@ -150,6 +46,10 @@ $(document).ready(function () {
         hoverInfo(getValue);
         
     })
+
+    var element = document.getElementsByClassName("slick-slide");
+
+    element.addEventListener("touchstart", slickSliderClick(this.id), false)
 
     var content = "";
 
@@ -222,7 +122,7 @@ function listarTitulos() {
     var content = "";
 
     for (var i = 0; i < length - 1; i++) {
-        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)" title="'+dados[i].titulo+'">';
+        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)" title="'+dados[i].titulo+'" ontouchstart="slickSliderClick(this.id)">';
         content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
         content += '</div>';
     }
@@ -238,11 +138,11 @@ function slickSliderHover() {
     $(".slick-slide").hover(function () {
         var getId = this.id;
         var getValue = document.getElementById(getId).getAttribute("value");
-        console.log("value: " + getValue)
-        console.log(getId)
+        console.log("value: " + getValue);
+        console.log(getId);
 
         hoverInfo(getValue);
-        
+
     })
 }
 
@@ -259,7 +159,6 @@ function hoverInfo(id) {
 
         tituloId = dados[id-1].titulo;
         tituloId = tituloId.replace(/\s+/g, ''); //retira espaços em branco da string
-        console.log("tituloId "+tituloId)
 
         //$("#divInfos"+tituloId).append(content);
         //$("#divInfos"+tituloId).attr("class", "div-infos-slide-ativa");
@@ -276,6 +175,28 @@ function hoverInfo(id) {
 
         $("#nomeTituloHeader").text(dados[id-1].titulo)
         $("#sinopseTituloHeader").text(dados[id-1].sinopse)
+
+        //parte responsável por mudar o ícone da minha lista no header, para remover ou adicionar
+        var length = Object.keys(dadosMinhaLista).length;
+        var tituloOnMinhaLista = false;
+
+        for (var i = 0; i < length - 1; i++) {
+            
+            if (dadosMinhaLista[i].titulos_id === dados[id-1].id) {
+                tituloOnMinhaLista = true;
+            }
+
+        }
+
+        if (tituloOnMinhaLista === true) {
+            console.log(dados[id-1].titulo + " está na lista");
+            $("#imgMinhaListaHeader").attr("src", "../public/icons/white_close_icon.png");
+        }
+        else {
+            console.log(dados[id-1].titulo + " não está na lista");
+            $("#imgMinhaListaHeader").attr("src", "../public/icons/white_add_icon.png");
+        }
+
     }
     else {
         $("#divInfos"+tituloId).attr("class", "div-infos-slide");
@@ -306,7 +227,36 @@ function slickSliderClick(clickeId) {
 
     document.getElementById("modalHeader").removeAttribute("style");
     $('#modalHeader').css("background-image", "url(../" + dados[id-1].wallpaper + ")");
+
+    //parte responsável por mudar o ícone da minha lista no modal, para remover ou adicionar
+    var length = Object.keys(dadosMinhaLista).length;
+    var tituloOnMinhaLista = false;
+
+    for (var i = 0; i < length - 1; i++) {
+        
+        if (dadosMinhaLista[i].titulos_id === dados[id-1].id) {
+            tituloOnMinhaLista = true;
+        }
+
+    }
+
+    if (tituloOnMinhaLista === true) {
+        console.log(dados[id-1].titulo + " está na lista");
+        $("#imgMinhaListaModal").attr("src", "../public/icons/white_close_icon.png");
+    }
+    else {
+        console.log(dados[id-1].titulo + " não está na lista");
+        $("#imgMinhaListaModal").attr("src", "../public/icons/white_add_icon.png");
+    }
     
+}
+
+function slickSliderTouch() {
+
+    $(".slick-slide").on("tap",function() {
+        slickSliderClick(this.id);
+    })
+
 }
 
 function searchInput() {
@@ -403,7 +353,7 @@ function iniciarMinhaLista() {
             var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
             tituloIdMinhaLista = tituloIdMinhaLista - 1;
 
-            content += '<div value="'+dados[tituloIdMinhaLista].id+'" onclick="slickSliderClick(this.id)" title="'+dados[tituloIdMinhaLista].titulo+'">'
+            content += '<div value="'+dados[tituloIdMinhaLista].id+'" onclick="slickSliderClick(this.id)" title="'+dados[tituloIdMinhaLista].titulo+'" class="card-minha-lista">'
             content += '<img src="../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="'+dados[tituloIdMinhaLista].titulo+' wallpaper." class="imagem-carousel" id="imagemCarousel'+dados[tituloIdMinhaLista].titulo+'" data-toggle="modal" data-target="#Modal">';
             content += '</div>'
 
@@ -445,20 +395,42 @@ function aplicarFiltros() {
     var filtroAno = $("#selectionAno").val();
     var filtroRelevancia = $("#selectionRelevancia").val();
 
+    var filtroGeneroIsActive;
+    var filtroAnoIsActive;
+    var filtroRelevanciaIsActive;
+
     var content = "";
     var length = Object.keys(dados).length;
 
-    if (filtroGenero === "Nenhum" && filtroAno === "Nenhum") {
-        resetarFiltros();
+    if ($("#checkboxGenero").is(":checked")) {
+        filtroGeneroIsActive = true;
     }
-    else if (filtroGenero != "Nenhum" && filtroAno === "Nenhum"){
+    else {
+        filtroGeneroIsActive = false;
+    }
+    if ($("#checkboxAno").is(":checked")) {
+        filtroAnoIsActive = true;
+    }
+    else {
+        filtroAnoIsActive = false;
+    }
+    if ($("#checkboxRelevancia").is(":checked")) {
+        filtroRelevanciaIsActive = true;
+    }
+    else {
+        filtroRelevanciaIsActive = false;
+    }
+
+    if (filtroGeneroIsActive === false && filtroAnoIsActive === false && filtroRelevanciaIsActive === false) {
+        resetarFiltros();
+        slickSliderHover()
+    }
+    else if (filtroGeneroIsActive === true && filtroAnoIsActive === false && filtroRelevanciaIsActive === false){ //filtro apenas genero
 
         for (var i = 0; i < length - 1; i++) {
 
             if (dados[i].genero1 === filtroGenero || dados[i].genero2 === filtroGenero || dados[i].genero3 === filtroGenero || dados[i].genero4 === filtroGenero) {
 
-                console.log("achou o genero do filtro")
-
                 content += '<div value="'+dados[i].id+'">';
                 content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
@@ -467,28 +439,21 @@ function aplicarFiltros() {
 
         }
 
-        console.log("Iniciando mudanças na tela")
-
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos com gênero "+filtroGenero);
+        $("#tituloRecomendacoes").text("Títulos com gênero "+filtroGenero);
 
-        console.log("Terminado mudanças na tela")
+        slickSliderHover()
         
     }
 
-    else if (filtroAno === "Nenhum" && filtroGenero === "Nenhum") {
-        resetarFiltros();
-    }
-    else if (filtroAno != "Nenhum" && filtroGenero === "Nenhum"){
+    else if (filtroAnoIsActive === true && filtroGeneroIsActive === false && filtroRelevanciaIsActive === false){ //filtro apenas ano
 
         for (var i = 0; i < length - 1; i++) {
 
             if (dados[i].ano_lancamento === filtroAno) {
 
-                console.log("achou o ano do filtro")
-
                 content += '<div value="'+dados[i].id+'">';
                 content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
@@ -500,19 +465,23 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos lançados no ano "+filtroAno);
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno);
+
+        slickSliderHover()
 
     }
 
-    /*if (filtroRelevancia === "Nenhum") {
-        resetarFiltros();
-    }
-    else {
+    else if (filtroAnoIsActive === true && filtroGeneroIsActive === true && filtroRelevanciaIsActive === false) { //filtro ano e genero
+
         for (var i = 0; i < length - 1; i++) {
 
-            if (dados[i].relevancia === filtroAno) {
+            var generos = [];
+            generos.push(dados[i].genero1);
+            generos.push(dados[i].genero2);
+            generos.push(dados[i].genero3);
+            generos.push(dados[i].genero4);
 
-                console.log("achou a relevancia do filtro")
+            if (dados[i].ano_lancamento === filtroAno && generos.includes(filtroGenero)) {
 
                 content += '<div value="'+dados[i].id+'">';
                 content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
@@ -525,8 +494,118 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos com relevância "+filtroRelevancia);
-    }*/
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno+" e com gênero "+filtroGenero);
+
+        slickSliderHover()
+        generos = null;
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === false && filtroGeneroIsActive === false){ //filtro apenas relevancia
+
+        for (var i = 0; i < length - 1; i++) {
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia)) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos com relevância "+filtroRelevancia);
+
+        slickSliderHover()
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === true && filtroGeneroIsActive === false) { //filtro relevancia e ano
+
+        for (var i = 0; i < length - 1; i++) {
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].ano_lancamento === filtroAno) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos com relevância "+filtroRelevancia+" e lançados no ano "+filtroAno);
+
+        slickSliderHover()
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === false && filtroGeneroIsActive === true) { //filtro relevancia e genero
+
+        console.log("entrou filtro relevancia e genero")
+
+        for (var i = 0; i < length - 1; i++) {
+
+            var generos = [];
+            generos.push(dados[i].genero1);
+            generos.push(dados[i].genero2);
+            generos.push(dados[i].genero3);
+            generos.push(dados[i].genero4);
+
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero)) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos com gênero "+filtroGenero+" e relevância "+filtroRelevancia);
+
+        slickSliderHover()
+        generos = null;
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === true && filtroGeneroIsActive === true) { //filtro relevancia, ano e genero
+
+        for (var i = 0; i < length - 1; i++) {
+
+            var generos = [];
+            generos.push(dados[i].genero1);
+            generos.push(dados[i].genero2);
+            generos.push(dados[i].genero3);
+            generos.push(dados[i].genero4);
+
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero) && dados[i].ano_lancamento === filtroAno) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno+" com gênero "+filtroGenero+" e relevância de "+filtroRelevancia);
+
+        slickSliderHover()
+        generos = null;
+
+    }
 
 }
 
