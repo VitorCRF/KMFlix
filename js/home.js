@@ -442,7 +442,7 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos com gênero "+filtroGenero);
+        $("#tituloRecomendacoes").text("Títulos com gênero "+filtroGenero);
 
         slickSliderHover()
         
@@ -465,7 +465,9 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos lançados no ano "+filtroAno);
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno);
+
+        slickSliderHover()
 
     }
 
@@ -481,8 +483,6 @@ function aplicarFiltros() {
 
             if (dados[i].ano_lancamento === filtroAno && generos.includes(filtroGenero)) {
 
-                console.log("achou um titulo de "+filtroGenero+" e ano "+filtroAno)
-
                 content += '<div value="'+dados[i].id+'">';
                 content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
@@ -494,17 +494,17 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos lançados no ano "+filtroAno+" e com gênero "+filtroGenero);
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno+" e com gênero "+filtroGenero);
+
+        slickSliderHover()
+        generos = null;
 
     }
 
-    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === false && filtroAnoIsActive === false){
-        console.log("relevancia atual: "+filtroRelevancia)
-        for (var i = 0; i < length - 1; i++) {
-            console.log("loop relevancia "+i)
-            if (dados[i].relevancia === parseFloat(filtroRelevancia)) {
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === false && filtroGeneroIsActive === false){ //filtro apenas relevancia
 
-                console.log("achou a relevancia do filtro")
+        for (var i = 0; i < length - 1; i++) {
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia)) {
 
                 content += '<div value="'+dados[i].id+'">';
                 content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
@@ -517,7 +517,94 @@ function aplicarFiltros() {
         $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
         $("#carouselRecomendacoes").append(content);
         $("#carouselRecomendacoes").slick("refresh");
-        $("#tituloRecomendacoes").text("Titulos com relevância "+filtroRelevancia);
+        $("#tituloRecomendacoes").text("Títulos com relevância "+filtroRelevancia);
+
+        slickSliderHover()
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === true && filtroGeneroIsActive === false) { //filtro relevancia e ano
+
+        for (var i = 0; i < length - 1; i++) {
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].ano_lancamento === filtroAno) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos com relevância "+filtroRelevancia+" e lançados no ano "+filtroAno);
+
+        slickSliderHover()
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === false && filtroGeneroIsActive === true) { //filtro relevancia e genero
+
+        console.log("entrou filtro relevancia e genero")
+
+        for (var i = 0; i < length - 1; i++) {
+
+            var generos = [];
+            generos.push(dados[i].genero1);
+            generos.push(dados[i].genero2);
+            generos.push(dados[i].genero3);
+            generos.push(dados[i].genero4);
+
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero)) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos com gênero "+filtroGenero+" e relevância "+filtroRelevancia);
+
+        slickSliderHover()
+        generos = null;
+
+    }
+
+    else if (filtroRelevanciaIsActive === true && filtroAnoIsActive === true && filtroGeneroIsActive === true) { //filtro relevancia, ano e genero
+
+        for (var i = 0; i < length - 1; i++) {
+
+            var generos = [];
+            generos.push(dados[i].genero1);
+            generos.push(dados[i].genero2);
+            generos.push(dados[i].genero3);
+            generos.push(dados[i].genero4);
+
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero) && dados[i].ano_lancamento === filtroAno) {
+
+                content += '<div value="'+dados[i].id+'">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '</div>';
+
+            }
+
+        }
+
+        $('#carouselRecomendacoes').slick('removeSlide', null, null, true);
+        $("#carouselRecomendacoes").append(content);
+        $("#carouselRecomendacoes").slick("refresh");
+        $("#tituloRecomendacoes").text("Títulos lançados no ano "+filtroAno+" com gênero "+filtroGenero+" e relevância de "+filtroRelevancia);
+
+        slickSliderHover()
+        generos = null;
+
     }
 
 }
