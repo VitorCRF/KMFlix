@@ -431,8 +431,8 @@ function aplicarFiltros() {
 
             if (dados[i].genero1 === filtroGenero || dados[i].genero2 === filtroGenero || dados[i].genero3 === filtroGenero || dados[i].genero4 === filtroGenero) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -454,8 +454,8 @@ function aplicarFiltros() {
 
             if (dados[i].ano_lancamento === filtroAno) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -483,8 +483,8 @@ function aplicarFiltros() {
 
             if (dados[i].ano_lancamento === filtroAno && generos.includes(filtroGenero)) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -506,8 +506,8 @@ function aplicarFiltros() {
         for (var i = 0; i < length - 1; i++) {
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia)) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -528,8 +528,8 @@ function aplicarFiltros() {
         for (var i = 0; i < length - 1; i++) {
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].ano_lancamento === filtroAno) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -559,8 +559,8 @@ function aplicarFiltros() {
 
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero)) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -589,8 +589,8 @@ function aplicarFiltros() {
 
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero) && dados[i].ano_lancamento === filtroAno) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -616,8 +616,8 @@ function resetarFiltros() {
 
     for (var i = 0; i < length - 1; i++) {
 
-        content += '<div value="'+dados[i].id+'">';
-        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
         content += '</div>';
 
     }

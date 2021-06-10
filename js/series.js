@@ -26,33 +26,20 @@ function litarSeries(retorno) {
 
     for (var i = 0; i < length - 1; i++) {
 
-        content = '<div value="' + i + '">';
-        content += '<img src="../../' + retorno[i].wallpaper + '" title="'+ retorno[i].titulo +'" alt="' + retorno[i].titulo + '" class="imagem-carousel" id="img'+retorno[i].id+'" value="'+i+'" data-toggle="modal" data-target="#Modal"> '
-        content += '</div>';
-
-        $("#carouselSeries1").append(content);
-        $("#carouselSeries1").slick("refresh");
-        content = ""
+        if (dados[i].especie === "serie") {
+            content += '<div value="'+retorno[i].id+'" onclick="slickSliderClick(this.id)">';
+            content += '<img src="../../' + retorno[i].wallpaper + '" title="'+ retorno[i].titulo +'" alt="' + retorno[i].titulo + '" class="imagem-carousel" id="img'+retorno[i].id+'" value="'+i+'" data-toggle="modal" data-target="#Modal"> '
+            content += '</div>';
+        }
 
     }
 
-    $(".slick-slide").hover(function () {
-        var getId = this.id;
-        var getValue = document.getElementById(getId).getAttribute("value");
-        console.log("value: " + getValue);
-        console.log(getId);
+    $("#carouselSeries1").append(content);
+    $("#carouselSeries1").slick("refresh");
+    content = "";
 
-        hoverInfo(getValue);
+    slickSliderHover();
 
-    });
-
-    $(".imagem-carousel").click(function () {
-        var getId = this.id;
-        var getValue = document.getElementById(getId).getAttribute("value");
-        clickEvent(getValue);
-    });
-
-    
 }
 
 function chamarReproducao(clickedId) {
@@ -104,22 +91,56 @@ function hoverInfo(id) {
 
 }
 
-function clickEvent(id) {
+function slickSliderHover() {
+    $(".slick-slide").hover(function () {
+        var getId = this.id;
+        var getValue = document.getElementById(getId).getAttribute("value");
+        console.log("value: " + getValue);
+        console.log(getId);
 
-    var posicaoArray = id;
+        hoverInfo(getValue);
 
-    $("#anoModal").text(dados[posicaoArray].ano_lancamento);
-    $("#duracaoModal").text(dados[posicaoArray]);
-    $("#sinopseModal").text(dados[posicaoArray].sinopse);
-    $("#elencoModal").text(dados[posicaoArray].ator1 + ", " + dados[posicaoArray].ator2 + ", " + dados[posicaoArray].ator3 + ", mais...");
-    $("#generosModal").text(dados[posicaoArray].genero2 + "," + dados[posicaoArray].genero3 + "," + dados[posicaoArray].genero4);
-    $(".botao-assistir").attr("id", "modalAssistir" + dados[posicaoArray].id)
-    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[posicaoArray].id);
-    $(".botao-redondo").attr("value", dados[posicaoArray].id);
+    });
+}
+
+function slickSliderClick(clickeId) {
+
+    var getValue = document.getElementById(clickeId).getAttribute("value");
+    var id = getValue;
+
+    $("#anoModal").text(dados[id-1].ano_lancamento);
+    $("#duracaoModal").text(dados[id-1].tempo_duracao);
+    $("#sinopseModal").text(dados[id-1].sinopse);
+    $("#elencoModal").text(dados[id-1].ator1 + ", " + dados[id-1].ator2 + ", " + dados[id-1].ator3 + ", mais...");
+    $("#generosModal").text(dados[id-1].genero1 + ", " + dados[id-1].genero2 + ", " + dados[id-1].genero3);
+    $(".botao-assistir").attr("id", "modalAssistir" + dados[id-1].id);
+    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[id-1].id);
+    $(".botao-redondo").attr("value", dados[id-1].id);
 
     document.getElementById("modalHeader").removeAttribute("style");
-    $('#modalHeader').css("background-image", "url(../../" + dados[posicaoArray].wallpaper + ")");
+    $('#modalHeader').css("background-image", "url(../../" + dados[id-1].wallpaper + ")");
 
+    //parte responsável por mudar o ícone da minha lista no modal, para remover ou adicionar
+    var length = Object.keys(dadosMinhaLista).length;
+    var tituloOnMinhaLista = false;
+
+    for (var i = 0; i < length - 1; i++) {
+        
+        if (dadosMinhaLista[i].titulos_id === dados[id-1].id) {
+            tituloOnMinhaLista = true;
+        }
+
+    }
+
+    if (tituloOnMinhaLista === true) {
+        console.log(dados[id-1].titulo + " está na lista");
+        $("#imgMinhaListaModal").attr("src", "../public/icons/white_close_icon.png");
+    }
+    else {
+        console.log(dados[id-1].titulo + " não está na lista");
+        $("#imgMinhaListaModal").attr("src", "../public/icons/white_add_icon.png");
+    }
+    
 }
 
 function carouselSlick() {
