@@ -2,7 +2,7 @@
 
 include_once "config.php";
 
-$result_titulo = "SELECT * FROM titulos";
+$result_titulo = "SELECT * FROM titulos WHERE especie = 'serie'";
 
 $resultado = mysqli_query($link, $result_titulo);
 $titulo['id'] = "";

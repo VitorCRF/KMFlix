@@ -24,57 +24,57 @@ if($logado)
         <header>
             <div class="div-header">
                 <div>
-                    <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                    <a href="../"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
                     <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
                     <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
                 </div>
             </div>
         </header>
         <div class="div-container">
-                    <table id="tableCadastro">
-                        <tr id="rowNome">
-                            <td>
-                                <label for="nome">Nome</label>
-                                <input type="text" placeholder="Nome Completo" name="nome" id="campoNome" class="form-control">
-                            </td>
-                        </tr>
-                    
-                        <tr id="rowNascimento">
-                            <td>
-                                <label for="nascimento">Data de nascimento</label>
-                                <input type="date" placeholder="01/01/2001" name="nascimento" id="campoNascimento" class="form-control">
-                            </td>
-                        </tr>
-                        
-                        <tr id="rowEmail">
-                            <td>
-                                <label for="email">Email</label>
-                                <input type="text" placeholder="seu@email.com" name="email" id="campoEmail" class="form-control"> 
-                            </td>
-                        </tr>
-                        <tr id="rowSenha">
-                            <td>
-                                <label for="senha">Senha</label>
-                                <input type="password" placeholder="Senha" name="senha" id="campoSenha" class="form-control"> 
-                            </td>
-                        </tr>
-                        <tr id="rowConfirmarSenha">
-                            <td>
-                                <label for="confirmaSenha">Confirmar senha</label>
-                                <input type="password" placeholder="Confirme sua Senha" name="confirmaSenha" id="campoConfirmaSenha" class="form-control">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <button class="btn btn-primary" id="botaoProsseguir">Prosseguir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <br><a href="login.php"><p class="p-link">Já possuo uma conta.</p></a>
-                            </td>
-                        </tr>
-                    </table>
+            <table id="tableCadastro">
+                <tr id="rowNome">
+                    <td>
+                        <label for="nome" class="labelCadastro">Nome</label>
+                        <input type="text" placeholder="Nome Completo" name="nome" id="campoNome" class="form-control">
+                    </td>
+                </tr>
+            
+                <tr id="rowNascimento">
+                    <td>
+                        <label for="nascimento" class="labelCadastro">Data de nascimento</label>
+                        <input type="date" placeholder="01/01/2001" name="nascimento" id="campoNascimento" class="form-control">
+                    </td>
+                </tr>
+                
+                <tr id="rowEmail">
+                    <td>
+                        <label for="email" class="labelCadastro">Email</label>
+                        <input type="text" placeholder="seu@email.com" name="email" id="campoEmail" class="form-control"> 
+                    </td>
+                </tr>
+                <tr id="rowSenha">
+                    <td>
+                        <label for="senha" class="labelCadastro">Senha</label>
+                        <input type="password" placeholder="Senha" name="senha" id="campoSenha" class="form-control"> 
+                    </td>
+                </tr>
+                <tr id="rowConfirmarSenha">
+                    <td>
+                        <label for="confirmaSenha" class="labelCadastro">Confirmar senha</label>
+                        <input type="password" placeholder="Confirme sua Senha" name="confirmaSenha" id="campoConfirmaSenha" class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button class="btn btn-primary" id="botaoProsseguir">Prosseguir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <br><a href="login.php"><p class="p-link">Já possuo uma conta.</p></a>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         

@@ -2,9 +2,10 @@
 <?php 
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
-    if($logado)
+    if($logado) {
         header("Location: ../home/index.php"); 
-            
+    }   
+        
 ?>
 <html>
 
@@ -27,7 +28,7 @@
     <header>
         <div class="div-header">
             <div>
-                <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
+                <a href="../"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
                 <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
                 <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
             </div>
