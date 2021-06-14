@@ -18,7 +18,8 @@
 		$_SESSION["email"] = $registro["email"];
 		$_SESSION["nome"] = $registro["nome"];
 		$_SESSION["idUser"] = $registro["id"];
-
+		$_SESSION["isAdmin"] = $registro["isAdmin"];
+		
 		$_SESSION["idSessao"] = session_id();
 		$_SESSION["inicio"] = time();
 		$_SESSION["tempoLimite"] = 30*9999 ;
@@ -26,6 +27,8 @@
 
 		$retorno["status"] = "s";
 		$retorno["mensagem"] = "Usuario autenticado com sucesso!";
+
+		
 	
 	}
 	

@@ -12,26 +12,26 @@ $duracao = $_POST['duracao'];
 $sinopse = $_POST['sinopse'];
 $trailer = $_POST['trailer'];
 $wallpaper = $_POST['wallpaper'];
-$alo = "jisjd";
 
-    /*
-    $resultado = mysqli_query($link, "INSERT INTO titulos (titulo, ano_lancamento, tempo_duracao, wallpaper,
-     classificacao, generos, atores, especie, sinopse, trailer) VALUES ('$nomeTitulo', '$generos', '$atores', '$classificacao',
-     '$anoLancamento', '$especie', '$duracao', '$wallpaper', '$sinopse', '$trailer')");
+
+ 
+    $resultado = mysqli_query($link, "UPDATE titulos  SET `titulo` = '$nomeTitulo', `ano_lancamento` = '$anoLancamento',
+        `tempo_duracao` = '$duracao', `classificacao` = '$classificacao', `generos` = '$generos', `atores` = '$atores',
+        `especie` = '$especie', `sinopse` = '$sinopse', `trailer` = '$trailer'
+        WHERE wallpaper = '$wallpaper'");
     if ($resultado == true) {
-    
+        echo "sucesso";
     }
-    */
 
-    echo $nomeTitulo;
-  /*  else {
+
+    else {
         echo "Algo de errado aconteceu, tente novamente";
     }
     print_r ($_SESSION);
 	
 
 	echo json_encode($retorno);
-    */
+  
 
 
 ?>

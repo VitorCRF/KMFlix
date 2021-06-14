@@ -1,9 +1,16 @@
 <?php
-// Include config file
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
+    $admin = $_SESSION["isAdmin"] ?? NULL;
     if(!$logado)
-        header("Location: /stream/html/cadastro.html"); 
+        header("Location: /stream/html/login.php"); 
+    if($admin != 1)
+        header("Location: ../home/index.php"); 
+    if(isset($_GET['logout']) && $_GET['logout'] == 1){
+        $_SESSION = array();
+        session_destroy();
+        header("Location: ../"); 
+    }   
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,10 +36,10 @@
         <header>
             <div class="div-header">
                 <div>
-                    <a href="../"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
-                    <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
-                    <a href="../html/cadastro.php"><button class="botao-assinar">Assine</button></a>
-                </div>
+                    <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
+                </div>         
+                <a href="minhaConta.php"><img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon"></a>
+                <a href="../home/index.php"><img src="../public/icons/white_home_icon.png" class="icon-header" alt="home icon"></a>               
             </div>
         </header>
         <div class="div-container">   
@@ -91,7 +98,7 @@
                 <div class="row">       
                     <div class="col-md-6">
                         <label for="especie">Sinopse</label>
-                        <textarea name="sinopse" id="sinopse" class="form-control"> </textarea>
+                        <textarea name="sinopse" required="required" id="sinopse" class="form-control"> </textarea>
                     </div>                           
                 </div>
                 <div class="text-center">

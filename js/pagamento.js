@@ -132,8 +132,6 @@ function verificaCampos() {
             table.deleteRow(rowIndex + 1);
             textoCCVInvalido = false;
         }
-
-
     }
     else {
         prosseguir = false;
@@ -150,7 +148,6 @@ function verificaCampos() {
 
         return false;
     }
-
 
     if (validade.length == 5) {
         prosseguir = true;

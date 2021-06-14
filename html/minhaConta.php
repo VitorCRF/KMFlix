@@ -1,18 +1,18 @@
 <?php
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
+    $admin = $_SESSION["isAdmin"] ?? NULL;
     if(!$logado)
         header("Location: /stream/html/login.php"); 
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
         header("Location: ../"); 
-    }
-    
+    }   
 ?>
 <html>
     <head>
-        <title>Kmflix | Minha Conta</title>
+        <title>Kmflix | Minha Conta Admin</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -57,14 +57,19 @@
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
 
+                <?php
+                    echo 
+                    '<div id="divAlterarEmail">
+                        <a class="p-alterar-atributo" href="cadastrarTitulo.php" id="criarTitulo" onclick="criarTitulo()">Cadastrar título</a>
+                    </div>    ';
+                ?>
                 <div id="divAlterarSenha">
-                    <p class="p-alterar-atributo" id="alterarSenha" onclick="alterarSenha()">Alterar senha</p>
+                    <a class="p-alterar-atributo" id="alterarSenha" href="alterarSenha.html">Alterar senha</a>
                 </div>
 
                 <div id="divAlterarEmail">
                     <p class="p-alterar-atributo" id="alterarEmail" onclick="alterarEmail()">Alterar email</p>
-                </div>
-
+                </div>         
                 <div id="divSair">
                     <a class="p-alterar-atributo" href="?logout=1" id="sair" onclick="">Sair</a>
                 </div>

@@ -7,7 +7,7 @@ var especie;
 var duracao;
 var sinopse;
 var trailer;
-
+var fileImg;
 var wallpaper;
 var formData;
 $(document).ready(function(){
@@ -18,7 +18,7 @@ $(document).ready(function(){
         formData.append("file", wallpaper)
     });
     $("#botaoProsseguir").click(function(){
-        /*
+ 
         nomeTitulo = $("#nomeTitulo").val();
         generos = $("#generos").val();
         atores = $("#atores").val();
@@ -28,7 +28,8 @@ $(document).ready(function(){
         duracao = $("#duracao").val();
         trailer = $("#trailer").val();
         sinopse = $("#sinopse").val();   
-        */  
+        fileImg = $("#wallpaper").val();   
+      
         $.ajax({
             url: "../php/upload.php",
             type: "POST",
@@ -37,17 +38,23 @@ $(document).ready(function(){
             cache: false,
             processData: false,
             success: function(retorno){
-
+                var enderecoImg = "public/img/" + retorno;
+                if(verificaInfos()){
+                    enviarInfos(enderecoImg);
+                }else{
+                    alert("Todos os campos devem ser preenchidos!")
+                }
+                
             }
 
         })
     });
 });
-function enviarInfos() {
+function enviarInfos(wallpaper) {
     $.ajax({
         type: "POST",
             url: "../php/cadastraTitulo.php",
-            data: {               
+            data: {                            
                 nomeTitulo: nomeTitulo,
                 generos: generos,
                 atores: atores,
@@ -56,19 +63,22 @@ function enviarInfos() {
                 especie: especie,
                 duracao: duracao,
                 sinopse: sinopse,
-                trailer: trailer   
+                trailer: trailer,
+                wallpaper: wallpaper 
             },   
             success:function(data) {
                 window.location.href= "../php/cadastraTitulo.php"
+            },
+            error: function(data){
+                alert("deu ruim no segundo ajax")
             }
-    })
+    }) 
 }
 function verificaInfos() {
 
     if (nomeTitulo != "") {
         $("#nomeTitulo").removeClass("campo-cadastro-invalido");
         prosseguir = true;
-
     }
     else {
         prosseguir = false;
@@ -153,6 +163,14 @@ function verificaInfos() {
     else {
         prosseguir = false;
         $("#trailer").addClass("campo-cadastro-invalido");
+        return false;
+    }
+    if (fileImg != "") {
+        $("#wallpaper").removeClass("campo-cadastro-invalido");
+        prosseguir = true;
+    }else {
+        prosseguir = false;
+        $("#wallpaper").addClass("campo-cadastro-invalido");
         return false;
     }
 
