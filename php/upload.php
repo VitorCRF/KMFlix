@@ -33,6 +33,24 @@
          $largura_original, $altura_original);
 
          imagejpeg($imagem_redimensionada, "../public/img/" . $arquivo_nome ."");
+    }else if($arquivo_ext == "png"){
+
+		$imagem_temp = imagecreatefrompng($_FILES["file"]["tmp_name"]);
+		$largura_original = imagesx($imagem_temp);
+		$altura_original = imagesy($imagem_temp);
+
+        $porcentagem_largura = (($largura * 100) / $largura_original) * 0.01;
+        $porcentagem_altura = (($largura * 100) / $altura_original) * 0.01;
+
+        $largura_nova = $largura_original * $porcentagem_largura;
+        $altura_nova = $altura_original * $porcentagem_altura;
+
+        $imagem_redimensionada = imagecreatetruecolor($altura_nova, $largura_nova);
+
+        imagecopyresampled($imagem_redimensionada, $imagem_temp, 0, 0, 0, 0, $largura_nova, $altura_nova,
+         $largura_original, $altura_original);
+
+         imagepng($imagem_redimensionada, "../public/img/" . $arquivo_nome ."");
     }
 
     if($arquivo_nome != null){
