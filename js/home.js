@@ -8,6 +8,8 @@ var infoSlideIsActive = false;
 
 $(document).ready(function () {
 
+    carouselSlick();
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -22,8 +24,6 @@ $(document).ready(function () {
     });
 
     ajaxBuscarMinhaLista();
-
-    carouselSlick();
 
     $('#Modal').on('shown.bs.modal', function () {
         $('#meuInput').trigger('focus')
