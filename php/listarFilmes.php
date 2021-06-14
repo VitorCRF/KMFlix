@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: text/html; charset=utf-8');
+
 include_once "config.php";
 
 $result_titulo = "SELECT * FROM titulos";
@@ -15,16 +17,13 @@ if(($resultado) && ($resultado -> num_rows) != 0){
         $titulo['wallpaper'] = $row_titulo['wallpaper'];
         $titulo['tempo_duracao'] = $row_titulo['tempo_duracao'];
         $titulo['classificacao'] = $row_titulo['classificacao'];
-        $titulo['genero1'] = $row_titulo['genero1'];
-        $titulo['genero2'] = $row_titulo['genero2'];
-        $titulo['genero3'] = $row_titulo['genero3'];
-        $titulo['genero4'] = $row_titulo['genero4'];
-        $titulo['ator1'] = $row_titulo['ator1'];
-        $titulo['ator2'] = $row_titulo['ator2'];
-        $titulo['ator3'] = $row_titulo['ator3'];
+        $titulo['generos'] = $row_titulo['generos'];
+        $titulo['atores'] = $row_titulo['atores'];
         $titulo['especie'] = $row_titulo['especie'];  
         $titulo['sinopse'] = $row_titulo['sinopse'];
-        $titulo['relevancia'] = $row_titulo['relevancia']; 
+        $titulo['relevancia'] = $row_titulo['relevancia'];
+        $titulo['trailer'] = $row_titulo['trailer'];  
+
 
         array_push($retorno, $titulo);
     }

@@ -52,7 +52,7 @@
                 <h1 class="nome-titulo-header" id="nomeTituloHeader">Dark</h1>
                 <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Quatro famílias iniciam uma desesperada busca por respostas quando uma criança desaparece e um complexo mistério envolvendo três gerações começa a se revelar.</h2>
                 <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH7" onclick="chamarReproducao(this.id)">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH7" onclick="chamarAddMinhaLista(this.value)" value="7"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH7" onclick="chamarAddMinhaLista(this.value)" value="7"><img src="../../public/icons/white_add_icon.png" id="imgMinhaListaHeader" width="40%" height="40%" alt="add icon"></button>
             </div>
 
         </div>
@@ -74,7 +74,7 @@
                       </button>
 
                       <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
-                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" id="imgMinhaListaModal" width="40%" height="40%" alt="add icon"></button>
 
                     </div>
                     <div class="modal-body">
@@ -111,6 +111,11 @@
 
             <h1 class="titulo-carousel">Séries</h1>
             <div class="carousel" id="carouselSeries1">
+
+            </div>
+
+            <h1 class="titulo-carousel">Minha lista de séries</h1>
+            <div class="carousel" id="carouselMinhaListaSeries">
 
             </div>
 

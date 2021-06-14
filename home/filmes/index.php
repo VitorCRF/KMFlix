@@ -52,7 +52,7 @@
                 <h1 class="nome-titulo-header" id="nomeTituloHeader">As Branquelas</h1>
                 <h2 class="sinopse-titulo-header" id="sinopseTituloHeader">Dois irmaos agentes do FBI, Marcus e Kevin Copeland, acidentalmente evitam que bandidos sejam presos em uma apreensao de drogas.</h2>
                 <button class="botao-assistir-header" title="Assistir" id="botaoAssistirH6" onclick="chamarReproducao(this.id)">Assistir</button>
-                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH6" onclick="chamarAddMinhaLista(this.value)" value="6"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                <button class="botao-minha-lista-header" title="Minha lista" id="minhaListaH6" onclick="chamarAddMinhaLista(this.value)" value="6"><img src="../../public/icons/white_add_icon.png" id="imgMinhaListaHeader" width="40%" height="40%" alt="add icon"></button>
             </div>
 
         </div>
@@ -74,7 +74,7 @@
                       </button>
 
                       <button class="botao-assistir" title="Assistir" id="modalAssistir1" onclick="chamarReproducao(this.id)">Assistir</button>
-                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" width="40%" height="40%" alt="add icon"></button>
+                      <button class="botao-redondo" title="Minha Lista" id="modalMinhaLista1" onclick="chamarAddMinhaLista(this.value)" value="1"><img src="../../public/icons/white_add_icon.png" id="imgMinhaListaModal" width="40%" height="40%" alt="add icon"></button>
 
                     </div>
                     <div class="modal-body">
@@ -110,9 +110,14 @@
         <div class="div-container-slick">
 
             <h1 class="titulo-carousel">Filmes</h1>
-            <div class="carousel" id="carouselSeries1">
+            <div class="carousel" id="carouselFilmes">
 
             </div>
+
+            <h1 class="titulo-carousel">Minha lista de filmes</h1>
+            <div class="carousel" id="carouselMinhaListaFilmes">
+
+            </dv>
 
         </div>
     
