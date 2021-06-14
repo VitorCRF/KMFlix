@@ -1,17 +1,9 @@
-/*var retorno = [
-    ['1','Breaking Bad','2013','5 Temporadas','../public/img/breaking bad.jpeg','18','Ao saber que tem câncer, um professor passa a fabricar metanfetamina pelo futuro da família, mudando o destino de todos.','Suspense','Drama','Séries dramáticas sobre crimes','Suspense para TV','Bryan Cranston','Aron Paul','Anna Gunn','serie'],
-    ['2','Vikings','2019','6 Temporadas','../public/img/vikings.jpg','16','Esta série dramática acompanha a vida do viking Ragnar Lothbrok em sua jornada para ampliar o domínio nórdico e desafiar um líder incompetente e sem visão.','Violentos','Épico','Empolgantes','Obras de época','Travis Fimmel','Kathryn Winnick','Clive Standem','serie'],
-    ['3','Lost','2010','6 Temporadas','../public/img/lost.jpg','14','Um avião cai em uma ilha deserta e logo um grupo de passageiros precisa lutar para sobreviver. Liderados pelo médico Jack Shephard e pelo misterioso John Locke, eles irão descobrir que o local esconde perigosos segredos.','Ação','Aventura','drama','Ficção científica','Evangeline Lilly','Matthew Fox','Josh Halloway','serie'],
-    ['4','Interstellar','2014','02:49','../public/img/interestellar.jpg','10','As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie.','Ficção científica','Aventura','Épico','Mistério','Matthew McConaughey','Anne Hathaway','Jessica Chastai','filme'],
-    ['5','Gente Grande','2010','01:42','../public/img/gente_grande.jpg','12','A morte do treinador de basquete da infância de velhos amigos os reúne no mesmo lugar que celebraram um campeonato anos atrás. Os amigos, acompanhados de suas esposas e filhos, descobrem que idade não significa o mesmo que maturidade.','Comédia','Besteirol','Adam Sandler','Kevin James','Chris Rock','filme']
-];*/
-
 var dados;
 var dadosMinhaLista;
+var minhaLista = false;
 
 var searchInputIsActive = false;
 var textInput = "";
-var minhaLista = false;
 var infoSlideIsActive = false;
 
 $(document).ready(function () {
@@ -46,10 +38,6 @@ $(document).ready(function () {
         hoverInfo(getValue);
         
     })
-
-    var element = document.getElementsByClassName("slick-slide");
-
-    element.addEventListener("touchstart", slickSliderClick(this.id), false)
 
     var content = "";
 
@@ -123,7 +111,7 @@ function listarTitulos() {
 
     for (var i = 0; i < length - 1; i++) {
         content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)" title="'+dados[i].titulo+'" ontouchstart="slickSliderClick(this.id)">';
-        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" class="imagem-carousel" id="imagemCarousel'+dados[i].id+'" data-toggle="modal" data-target="#Modal">';
         content += '</div>';
     }
 
@@ -155,7 +143,7 @@ function hoverInfo(id) {
         content += '<img src="../public/icons/white_play_button.png" class="play-button" alt="play button" id="playButton' + dados[id-1].id + '" onclick="chamarReproducao(this.id)">';
         content += '<h1 class="h1-titulo" id="titulo">' + dados[id-1].titulo + '</h1>';
         content += '<p class="p-ano-lancamento" id="ano">' + dados[id-1].ano_lancamento + '</p>';
-        content += '<p class="p-genero1" id="genero1">' + dados[id-1].genero2 + '</p>';
+        content += '<p class="p-genero1" id="genero1">' + dados[id-1].generos + '</p>';
 
         tituloId = dados[id-1].titulo;
         tituloId = tituloId.replace(/\s+/g, ''); //retira espaços em branco da string
@@ -219,14 +207,40 @@ function slickSliderClick(clickeId) {
     $("#anoModal").text(dados[id-1].ano_lancamento);
     $("#duracaoModal").text(dados[id-1].tempo_duracao);
     $("#sinopseModal").text(dados[id-1].sinopse);
-    $("#elencoModal").text(dados[id-1].ator1 + ", " + dados[id-1].ator2 + ", " + dados[id-1].ator3 + ", mais...");
-    $("#generosModal").text(dados[id-1].genero1 + ", " + dados[id-1].genero2 + ", " + dados[id-1].genero3);
+    $("#elencoModal").text(dados[id-1].atores);
+    $("#generosModal").text(dados[id-1].generos);
     $(".botao-assistir").attr("id", "modalAssistir" + dados[id-1].id);
     $(".botao-redondo").attr("id", "modalMinhaLista" + dados[id-1].id);
     $(".botao-redondo").attr("value", dados[id-1].id);
 
     document.getElementById("modalHeader").removeAttribute("style");
     $('#modalHeader').css("background-image", "url(../" + dados[id-1].wallpaper + ")");
+
+    //parte responsável por mudar o ícone de classificação indicativa
+    if (dados[id-1].classificacao === "livre") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-livre.png");
+        $(".imgaem-classificacao").attr("title", "Classificação indicativa livre");
+    }
+    else if (dados[id-1].classificacao === "10") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-10-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 10 anos");
+    }
+    else if (dados[id-1].classificacao === "12") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-12-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 12 anos");
+    }
+    else if (dados[id-1].classificacao === "14") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-14-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 14 anos");
+    }
+    else if (dados[id-1].classificacao === "16") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-16-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 16 anos");
+    }
+    else if (dados[id-1].classificacao === "18") {
+        $(".imagem-classificacao").attr("src", "../public/icons/classificacao-18-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 18 anos");
+    }
 
     //parte responsável por mudar o ícone da minha lista no modal, para remover ou adicionar
     var length = Object.keys(dadosMinhaLista).length;
@@ -380,7 +394,6 @@ function abrirFiltros() {
     var content = "";
 
     content = '<div class="div-filtros">';
-    //content = '<>';
     content = '</div>';
 
     $(".div-container-filtros").append(content);
@@ -429,10 +442,10 @@ function aplicarFiltros() {
 
         for (var i = 0; i < length - 1; i++) {
 
-            if (dados[i].genero1 === filtroGenero || dados[i].genero2 === filtroGenero || dados[i].genero3 === filtroGenero || dados[i].genero4 === filtroGenero) {
+            if (dados[i].generos.includes(filtroGenero)) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -454,8 +467,8 @@ function aplicarFiltros() {
 
             if (dados[i].ano_lancamento === filtroAno) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -475,16 +488,10 @@ function aplicarFiltros() {
 
         for (var i = 0; i < length - 1; i++) {
 
-            var generos = [];
-            generos.push(dados[i].genero1);
-            generos.push(dados[i].genero2);
-            generos.push(dados[i].genero3);
-            generos.push(dados[i].genero4);
+            if (dados[i].ano_lancamento === filtroAno && dados[i].generos.includes(filtroGenero)) {
 
-            if (dados[i].ano_lancamento === filtroAno && generos.includes(filtroGenero)) {
-
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -506,8 +513,8 @@ function aplicarFiltros() {
         for (var i = 0; i < length - 1; i++) {
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia)) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -528,8 +535,8 @@ function aplicarFiltros() {
         for (var i = 0; i < length - 1; i++) {
             if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].ano_lancamento === filtroAno) {
 
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -551,16 +558,10 @@ function aplicarFiltros() {
 
         for (var i = 0; i < length - 1; i++) {
 
-            var generos = [];
-            generos.push(dados[i].genero1);
-            generos.push(dados[i].genero2);
-            generos.push(dados[i].genero3);
-            generos.push(dados[i].genero4);
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].generos.includes(filtroGenero)) {
 
-            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero)) {
-
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -581,16 +582,10 @@ function aplicarFiltros() {
 
         for (var i = 0; i < length - 1; i++) {
 
-            var generos = [];
-            generos.push(dados[i].genero1);
-            generos.push(dados[i].genero2);
-            generos.push(dados[i].genero3);
-            generos.push(dados[i].genero4);
+            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && dados[i].generos.includes(filtroGenero) && dados[i].ano_lancamento === filtroAno) {
 
-            if (parseFloat(dados[i].relevancia) === parseFloat(filtroRelevancia) && generos.includes(filtroGenero) && dados[i].ano_lancamento === filtroAno) {
-
-                content += '<div value="'+dados[i].id+'">';
-                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+                content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+                content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
                 content += '</div>';
 
             }
@@ -616,8 +611,8 @@ function resetarFiltros() {
 
     for (var i = 0; i < length - 1; i++) {
 
-        content += '<div value="'+dados[i].id+'">';
-        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="breaking bad poster" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
+        content += '<div value="'+dados[i].id+'" onclick="slickSliderClick(this.id)">';
+        content += '<img src="../' + dados[i].wallpaper + '" width="100%" height="100%" alt="'+dados[i].titulo+' wallpaper" title="'+dados[i].titulo+'" class="imagem-carousel" id="imagemCarousel1" data-toggle="modal" data-target="#Modal">';
         content += '</div>';
 
     }

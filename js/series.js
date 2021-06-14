@@ -1,4 +1,6 @@
 var infoSlideIsActive = false;
+var dadosMinhaLista;
+var minhaLista = false;
 var dados;
 
 $(document).ready(function () {
@@ -16,6 +18,8 @@ $(document).ready(function () {
         }
     })
 
+    ajaxBuscarMinhaLista();
+
     carouselSlick();
 
 });
@@ -26,33 +30,20 @@ function litarSeries(retorno) {
 
     for (var i = 0; i < length - 1; i++) {
 
-        content = '<div value="' + i + '">';
-        content += '<img src="../../' + retorno[i].wallpaper + '" title="'+ retorno[i].titulo +'" alt="' + retorno[i].titulo + '" class="imagem-carousel" id="img'+retorno[i].id+'" value="'+i+'" data-toggle="modal" data-target="#Modal"> '
-        content += '</div>';
-
-        $("#carouselSeries1").append(content);
-        $("#carouselSeries1").slick("refresh");
-        content = ""
+        if (dados[i].especie === "serie") {
+            content += '<div value="'+retorno[i].id+'" onclick="slickSliderClick(this.id)">';
+            content += '<img src="../../' + retorno[i].wallpaper + '" title="'+ retorno[i].titulo +'" alt="' + retorno[i].titulo + '" class="imagem-carousel" id="img'+retorno[i].id+'" value="'+i+'" data-toggle="modal" data-target="#Modal"> '
+            content += '</div>';
+        }
 
     }
 
-    $(".slick-slide").hover(function () {
-        var getId = this.id;
-        var getValue = document.getElementById(getId).getAttribute("value");
-        console.log("value: " + getValue);
-        console.log(getId);
+    $("#carouselSeries1").append(content);
+    $("#carouselSeries1").slick("refresh");
+    content = "";
 
-        hoverInfo(getValue);
+    slickSliderHover();
 
-    });
-
-    $(".imagem-carousel").click(function () {
-        var getId = this.id;
-        var getValue = document.getElementById(getId).getAttribute("value");
-        clickEvent(getValue);
-    });
-
-    
 }
 
 function chamarReproducao(clickedId) {
@@ -80,20 +71,42 @@ function hoverInfo(id) {
         content = "";
         infoSlideIsActive = true;
 
-        $(".botao-assistir-header").attr("id", "botaoAssistirH" + dados[id].id);
-        $(".botao-minha-lista-header").attr("id", "minhaListaH");
-        $(".botao-minha-lista-header").attr("value", dados[id].id);
+        $(".botao-assistir-header").attr("id", "botaoAssistirH" + dados[id-1].id);
+        $(".botao-minha-lista-header").attr("id", "minhaListaH" + dados[id-1].id);
+        $(".botao-minha-lista-header").attr("value", dados[id-1].id);
 
         document.getElementById("divHomeHeader").removeAttribute("style");
-        $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../../" + dados[id].wallpaper + ")");
+        $('#divHomeHeader').css("background-image", "linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 70%, #121212), url(../../" + dados[id-1].wallpaper + ")");
         $("#divHomeHeader").css("background-size", "100%");
 
-        $("#nomeTituloHeader").text(dados[id].titulo)
-        $("#sinopseTituloHeader").text(dados[id].sinopse)
+        $("#nomeTituloHeader").text(dados[id-1].titulo)
+        $("#sinopseTituloHeader").text(dados[id-1].sinopse)
+
+        //parte responsável por mudar o ícone da minha lista no header, para remover ou adicionar
+        var length = Object.keys(dadosMinhaLista).length;
+        var tituloOnMinhaLista = false;
+
+        for (var i = 0; i < length - 1; i++) {
+            
+            if (dadosMinhaLista[i].titulos_id === dados[id-1].id) {
+                tituloOnMinhaLista = true;
+            }
+
+        }
+
+        if (tituloOnMinhaLista === true) {
+            console.log(dados[id-1].titulo + " está na lista");
+            $("#imgMinhaListaHeader").attr("src", "../../public/icons/white_close_icon.png");
+        }
+        else {
+            console.log(dados[id-1].titulo + " não está na lista");
+            $("#imgMinhaListaHeader").attr("src", "../../public/icons/white_add_icon.png");
+        }
+
     }
     else {
         $("#divInfos" + tituloId).attr("class", "div-infos-slide");
-        $("#playButton" + dados[id].id).remove();
+        $("#playButton" + dados[id-1].id).remove();
         $("#titulo").remove();
         $("#ano").remove();
         $("#genero1").remove();
@@ -104,21 +117,167 @@ function hoverInfo(id) {
 
 }
 
-function clickEvent(id) {
+function slickSliderHover() {
+    $(".slick-slide").hover(function () {
+        var getId = this.id;
+        var getValue = document.getElementById(getId).getAttribute("value");
+        console.log("value: " + getValue);
+        console.log(getId);
 
-    var posicaoArray = id;
+        hoverInfo(getValue);
 
-    $("#anoModal").text(dados[posicaoArray].ano_lancamento);
-    $("#duracaoModal").text(dados[posicaoArray]);
-    $("#sinopseModal").text(dados[posicaoArray].sinopse);
-    $("#elencoModal").text(dados[posicaoArray].ator1 + ", " + dados[posicaoArray].ator2 + ", " + dados[posicaoArray].ator3 + ", mais...");
-    $("#generosModal").text(dados[posicaoArray].genero2 + "," + dados[posicaoArray].genero3 + "," + dados[posicaoArray].genero4);
-    $(".botao-assistir").attr("id", "modalAssistir" + dados[posicaoArray].id)
-    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[posicaoArray].id);
-    $(".botao-redondo").attr("value", dados[posicaoArray].id);
+    });
+}
+
+function slickSliderClick(clickeId) {
+
+    var getValue = document.getElementById(clickeId).getAttribute("value");
+    var id = getValue;
+
+    $("#anoModal").text(dados[id-1].ano_lancamento);
+    $("#duracaoModal").text(dados[id-1].tempo_duracao);
+    $("#sinopseModal").text(dados[id-1].sinopse);
+    $("#elencoModal").text(dados[id-1].atores+", mais...");
+    $("#generosModal").text(dados[id-1].generos);
+    $(".botao-assistir").attr("id", "modalAssistir" + dados[id-1].id);
+    $(".botao-redondo").attr("id", "modalMinhaLista" + dados[id-1].id);
+    $(".botao-redondo").attr("value", dados[id-1].id);
 
     document.getElementById("modalHeader").removeAttribute("style");
-    $('#modalHeader').css("background-image", "url(../../" + dados[posicaoArray].wallpaper + ")");
+    $('#modalHeader').css("background-image", "url(../../" + dados[id-1].wallpaper + ")");
+
+    //parte responsável por mudar o ícone de classificação indicativa
+    if (dados[id-1].classificacao === "livre") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-livre.png");
+        $(".imgaem-classificacao").attr("title", "Classificação indicativa livre");
+    }
+    else if (dados[id-1].classificacao === "10") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-10-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 10 anos");
+    }
+    else if (dados[id-1].classificacao === "12") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-12-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 12 anos");
+    }
+    else if (dados[id-1].classificacao === "14") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-14-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 14 anos");
+    }
+    else if (dados[id-1].classificacao === "16") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-16-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 16 anos");
+    }
+    else if (dados[id-1].classificacao === "18") {
+        $(".imagem-classificacao").attr("src", "../../public/icons/classificacao-18-anos.png");
+        $(".imgaem-classificacao").attr("title", "Classificação 18 anos");
+    }
+
+    //parte responsável por mudar o ícone da minha lista no modal, para remover ou adicionar
+    var length = Object.keys(dadosMinhaLista).length;
+    var tituloOnMinhaLista = false;
+
+    for (var i = 0; i < length - 1; i++) {
+        
+        if (dadosMinhaLista[i].titulos_id === dados[id-1].id) {
+            tituloOnMinhaLista = true;
+        }
+
+    }
+
+    if (tituloOnMinhaLista === true) {
+        console.log(dados[id-1].titulo + " está na lista");
+        $("#imgMinhaListaModal").attr("src", "../../public/icons/white_close_icon.png");
+    }
+    else {
+        console.log(dados[id-1].titulo + " não está na lista");
+        $("#imgMinhaListaModal").attr("src", "../../public/icons/white_add_icon.png");
+    }
+    
+}
+
+function chamarAddMinhaLista(clickedId) {
+
+    if (minhaLista === false) {
+        var slickRemove = $("#divMinhaListaInicial").attr("data-slick-index")
+        $("#divMinhaListaInicial").slick("slickRemove", slickRemove)
+        $("#divMinhaListaInicial").slick("refresh");
+        console.log("removendo minha lista")
+        minhaLista = true;
+    }
+
+    addMinhaLista(clickedId)
+
+}
+
+function addMinhaLista(id) {
+
+    ajaxEnviarMinhaLista(id);
+    ajaxBuscarMinhaLista();
+
+}
+
+function ajaxEnviarMinhaLista(titulo_id) {
+    $.ajax({
+        type: 'POST',
+        url: '../../php/enviarMinhaLista.php',
+        data: {
+            titulo_id: titulo_id
+        },
+        success: console.log("ajax minha lista enviado"),
+        error: function () {
+            alert("Erro ao enviar os titulos da lista de favoritos.");
+        }
+    })
+}
+
+function ajaxBuscarMinhaLista() {
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '../../php/buscarMinhaLista.php',
+        success: function (retornoMinhaLista) {
+            dadosMinhaLista = retornoMinhaLista;
+            iniciarMinhaLista();
+        },
+        error: function () {
+            //
+        }
+    })
+}
+
+function iniciarMinhaLista() {
+
+    var length = Object.keys(dadosMinhaLista).length;
+    var content;
+
+    console.log("minha lista lenght: "+length)
+
+    if (length > 0) {
+
+        for (var i = 0; i < length-1; i++) {
+
+            var tituloIdMinhaLista = dadosMinhaLista[i].titulos_id;
+            tituloIdMinhaLista = tituloIdMinhaLista - 1;
+
+            if (dados[tituloIdMinhaLista].especie === "serie") {
+                content += '<div value="'+dados[tituloIdMinhaLista].id+'" onclick="slickSliderClick(this.id)" title="'+dados[tituloIdMinhaLista].titulo+'" class="card-minha-lista">'
+                content += '<img src="../../' + dados[tituloIdMinhaLista].wallpaper + '" width="100%" height="100%" alt="'+dados[tituloIdMinhaLista].titulo+' wallpaper." class="imagem-carousel" id="imagemCarousel'+dados[tituloIdMinhaLista].titulo+'" data-toggle="modal" data-target="#Modal">';
+                content += '</div>'
+            }
+            
+        }
+
+        $('#carouselMinhaListaSeries').slick('removeSlide', null, null, true);
+        $("#carouselMinhaListaSeries").append(content);
+        $("#carouselMinhaListaSeries").slick("refresh");
+        content = "";
+
+        slickSliderHover();
+
+    }
+    else {
+        alert("Não foi possivel recuperar os titulos da lista de favoritos. Recarregue a página para tentar novamente.")
+    }
 
 }
 

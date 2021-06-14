@@ -38,7 +38,7 @@
             </div>
 
             <div class="div-opcoes-header">
-                <a href="../" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
+                <a href="/home" class="a-opcoes-header"><p class="p-opcoes-header">Inicio</p></a>
                 <a href="../home/series" class="a-opcoes-header"><p class="p-opcoes-header2">Séries</p></a>
                 <a href="../home/filmes/" class="a-opcoes-header"><p class="p-opcoes-header2">Filmes</p></a>
             </div>
@@ -76,7 +76,7 @@
 
                         <div class="div-modal-infos">
                             <p class="p-modal-informacao1" id="anoModal"></p>
-                            <img src="../public/icons/classificacao-18-anos.png" class="imagem-classificacao" alt="18 anos" id="idadeModal">
+                            <img src="../public/icons/classificacao-18-anos.png" title="Classificação indicativa" class="imagem-classificacao" alt="Classificação indicativa" id="idadeModal">
                             <p class="p-modal-informacao1" id="duracaoModal"></p>
                         </div>
 

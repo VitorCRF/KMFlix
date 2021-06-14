@@ -1,14 +1,14 @@
 <?php
     session_start();
     $logado = $_SESSION["logado"] ?? NULL;
+    $admin = $_SESSION["isAdmin"] ?? NULL;
     if(!$logado)
         header("Location: /stream/html/login.php"); 
     if(isset($_GET['logout']) && $_GET['logout'] == 1){
         $_SESSION = array();
         session_destroy();
         header("Location: ../"); 
-    }
-    
+    }   
 ?>
 <html>
     <head>
@@ -57,14 +57,19 @@
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
 
+                
+                    
+                
+                <a class="p-alterar-atributo" href="cadastrarTitulo.php" id="criarTitulo" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">Cadastrar título</a>
+                
+                
                 <div id="divAlterarSenha">
-                    <p class="p-alterar-atributo" id="alterarSenha" onclick="alterarSenha()">Alterar senha</p>
+                    <a class="p-alterar-atributo" id="alterarSenha" href="alterarSenha.html">Alterar senha</a>
                 </div>
 
                 <div id="divAlterarEmail">
                     <p class="p-alterar-atributo" id="alterarEmail" onclick="alterarEmail()">Alterar email</p>
-                </div>
-
+                </div>         
                 <div id="divSair">
                     <a class="p-alterar-atributo" href="?logout=1" id="sair" onclick="">Sair</a>
                 </div>
