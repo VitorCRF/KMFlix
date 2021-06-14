@@ -154,7 +154,7 @@ function hoverInfo(id) {
         infoSlideIsActive = true;
 
         $(".botao-assistir-header").attr("id", "botaoAssistirH"+dados[id-1].id);
-        $(".botao-minha-lista-header").attr("id", "minhaListaH");
+        $(".botao-minha-lista-header").attr("id", "minhaListaH"+dados[id-1].id);
         $(".botao-minha-lista-header").attr("value", dados[id-1].id);
 
         document.getElementById("divHomeHeader").removeAttribute("style");
