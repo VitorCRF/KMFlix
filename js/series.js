@@ -62,7 +62,7 @@ function hoverInfo(id) {
         content += '<p class="p-ano-lancamento" id="ano">' + dados[id].ano_lancamento + '</p>';
         content += '<p class="p-genero1" id="genero1">' + dados[id].genero2 + '</p>';
 
-        tituloId = dados[id].titulo;
+        tituloId = dados[id-1].titulo;
         tituloId = tituloId.replace(/\s+/g, ''); //retira espaços em branco da string
         console.log("tituloId " + tituloId)
 
