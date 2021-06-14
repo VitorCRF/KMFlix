@@ -27,10 +27,10 @@
     <header>
         <div class="div-header">
             <div>
-                <img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito">
-                <a href="../html/login.php"><button class="botao-entrar">Entrar</button></a>
-                <a href="../html/cadastro.html"><button class="botao-assinar">Assine</button></a>
-            </div>
+                <a href="../home/index.php"><img src="../public/logo_escrito.png" alt="Kmflix" class="logo-escrito"></a>
+            </div>         
+            <a href="minhaConta.php"><img src="../public/icons/white_gear_icon.png" class="icon-header" alt="options icon"></a>
+            <a href="../home/index.php"><img src="../public/icons/white_home_icon.png" class="icon-header" alt="home icon"></a>               
         </div>
     </header>
     <div class="div-container">                 
