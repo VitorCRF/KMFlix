@@ -15,7 +15,7 @@ $wallpaper = $_POST['wallpaper'];
 
 
  
-    $resultado = mysqli_query($link, "UPDATE titulos  SET `titulo` = '$nomeTitulo', `ano_lancamento` = '$anoLancamento',
+    $resultado = mysqli_query($link, "UPDATE titulos SET `titulo` = '$nomeTitulo', `ano_lancamento` = '$anoLancamento',
         `tempo_duracao` = '$duracao', `classificacao` = '$classificacao', `generos` = '$generos', `atores` = '$atores',
         `especie` = '$especie', `sinopse` = '$sinopse', `trailer` = '$trailer'
         WHERE wallpaper = '$wallpaper'");
