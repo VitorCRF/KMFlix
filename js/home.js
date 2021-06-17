@@ -345,7 +345,7 @@ function chamarReproducao(clickedId) {
         if (plano === "19,90") {
             alert("Parece que você já reproduziu a quantia máxima de títulos por hoje. Se deseja aumentar a quantidade diaria por favor altere seu plano para avançado.");
         }
-        else if (plano === "29,90" && reproducoesHoje <= 2) {
+        else if (plano === "29,90" && reproducoesHoje <= 3) {
             localStorage.setItem("horarioReproducao", horario);
             localStorage.setItem("diaReproducao", dia);
             localStorage.setItem("dataReproducao", data);
@@ -354,7 +354,7 @@ function chamarReproducao(clickedId) {
             sessionStorage.setItem("playId", clickedId);
             window.location.href = "../home/play/index.html";
         }
-        else if (plano === "29,90" && reproducoesHoje > 2) {
+        else if (plano === "29,90" && reproducoesHoje > 3) {
             alert("Parece que você já reproduziu a quantia máxima de títulos por hoje. Se deseja aumentar a quantidade diaria por favor altere seu plano para avançado.");
         }
         else if (plano === "49,90") {

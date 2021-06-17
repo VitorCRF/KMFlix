@@ -57,11 +57,7 @@
 
                 <h2 class="titulo-atributo">Segurança da conta</h2>
 
-                
-                    
-                
                 <a class="p-alterar-atributo" href="cadastrarTitulo.php" id="criarTitulo" style="padding-top: 0.5rem; padding-bottom: 0.5rem;">Cadastrar título</a>
-                
                 
                 <div id="divAlterarSenha">
                     <a class="p-alterar-atributo" id="alterarSenha" href="alterarSenha.html">Alterar senha</a>
