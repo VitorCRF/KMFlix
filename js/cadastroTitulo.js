@@ -67,10 +67,10 @@ function enviarInfos(wallpaper) {
                 wallpaper: wallpaper 
             },   
             success:function(data) {
-                window.location.href= "../php/cadastraTitulo.php"
+                alert("Titulo cadastrado com sucesso!")
             },
             error: function(data){
-                alert("deu ruim no segundo ajax")
+                alert("Ocorreu um erro, tente novamente.")
             }
     }) 
 }
