@@ -19,6 +19,7 @@
 		$_SESSION["nome"] = $registro["nome"];
 		$_SESSION["idUser"] = $registro["id"];
 		$_SESSION["isAdmin"] = $registro["isAdmin"];
+		$_SESSION["plano"] = $registro["plano"];
 		
 		$_SESSION["idSessao"] = session_id();
 		$_SESSION["inicio"] = time();

@@ -25,7 +25,7 @@ $_SESSION["logado"] = $_SESSION["logado"] ?? False;
 
 		$_SESSION["idSessao"] = session_id();
 		$_SESSION["inicio"] = time();
-		$_SESSION["tempoLimite"] = 30*9999 ;
+		$_SESSION["tempoLimite"] = 30*9999;
 		$_SESSION["logado"] = True;
 
 		$retorno["status"] = "s";

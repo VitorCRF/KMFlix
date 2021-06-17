@@ -71,7 +71,7 @@
                     <p class="p-alterar-atributo" id="alterarEmail" onclick="alterarEmail()">Alterar email</p>
                 </div>         
                 <div id="divSair">
-                    <a class="p-alterar-atributo" href="?logout=1" id="sair" onclick="">Sair</a>
+                    <a class="p-alterar-atributo" href="?logout=1" id="sair" onclick="logOut()">Sair</a>
                 </div>
 
             </div>

@@ -111,3 +111,7 @@ function enviarInfos() {
             success: ajaxSuccess()
     })
 }
+
+function logOut() {
+    localStorage.setItem("reproducoesHoje", 0);
+}
