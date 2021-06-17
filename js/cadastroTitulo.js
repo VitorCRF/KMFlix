@@ -13,7 +13,6 @@ var formData;
 $(document).ready(function(){
     $("#wallpaper").change(function(){
         wallpaper = document.getElementById("wallpaper").files[0];
-        alert("adicionou a foto");
         formData = new FormData();
         formData.append("file", wallpaper)
     });

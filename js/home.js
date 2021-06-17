@@ -47,8 +47,6 @@ $(document).ready(function () {
     $(".slick-slide").hover(function () {
         var getId = this.id;
         var getValue = document.getElementById(getId).getAttribute("value");
-        console.log("value: " + getValue)
-        console.log(getId)
 
         hoverInfo(getValue);
         
@@ -141,8 +139,6 @@ function slickSliderHover() {
     $(".slick-slide").hover(function () {
         var getId = this.id;
         var getValue = document.getElementById(getId).getAttribute("value");
-        console.log("value: " + getValue);
-        console.log(getId);
 
         hoverInfo(getValue);
 
@@ -456,8 +452,6 @@ function iniciarMinhaLista() {
 }
 
 function abrirFiltros() {
-
-    console.log("filtro chamado")
 
     var content = "";
 
