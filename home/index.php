@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 
 <?php 
-            session_start();
-            $logado = $_SESSION["logado"] ?? NULL;
-            if (!$logado){
-                header("Location: ../html/login.php"); 
-            }
-            
+    session_start();
+        $logado = $_SESSION["logado"] ?? NULL;
+        if (!$logado){
+            header("Location: ../html/login.php"); 
+        }      
 ?>
 <html>    
     <head>

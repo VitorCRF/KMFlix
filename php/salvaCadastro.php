@@ -13,7 +13,7 @@ $token = rand($min, $max);
 
 $_SESSION["logado"] = $_SESSION["logado"] ?? False;
 
-    $resultado = mysqli_query($link, "INSERT INTO user (nome, nascimento, email, senha, token_conta) VALUES ('$nome', '$nascimento', '$email', '$senha', $token)");
+    $resultado = mysqli_query($link, "INSERT INTO user (nome, nascimento, email, senha, token_conta) VALUES ('$nome', '$nascimento', '$email', '$senha', '$token')");
     $buscaInfo = mysqli_query($link, "SELECT * FROM user where email = '$email' AND senha = '$senha'");
 
     if ($resultado == true) {
@@ -25,7 +25,7 @@ $_SESSION["logado"] = $_SESSION["logado"] ?? False;
 
 		$_SESSION["idSessao"] = session_id();
 		$_SESSION["inicio"] = time();
-		$_SESSION["tempoLimite"] = 30*9999 ;
+		$_SESSION["tempoLimite"] = 30*9999;
 		$_SESSION["logado"] = True;
 
 		$retorno["status"] = "s";

@@ -1,4 +1,5 @@
 var dados;
+var dadosPlano;
 var dadosMinhaLista;
 var minhaLista = false;
 
@@ -8,6 +9,22 @@ var infoSlideIsActive = false;
 
 $(document).ready(function () {
 
+    carouselSlick();
+
+    //ajax para recuperar o plano da conta na sessão atual
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '../php/getPlano.php',
+        success: function (retornoPlano) {
+            dadosPlano = retornoPlano;
+        },
+        error: function(e) {
+            alert("erro "+e)
+        }
+    });
+
+    //ajax para recuperar os titulos
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -16,14 +33,12 @@ $(document).ready(function () {
             dados = retorno;
             listarTitulos();
         },
-        error: function () {
-            alert("erro");
+        error: function (e) {
+            alert("erro "+e);
         }
-    })
+    });
 
     ajaxBuscarMinhaLista();
-
-    carouselSlick();
 
     $('#Modal').on('shown.bs.modal', function () {
         $('#meuInput').trigger('focus')
@@ -154,7 +169,7 @@ function hoverInfo(id) {
         infoSlideIsActive = true;
 
         $(".botao-assistir-header").attr("id", "botaoAssistirH"+dados[id-1].id);
-        $(".botao-minha-lista-header").attr("id", "minhaListaH");
+        $(".botao-minha-lista-header").attr("id", "minhaListaH"+dados[id-1].id);
         $(".botao-minha-lista-header").attr("value", dados[id-1].id);
 
         document.getElementById("divHomeHeader").removeAttribute("style");
@@ -299,8 +314,61 @@ function search() {
 
 
 function chamarReproducao(clickedId) {
-    sessionStorage.setItem("playId", clickedId);
-    window.location.href = "../home/play/index.html"
+
+    var reproducoesHoje = localStorage.getItem("reproducoesHoje");
+    var plano = dadosPlano[0].plano;
+    localStorage.setItem("plano", plano);
+    
+    parseInt(reproducoesHoje);
+
+    var date = new Date();
+    var dia = date.getDate();
+    var mes = date.getMonth();
+    var hora = date.getHours();
+    var minuto = date.getMinutes();
+    var segundo = date.getSeconds();
+
+    var horario = hora+":"+minuto+":"+segundo;
+    var data = dia+"/"+mes;
+
+    if (reproducoesHoje < 1) {
+        localStorage.setItem("horarioReproducao", horario);
+        localStorage.setItem("diaReproducao", dia);
+        localStorage.setItem("dataReproducao", data);
+        localStorage.setItem("reproducoesHoje", reproducoesHoje+1)
+
+        sessionStorage.setItem("playId", clickedId);
+        window.location.href = "../home/play/index.html";
+    }
+    else {
+
+        if (plano === "19,90") {
+            alert("Parece que você já reproduziu a quantia máxima de títulos por hoje. Se deseja aumentar a quantidade diaria por favor altere seu plano para avançado.");
+        }
+        else if (plano === "29,90" && reproducoesHoje <= 2) {
+            localStorage.setItem("horarioReproducao", horario);
+            localStorage.setItem("diaReproducao", dia);
+            localStorage.setItem("dataReproducao", data);
+            localStorage.setItem("reproducoesHoje", reproducoesHoje+1)
+
+            sessionStorage.setItem("playId", clickedId);
+            window.location.href = "../home/play/index.html";
+        }
+        else if (plano === "29,90" && reproducoesHoje > 2) {
+            alert("Parece que você já reproduziu a quantia máxima de títulos por hoje. Se deseja aumentar a quantidade diaria por favor altere seu plano para avançado.");
+        }
+        else if (plano === "49,90") {
+            localStorage.setItem("horarioReproducao", horario);
+            localStorage.setItem("diaReproducao", dia);
+            localStorage.setItem("dataReproducao", data);
+            localStorage.setItem("reproducoesHoje", reproducoesHoje+1)
+
+            sessionStorage.setItem("playId", clickedId);
+            window.location.href = "../home/play/index.html";
+        }
+
+    }
+    
 }
 
 function chamarAddMinhaLista(clickedId) {
