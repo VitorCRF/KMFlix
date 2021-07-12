@@ -6,7 +6,7 @@
 
 #### Index page: 
 
-! [KMFLIX Index page](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG)
+! [img](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG)
 
 #### Login page: 
 
