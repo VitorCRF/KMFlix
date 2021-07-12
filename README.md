@@ -6,26 +6,26 @@
 
 #### Index page: 
 
-<img src="public/readme/index_page.png">
+<img src="../public/readme/index_page.png">
 
 #### Login page: 
 
-<img src="public/readme/login_page.png">
+<img src="../public/readme/login_page.png">
 
 #### Main dashboard page:
 
-<img src="public/readme/dashboard_page1.png">
+<img src="../public/readme/dashboard_page1.png">
 
-<img src="public/readme/dashboard_page2.png">
+<img src="../public/readme/dashboard_page2.png">
 
 #### Title description modal:
 
-<img src="public/readme/title_modal.png">
+<img src="../public/readme/title_modal.png">
 
 #### Filters modal:
 
-<img src="public/readme/filters_page.png">
+<img src="../public/readme/filters_page.png">
 
 #### Account management page:
 
-<img src="public/readme/account_management_page.png">
+<img src="../public/readme/account_management_page.png">
