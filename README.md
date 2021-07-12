@@ -6,26 +6,26 @@
 
 #### Index page: 
 
-<img src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG">
+<img alt="KMFLIX Index page" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG">
 
 #### Login page: 
 
-<img src="../public/readme/login_page.png">
+<img alt="KMFLIX Login page" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/login_page.PNG">
 
 #### Main dashboard page:
 
-<img src="../public/readme/dashboard_page1.png">
+<img alt="KMFLIX Dashboard page" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/dashboard_page1.PNG">
 
-<img src="../public/readme/dashboard_page2.png">
+<img alt="KMFLIX Dashboard page" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/dashboard_page2.PNG">
 
 #### Title description modal:
 
-<img src="../public/readme/title_modal.png">
+<img alt="KMFLIX Title modal description" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/title_modal.PNG">
 
 #### Filters modal:
 
-<img src="../public/readme/filters_page.png">
+<img alt="KMFLIX Filters modal" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/filters_page.PNG">
 
 #### Account management page:
 
-<img src="../public/readme/account_management_page.png">
+<img alt="KMFLIX Account management page" src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/account_management_page.PNG">
