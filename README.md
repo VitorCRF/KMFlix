@@ -6,7 +6,7 @@
 
 #### Index page: 
 
-<img src="../public/readme/index_page.png">
+<img src="https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG">
 
 #### Login page: 
 
