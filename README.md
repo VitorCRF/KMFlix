@@ -6,26 +6,26 @@
 
 #### Index page: 
 
-! [](public/readme/index_page.png)
+! [KMFLIX Index page](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/index_page.PNG)
 
 #### Login page: 
 
-! [](public/readme/login_page.png)
+! [KMFLIX Login page](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/login_page.PNG)
 
 #### Main dashboard page:
 
-! [](public/readme/dashboardpage1.png)
+! [KMFLIX Dashboard page 1](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/dashboard_page1.PNG)
 
-! [](public/readme/dashboardpage2.png)
+! [KMFLIX Dashboard page 2](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/dashboard_page2.PNG)
 
 #### Title description modal:
 
-! [](public/readme/title_modal.png)
+! [KMFLIX Title description modal](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/title_modal.PNG)
 
 #### Filters modal:
 
-! [](public/readme/filters_page.png)
+! [KMFLIX Filters modal](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/filters_page.PNG)
 
 #### Account management page:
 
-! [](public/readme/account_management_page.png)
+! [KMFLIX Account management page](https://github.com/VitorCRF/KMFlix/blob/main/public/readme/account_management_page.PNG)
